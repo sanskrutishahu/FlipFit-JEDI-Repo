@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="JEDI-2.0-FlipFit-Group-F-Java-POS/src"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
