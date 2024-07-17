@@ -1,11 +1,11 @@
 package com.flipkart.business;
 
-import com.flipkart.bean.GymDetails;
+import com.flipkart.bean.FlipFitGymDetails;
 
 import java.util.HashMap;
 import java.util.List;
 
-public class CustomerService implements CustomerInterface {
+public class FlipFitCustomerService implements FlipFitCustomerInterface {
 
 
     public void createCustomer(int userId, String name, String phoneNumber, String address) {
@@ -20,7 +20,7 @@ public class CustomerService implements CustomerInterface {
 
     }
 
-    public List<GymDetails> viewGyms() {
+    public List<FlipFitGymDetails> viewGyms() {
         return null;
     }
 
