@@ -2,7 +2,7 @@ package com.flipkart.client;
 import java.util.*;
 
 
-public class CentreOwnerMenu {
+public class OwnerMenu {
 
     public static void editProfile()
     {
@@ -27,7 +27,7 @@ public class CentreOwnerMenu {
 
     public static void main(String[] args){
 
-        System.out.println("--------Welcome to FlipFit Centre Owner Menu Page--------");
+        System.out.println("--------Welcome to FlipFit Owner Menu Page--------");
         System.out.println("Enter preferred choices:\n1. Edit Profile\n2. Add Gym\n3. Remove Gym\n4. View Owner Bookings\n5. Log Out");
         Scanner in = new Scanner(System.in);
         int choice = in.nextInt();
