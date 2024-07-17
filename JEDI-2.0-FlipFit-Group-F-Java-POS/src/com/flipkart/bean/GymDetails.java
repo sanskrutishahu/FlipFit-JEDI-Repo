@@ -1,6 +1,6 @@
 package com.flipkart.bean;
 
-public class CentreDetails {
+public class GymDetails {
 	
     private int centerId;
     private int centerOwnerId;
@@ -9,7 +9,7 @@ public class CentreDetails {
     private int noOfSlots;
     private int approvalStatus;
 
-    public CentreDetails(int centerId, int centerOwnerId, String centerName, String address, int noOfSlots, int approvalStatus) {
+    public GymDetails(int centerId, int centerOwnerId, String centerName, String address, int noOfSlots, int approvalStatus) {
         this.centerId = centerId;
         this.centerOwnerId = centerOwnerId;
         this.centerName = centerName;
