@@ -43,10 +43,10 @@ public class FlipFitApplication {
         String userPhoneNumber = in.next();
         System.out.println("Enter your email: ");
         String userEmail = in.next();
-        System.out.println("Enter 1 to register as Gym Owner \nEnter 2 to register as Customer\n");
+        System.out.println("Enter 1 to register as Gym Owner \nEnter 2 to register as Customer");
         int role = in.nextInt();
         if(role == 0){
-            System.out.println("Enter your Aadhar NUmber : ");
+            System.out.println("Enter your Aadhaar NUmber : ");
             String ownerAadhaar = in.next();
 
         } else if(role == 1){

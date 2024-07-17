@@ -4,10 +4,10 @@ import com.flipkart.bean.Booking;
 
 import java.util.List;
 
-public interface FlipFitGymInterface {
-    public void createBooking(int userId, int gymId, int transactionId, String bookingDate, String bookingTimeSlot, String bookingType, int bookingAmount);
+public interface FlipFitGymBookingInterface {
+    public void createBooking(Booking booking);
 
-    public void bookSlots();
+    public void bookSlots(Booking booking);
 
     public List<Booking> viewBookings(int userId);
 

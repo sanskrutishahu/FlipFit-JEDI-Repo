@@ -1,12 +1,14 @@
 package com.flipkart.bean;
 
-public class FlipFitGymOwner {
+public class FlipFitGymOwner extends User{
 	private String ownerGstNum;
 	private String ownerPanNum;
 	private String approvalStatus;
 	private int userId;
 
-	public FlipFitGymOwner(String ownerGstNum, String ownerPanNum, String approvalStatus, int userId) {
+	public FlipFitGymOwner(int userId, int roleId, String userPhoneNumber, String userAddress, String userEmail,
+						   String userPassword, String userName,String ownerGstNum, String ownerPanNum, String approvalStatus) {
+		super(userId, roleId, userPhoneNumber, userAddress, userEmail, userPassword, userName);
 		this.ownerGstNum = ownerGstNum;
 		this.ownerPanNum = ownerPanNum;
 		this.approvalStatus = approvalStatus;
