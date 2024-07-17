@@ -2,15 +2,14 @@ package com.flipkart.bean;
 
 public class Booking {
     private int bookingId;          
-    private int userId;         
+    private int customerId;
     private int slotId;
     private int status; 
     
     
-    public Booking(int bookingId,int userId,int slotId,int status)
-    {
+    public Booking(int bookingId,int userId,int slotId,int status) {
         this.bookingId=bookingId;
-        this.userId=userId;
+        this.customerId =userId;
         this.slotId=slotId;
         this.status=status;
     }
@@ -21,11 +20,11 @@ public class Booking {
     public void setBookingId(int bookingId) {
         this.bookingId = bookingId;
     }
-    public int getUserId(){
-        return userId;
+    public int getCustomerId(){
+        return customerId;
     }
-    public void setUserId(int userId){
-        this.userId=userId;
+    public void setCustomerId(int customerId){
+        this.customerId = customerId;
     }
     public int getSlotId(){
         return slotId;

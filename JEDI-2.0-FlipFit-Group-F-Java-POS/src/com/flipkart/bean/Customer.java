@@ -5,21 +5,17 @@ import java.util.List;
 
 public class Customer {
     private int customerId;
-    private String name;
-    private String address;
-    private String email;
-    private String password;
-    private String phoneNo;
-    private List<Booking> bookings;
+    private String customerName;
+    private String customerAddress;
+    private String customerPhoneNo;
+    private int userId;
 
-    public Customer(int customerId, String name, String address, String email, String password, String phoneNo) {
+    public Customer(int customerId, String customerName, String customerAddress, String customerPhoneNo, int userId) {
         this.customerId = customerId;
-        this.name = name;
-        this.address = address;
-        this.email = email;
-        this.password = password;
-        this.phoneNo = phoneNo;
-        this.bookings = new ArrayList<>();
+        this.customerName = customerName;
+        this.customerAddress = customerAddress;
+        this.customerPhoneNo = customerPhoneNo;
+        this.userId = userId;
     }
 
     public int getCustomerId() {
@@ -30,52 +26,35 @@ public class Customer {
         this.customerId = customerId;
     }
 
-    public String getName() {
-        return name;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getCustomerAddress() {
+        return customerAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setCustomerAddress(String customerAddress) {
+        this.customerAddress = customerAddress;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCustomerPhoneNo() {
+        return customerPhoneNo;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCustomerPhoneNo(String customerPhoneNo) {
+        this.customerPhoneNo = customerPhoneNo;
     }
 
-    public String getPassword() {
-        return password;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
-
-    public String getPhoneNo() {
-        return phoneNo;
-    }
-
-    public void setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
-    }
-
-    public List<Booking> getBookings() {
-        return bookings;
-    }
-
-    public void setBookings(List<Booking> bookings) {
-        this.bookings = bookings;
-    }
-
 }
