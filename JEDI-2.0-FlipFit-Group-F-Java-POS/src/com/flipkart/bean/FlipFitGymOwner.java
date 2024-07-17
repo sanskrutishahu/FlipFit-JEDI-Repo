@@ -1,6 +1,6 @@
 package com.flipkart.bean;
 
-public class GymOwner {
+public class FlipFitGymOwner {
 	
 	private int ownerId;
 	private String ownerName;
@@ -11,7 +11,7 @@ public class GymOwner {
 	private String approvalStatus;
 	private int userId;
 
-	public GymOwner(int ownerId, String ownerName, int ownerContact, int ownerAddress, String ownerGstNum, String ownerPanNum, int userId, String approvalStatus) {
+	public FlipFitGymOwner(int ownerId, String ownerName, int ownerContact, int ownerAddress, String ownerGstNum, String ownerPanNum, int userId, String approvalStatus) {
 		this.ownerId = ownerId;
 		this.ownerName = ownerName;
 		this.ownerContact = ownerContact;
