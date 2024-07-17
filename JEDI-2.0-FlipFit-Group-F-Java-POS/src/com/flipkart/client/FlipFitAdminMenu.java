@@ -2,7 +2,7 @@ package com.flipkart.client;
 import java.util.*;
 
 
-public class AdminMenu {
+public class FlipFitAdminMenu {
 
     public static void viewPendingCentre()
     {
