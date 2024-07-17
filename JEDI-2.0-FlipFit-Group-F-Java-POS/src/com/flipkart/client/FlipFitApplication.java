@@ -82,7 +82,6 @@ public class FlipFitApplication {
                 registerUser();
                 break;
             case 3:
-            	System.out.println("You are in change password section");
                 break;
             case 4:
                 System.out.println("Thank you for using FlipFit App");
