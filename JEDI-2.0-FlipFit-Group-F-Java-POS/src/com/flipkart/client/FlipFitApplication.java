@@ -1,6 +1,5 @@
 package com.flipkart.client;
 
-import java.time.LocalDateTime;
 import java.util.*;
 
 /**
@@ -25,7 +24,7 @@ public class FlipFitApplication {
         if(role == 1) {
                 FlipFitCustomerMenu.main(null);
         } else if(role == 2) {
-                FlipFitOwnerMenu.main(null);
+                FlipFitGymOwnerMenu.main(null);
         } else if(role == 3) {
                 FlipFitAdminMenu.main(null);
         }  else {

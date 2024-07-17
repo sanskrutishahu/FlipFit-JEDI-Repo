@@ -2,7 +2,7 @@ package com.flipkart.client;
 import java.util.*;
 
 
-public class FlipFitOwnerMenu {
+public class FlipFitGymOwnerMenu {
 
     public static void editProfile()
     {
