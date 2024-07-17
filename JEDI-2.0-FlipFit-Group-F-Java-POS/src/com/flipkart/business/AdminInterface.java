@@ -1,15 +1,14 @@
 package com.flipkart.business;
-import com.flipkart.bean.GymOwner;
-
+import com.flipkart.bean.FlipFitGymOwner;
 import java.util.List;
 
 public interface AdminInterface {
 
     public void createAdmin(int adminId, int userId, String userEmail, String userPass);
 
-    public List <GymOwner> viewAllGymOwners();
+    public List <FlipFitGymOwner> viewAllGymOwners();
 
-    public List<GymOwner> viewGymOwnerDetails(int ownerId);
+    public List<FlipFitGymOwner> viewGymOwnerDetails(int ownerId);
 
     public List<GymOwner> viewGymOwnerRequests() ;
 

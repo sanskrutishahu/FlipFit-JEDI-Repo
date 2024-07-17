@@ -1,16 +1,13 @@
 package com.flipkart.bean;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Customer {
+public class FlipFitCustomer {
     private int customerId;
     private String customerName;
     private String customerAddress;
     private String customerPhoneNo;
     private int userId;
 
-    public Customer(int customerId, String customerName, String customerAddress, String customerPhoneNo, int userId) {
+    public FlipFitCustomer(int customerId, String customerName, String customerAddress, String customerPhoneNo, int userId) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.customerAddress = customerAddress;

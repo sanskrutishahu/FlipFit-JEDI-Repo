@@ -1,12 +1,12 @@
 
 package com.flipkart.bean;
 
-public class Admin {
+public class FlipFitAdmin {
 
     private int adminId;
     private int userId;
 
-    public Admin(int adminId, int userId) {
+    public FlipFitAdmin(int adminId, int userId) {
         this.adminId = adminId;
         this.userId = userId;
     }
