@@ -7,29 +7,33 @@ import java.util.List;
 
 public class FlipFitCustomerService implements FlipFitCustomerInterface {
 
-
+    @Override
     public void createCustomer(int userId, String name, String phoneNumber, String address) {
-        System.out.println("Customer Details are added!");
+
     }
 
+    @Override
     public void editProfile(int userId, String name, String phoneNumber, String address) {
-        System.out.println("Customer details are updated!");
+
     }
 
+    @Override
     public void viewProfile(int userId) {
 
     }
 
+    @Override
     public List<FlipFitGymDetails> viewGyms() {
-        return null;
+        return List.of();
     }
 
+    @Override
     public HashMap<String, Integer> viewSlots(int gymId, String date) {
         return null;
     }
 
-
+    @Override
     public void filterSlots() {
-        System.out.println("All slots filtered");
+
     }
 }

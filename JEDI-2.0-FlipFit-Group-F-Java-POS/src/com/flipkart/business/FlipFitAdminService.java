@@ -5,62 +5,69 @@ import java.util.List;
 
 public class FlipFitAdminService implements FlipFitAdminInterface {
 
+
+    @Override
     public void createAdmin(int adminId, int userId, String userEmail, String userPass) {
-        System.out.println("Admin created");
-        // Actual implementation may involve storing admin details in the database via adminDAO
+
     }
 
+    @Override
     public List<FlipFitGymOwner> viewAllGymOwners() {
-        return null;
+        return List.of();
     }
 
+    @Override
     public List<FlipFitGymOwner> viewGymOwnerDetails(int ownerId) {
-        return null;
+        return List.of();
     }
 
+    @Override
     public List<FlipFitGymOwner> viewGymOwnerRequests() {
-        return null;
+        return List.of();
     }
 
-
+    @Override
     public void approveGymOwnerRequests(int ownerId) {
-        System.out.println("Approved the gym owner requests with Id " + ownerId);
+
     }
 
+    @Override
     public void approveGymRequests(int gymId) {
 
     }
 
+    @Override
     public void rejectGymOwnerRequests(int ownerId) {
 
     }
 
-    public void rejectGymRequests(int ownerId) {
+    @Override
+    public void rejectGymRequests(int gymId) {
 
     }
 
-    public void removeGym(int ownerId) {
+    @Override
+    public void removeGym(int gymId) {
 
     }
 
+    @Override
     public void viewPendingOwner(int ownerId) {
 
     }
 
-    public void viewPendingCenter(int ownerId) {
+    @Override
+    public void viewPendingCenter(int gymId) {
 
     }
 
+    @Override
     public void removeGymOwner(int ownerId) {
-        System.out.println("Removed the gym owner with Id " + ownerId);
+
     }
 
+    @Override
     public void cancelRequest() {
-        System.out.println("Removed the request ");
 
-    }
-
-    public void cancelRequest(int ownerId) {
-        System.out.println("Cancelled the gym owner request with Id " + ownerId);
     }
 }
