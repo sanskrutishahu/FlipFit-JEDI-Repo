@@ -3,20 +3,21 @@ package com.flipkart.bean;
 
 public class FlipFitAdmin {
 
-    private int adminId;
+
+    private String customerUserName;
     private int userId;
 
-    public FlipFitAdmin(int adminId, int userId) {
-        this.adminId = adminId;
+    public FlipFitAdmin(String customerUserName, int userId) {
+        this.customerUserName = customerUserName;
         this.userId = userId;
     }
 
-    public int getAdminId() {
-        return adminId;
+    public String getCustomerUserName() {
+        return customerUserName;
     }
 
-    public void setAdminId(int adminId) {
-        this.adminId = adminId;
+    public void setCustomerUserName(String customerUserName) {
+        this.customerUserName = customerUserName;
     }
 
     public int getUserId() {

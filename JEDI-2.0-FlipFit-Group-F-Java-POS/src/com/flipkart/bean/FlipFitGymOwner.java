@@ -1,57 +1,16 @@
 package com.flipkart.bean;
 
 public class FlipFitGymOwner {
-	
-	private int ownerId;
-	private String ownerName;
-	private String ownerContact;
-	private String ownerAddress;
 	private String ownerGstNum;
 	private String ownerPanNum;
 	private String approvalStatus;
 	private int userId;
 
-	public FlipFitGymOwner(int ownerId, String ownerName, int ownerContact, int ownerAddress, String ownerGstNum, String ownerPanNum, int userId, String approvalStatus) {
-		this.ownerId = ownerId;
-		this.ownerName = ownerName;
-		this.ownerContact = ownerContact;
-		this.ownerAddress = ownerAddress;
+	public FlipFitGymOwner(String ownerGstNum, String ownerPanNum, String approvalStatus, int userId) {
 		this.ownerGstNum = ownerGstNum;
 		this.ownerPanNum = ownerPanNum;
-		this.userId = userId;
 		this.approvalStatus = approvalStatus;
-	}
-
-	public int getOwnerId() {
-		return ownerId;
-	}
-
-	public void setOwnerId(int ownerId) {
-		this.ownerId = ownerId;
-	}
-
-	public String getOwnerName() {
-		return ownerName;
-	}
-
-	public void setOwnerName(String ownerName) {
-		this.ownerName = ownerName;
-	}
-
-	public int getOwnerContact() {
-		return ownerContact;
-	}
-
-	public void setOwnerContact(int ownerContact) {
-		this.ownerContact = ownerContact;
-	}
-
-	public int getOwnerAddress() {
-		return ownerAddress;
-	}
-
-	public void setOwnerAddress(int ownerAddress) {
-		this.ownerAddress = ownerAddress;
+		this.userId = userId;
 	}
 
 	public String getOwnerGstNum() {

@@ -1,50 +1,30 @@
 package com.flipkart.bean;
 
 public class FlipFitCustomer {
-    private int customerId;
-    private String customerName;
-    private String customerAddress;
-    private String customerPhoneNo;
+    private int weight;
+    private String aadhaarNumber;
     private int userId;
 
-    public FlipFitCustomer(int customerId, String customerName, String customerAddress, String customerPhoneNo, int userId) {
-        this.customerId = customerId;
-        this.customerName = customerName;
-        this.customerAddress = customerAddress;
-        this.customerPhoneNo = customerPhoneNo;
+    public FlipFitCustomer(int weight, String aadhaarNumber, int userId) {
+        this.weight = weight;
+        this.aadhaarNumber = aadhaarNumber;
         this.userId = userId;
     }
 
-    public int getCustomerId() {
-        return customerId;
+    public int getWeight() {
+        return weight;
     }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public String getAadhaarNumber() {
+        return aadhaarNumber;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
-    public String getCustomerAddress() {
-        return customerAddress;
-    }
-
-    public void setCustomerAddress(String customerAddress) {
-        this.customerAddress = customerAddress;
-    }
-
-    public String getCustomerPhoneNo() {
-        return customerPhoneNo;
-    }
-
-    public void setCustomerPhoneNo(String customerPhoneNo) {
-        this.customerPhoneNo = customerPhoneNo;
+    public void setAadhaarNumber(String aadhaarNumber) {
+        this.aadhaarNumber = aadhaarNumber;
     }
 
     public int getUserId() {
