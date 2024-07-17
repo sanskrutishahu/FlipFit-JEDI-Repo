@@ -1,7 +1,6 @@
 package com.flipkart.bean;
 
 public class FlipFitGymOwner {
-
 	private String ownerGstNum;
 	private String ownerPanNum;
 	private String approvalStatus;
