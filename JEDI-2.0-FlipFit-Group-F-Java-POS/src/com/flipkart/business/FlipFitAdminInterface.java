@@ -1,4 +1,5 @@
 package com.flipkart.business;
+import com.flipkart.bean.FlipFitGymDetails;
 import com.flipkart.bean.FlipFitGymOwner;
 import java.util.List;
 
@@ -10,7 +11,7 @@ public interface FlipFitAdminInterface {
 
     public List<FlipFitGymOwner> viewGymOwnerDetails(int ownerId);
 
-    public List<FlipFitGymOwner> viewGymOwnerRequests() ;
+    public List<FlipFitGymOwner> viewGymOwnerRequests();
 
     public void approveGymOwnerRequests(int ownerId);
 
@@ -22,12 +23,12 @@ public interface FlipFitAdminInterface {
 
     public void removeGym(int gymId);
 
-    public void viewPendingOwner(int ownerId);
+    public List<FlipFitGymOwner> viewPendingOwner();
 
-    public void viewPendingCenter(int gymId);
+    public List<FlipFitGymDetails> viewPendingCenter();
 
     public void removeGymOwner(int ownerId);
 
-    public void cancelRequest();
+    public void cancelRequest(int ownerId);
 
 }

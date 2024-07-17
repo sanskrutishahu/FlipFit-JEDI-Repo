@@ -1,5 +1,6 @@
 package com.flipkart.dao;
 
+import com.flipkart.bean.FlipFitGymDetails;
 import com.flipkart.bean.FlipFitGymOwner;
 import java.util.List;
 
@@ -13,10 +14,24 @@ public interface FlipFitAdminDAOInterface {
 
     public List<FlipFitGymOwner> viewGymOwnerRequests();
 
-    public boolean approveGymOwnerRequest(int ownerId);
+    public void approveGymOwnerRequests(int ownerId);
 
-    public boolean removeGymOwner(int ownerId);
+    public void approveGymRequests (int gymId);
 
-    public boolean cancelRequest(int ownerId);
+    public void rejectGymOwnerRequests (int ownerId);
+
+    public void removeGym (int gymId);
+
+    public List<FlipFitGymOwner> viewPendingOwner ();
+
+    public List<FlipFitGymDetails> viewPendingCenter();
+
+    public void rejectGymRequests (int gymId);
+
+    public void removeGymOwner(int ownerId);
+
+    public void cancelRequest(int ownerId);
+
+
 
 }

@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface BookGymDAOInterface {
 
-    public void createBooking(int bookingId, int customerId, int slotId, int status);
+    public void createBooking(Booking bookings);
 
-    public void bookSlots();
+    public void bookSlots(Booking booking);
 
     public List<Booking> viewBookings(int userId);
 
