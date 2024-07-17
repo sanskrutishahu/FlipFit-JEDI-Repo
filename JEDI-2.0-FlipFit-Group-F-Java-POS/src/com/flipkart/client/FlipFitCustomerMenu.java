@@ -12,9 +12,9 @@ public class FlipFitCustomerMenu {
     {
         System.out.println("You are in add Bookings function\n");
     }
-    public static void cancleBooking()
+    public static void cancelBooking()
     {
-        System.out.println("You are in cancle Booking function\n");
+        System.out.println("You are in cancel Booking function\n");
     }
     public static void viewProfile()
     {
@@ -36,7 +36,7 @@ public class FlipFitCustomerMenu {
     public static void main(String[] args){
 
         System.out.println("--------Welcome to FlipFit Customer Menu Page--------");
-        System.out.println("Enter preferred choices:\n1. View Customer Booking\n2. Add Booking\n3. Cancle Booking\n4. View Profile\n5. View Centers\n6. Edit Profile\n7. Log Out");
+        System.out.println("Enter preferred choices:\n1. View Customer Booking\n2. Add Booking\n3. Cancel Booking\n4. View Profile\n5. View Centers\n6. Edit Profile\n7. Log Out");
         Scanner in = new Scanner(System.in);
         int choice = in.nextInt();
         switch(choice) {
@@ -47,7 +47,7 @@ public class FlipFitCustomerMenu {
                 addBooking();
                 break;
             case 3:
-                cancleBooking();
+                cancelBooking();
                 break;
             case 4:
                 viewProfile();

@@ -20,6 +20,7 @@ public class User {
         this.userName = userName;
     }
 
+
     public int getUserId() {
         return userId;
     }
