@@ -2,11 +2,13 @@
 package com.flipkart.bean;
 
 public class Admin {
-	
-    private int adminId;
 
-    public Admin(int adminId, String name, String email, String password, String phoneNumber) {
+    private int adminId;
+    private int userId;
+
+    public Admin(int adminId, int userId) {
         this.adminId = adminId;
+        this.userId = userId;
     }
 
     public int getAdminId() {
@@ -17,4 +19,11 @@ public class Admin {
         this.adminId = adminId;
     }
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 }
