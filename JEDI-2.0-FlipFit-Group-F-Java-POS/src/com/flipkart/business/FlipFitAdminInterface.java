@@ -2,7 +2,7 @@ package com.flipkart.business;
 import com.flipkart.bean.FlipFitGymOwner;
 import java.util.List;
 
-public interface AdminInterface {
+public interface FlipFitAdminInterface {
 
     public void createAdmin(int adminId, int userId, String userEmail, String userPass);
 
@@ -10,7 +10,7 @@ public interface AdminInterface {
 
     public List<FlipFitGymOwner> viewGymOwnerDetails(int ownerId);
 
-    public List<GymOwner> viewGymOwnerRequests() ;
+    public List<FlipFitGymOwner> viewGymOwnerRequests() ;
 
     public void approveGymOwnerRequests(int ownerId);
 

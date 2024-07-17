@@ -5,7 +5,7 @@ import com.flipkart.bean.FlipFitGymDetails;
 import java.util.HashMap;
 import java.util.List;
 
-public interface CustomerInterface {
+public interface FlipFitCustomerInterface {
 
 
     public void createCustomer(int userId, String name, String phoneNumber, String address);

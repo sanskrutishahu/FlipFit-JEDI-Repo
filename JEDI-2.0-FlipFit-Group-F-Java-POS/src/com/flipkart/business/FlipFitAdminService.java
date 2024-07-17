@@ -1,24 +1,24 @@
 package com.flipkart.business;
-import com.flipkart.bean.GymOwner;
+import com.flipkart.bean.FlipFitGymOwner;
 
 import java.util.List;
 
-public class AdminService implements AdminInterface {
+public class FlipFitAdminService implements FlipFitAdminInterface {
 
     public void createAdmin(int adminId, int userId, String userEmail, String userPass) {
         System.out.println("Admin created");
         // Actual implementation may involve storing admin details in the database via adminDAO
     }
 
-    public List<GymOwner> viewAllGymOwners() {
+    public List<FlipFitGymOwner> viewAllGymOwners() {
         return null;
     }
 
-    public List<GymOwner> viewGymOwnerDetails(int ownerId) {
+    public List<FlipFitGymOwner> viewGymOwnerDetails(int ownerId) {
         return null;
     }
 
-    public List<GymOwner> viewGymOwnerRequests() {
+    public List<FlipFitGymOwner> viewGymOwnerRequests() {
         return null;
     }
 
