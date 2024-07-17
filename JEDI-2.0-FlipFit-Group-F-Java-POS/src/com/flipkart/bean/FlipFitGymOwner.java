@@ -4,8 +4,8 @@ public class FlipFitGymOwner {
 	
 	private int ownerId;
 	private String ownerName;
-	private int ownerContact;
-	private int ownerAddress;
+	private String ownerContact;
+	private String ownerAddress;
 	private String ownerGstNum;
 	private String ownerPanNum;
 	private String approvalStatus;
