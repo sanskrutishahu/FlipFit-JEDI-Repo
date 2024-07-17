@@ -1,5 +1,4 @@
 package com.flipkart.client;
-import com.flipkart.business.*;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -24,11 +23,11 @@ public class FlipFitApplication {
         System.out.println("Enter your role: \n1. Customer\n2. Gym owner\n3. Admin");
         int role = in.nextInt();
         if(role == 1) {
-                FlipFitCustomerMenu.login(email, password);
+                CustomerMenu.main(null);
         } else if(role == 2) {
-                FlipFitOwnerMenu.login(email, password);
+                OwnerMenu.main(null);
         } else if(role == 3) {
-                FlipFitAdminMenu.login(email, password);
+                AdminMenu.main(null);
         }  else {
             System.out.println("Invalid role choice");
         }
@@ -45,7 +44,7 @@ public class FlipFitApplication {
         String userPhoneNumber = in.next();
         System.out.println("Enter your email: ");
         String userEmail = in.next();
-        System.out.println("Enter 1 to register as Gym Owner /nEnter 2 to register as Customer/n");
+        System.out.println("Enter 1 to register as Gym Owner \nEnter 2 to register as Customer\n");
         int role = in.nextInt();
         if(role == 0){
             System.out.println("Enter your Aadhar NUmber : ");
@@ -72,7 +71,7 @@ public class FlipFitApplication {
     public static void main(String[] args){
 
         System.out.println("--------Welcome to FlipFit Application--------");
-        System.out.println("Enter preferred choices: \n1. Login\n2. Register \n3. Exit");
+        System.out.println("Enter preferred choices: \n1. Login\n2. Register \n3. Change Password\n4. Exit");
         Scanner in = new Scanner(System.in);
         int choice = in.nextInt();
         switch(choice) {
@@ -81,6 +80,8 @@ public class FlipFitApplication {
                 break;
             case 2:
                 registerUser();
+                break;
+            case 3:
                 break;
             case 4:
                 System.out.println("Thank you for using FlipFit App");
