@@ -2,7 +2,7 @@ package com.flipkart.client;
 import java.util.*;
 
 
-public class CustomerMenu {
+public class FlipFitCustomerMenu {
 
     public static void viewCustomerBookings()
     {

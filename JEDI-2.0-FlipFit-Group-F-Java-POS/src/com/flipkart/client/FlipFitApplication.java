@@ -23,11 +23,11 @@ public class FlipFitApplication {
         System.out.println("Enter your role: \n1. Customer\n2. Gym owner\n3. Admin");
         int role = in.nextInt();
         if(role == 1) {
-                CustomerMenu.main(null);
+                FlipFitCustomerMenu.main(null);
         } else if(role == 2) {
-                OwnerMenu.main(null);
+                FlipFitOwnerMenu.main(null);
         } else if(role == 3) {
-                AdminMenu.main(null);
+                FlipFitAdminMenu.main(null);
         }  else {
             System.out.println("Invalid role choice");
         }
