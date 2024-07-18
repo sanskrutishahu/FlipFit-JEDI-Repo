@@ -14,6 +14,6 @@ public class InvalidChoiceException extends InvalidObjectException {
      */
     public InvalidChoiceException(String message) {
         super(message);
-        System.out.println("Please enter valid choice"); // Assuming this is for console output, not part of exception handling
+        System.out.println("Your Choice is invalid, please enter valid choice"); // Assuming this is for console output, not part of exception handling
     }
 }
