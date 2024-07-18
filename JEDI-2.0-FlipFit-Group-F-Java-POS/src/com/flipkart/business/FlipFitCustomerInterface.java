@@ -9,11 +9,9 @@ import java.util.List;
 public interface FlipFitCustomerInterface {
 
 
-    public void createCustomer(FlipFitCustomer flipFitCustomer);
+    public void createCustomer(int weight, int age, String gender, String customerName, String customerPhone, String customerAddress, int customerId);
 
-
-    public void editProfile(FlipFitCustomer flipFitCustomer);
-
+    public void editProfile(int weight, int age, String gender, String customerName, String customerPhone, String customerAddress, int customerId);
 
     public FlipFitCustomer viewProfile(int userId);
 

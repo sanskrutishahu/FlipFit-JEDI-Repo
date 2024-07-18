@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface FlipFitAdminInterface {
 
-    public void createAdmin(int adminId, int userId, String userEmail, String userPass);
+    public void createAdmin(String customUserName, int adminId);
 
     public List <FlipFitGymOwner> viewAllGymOwners();
 

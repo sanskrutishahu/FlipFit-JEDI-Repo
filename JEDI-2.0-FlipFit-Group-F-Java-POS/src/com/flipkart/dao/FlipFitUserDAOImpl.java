@@ -5,12 +5,12 @@ import com.flipkart.bean.User;
 public class FlipFitUserDAOImpl implements FlipFitUserDAOInterface{
 
     @Override
-    public int authenticateUser(String email, String password, int roleId) {
+    public int authenticateUser(int userId, String userEmail, String userPassword, int roleId) {
         return 0;
     }
 
     @Override
-    public int createUser(User user) {
+    public int createUser(int userId, String userEmail, String userPassword, int roleId) {
         return 0;
     }
 }

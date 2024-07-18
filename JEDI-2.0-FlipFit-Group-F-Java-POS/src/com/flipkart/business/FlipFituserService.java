@@ -9,9 +9,9 @@ public class FlipFituserService implements FlipFituserInterface{
     FlipFitUserDAOInterface userDAO = new FlipFitUserDAOImpl();
 
     @Override
-    public int authenticateUser(String email, String password, int roleId) {
+    public int authenticateUser(int userId, String userEmail, String userPassword, int roleId) {
         try {
-            return userDAO.authenticateUser(email, password, roleId);
+            return userDAO.authenticateUser(userId,userEmail,userPassword,roleId);
         } catch (Exception e) {
             System.out.println(e);
             return 0;
@@ -19,11 +19,11 @@ public class FlipFituserService implements FlipFituserInterface{
     }
 
     @Override
-    public int createUser(User user) {
-        int userId = userDAO.createUser(user);
-        if (userId > 0) {
+    public int createUser(int userId, String userEmail, String userPassword, int roleId) {
+        int userStatus = userDAO.createUser(userId,userEmail,userPassword,roleId);
+        if (userStatus > 0) {
             System.out.println("User created");
-            return userId;
+            return userStatus;
         } else {
             System.out.println("User creation failed");
             return 0;

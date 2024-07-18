@@ -13,14 +13,14 @@ public class FlipFitCustomerService implements FlipFitCustomerInterface {
     FlipFitCustomerDAOInterface customerDAO = new FlipFitCustomerDAOImpl();
 
     @Override
-    public void createCustomer(FlipFitCustomer flipFitCustomer) {
-        customerDAO.createCustomer(flipFitCustomer);
+    public void createCustomer(int weight, int age, String gender, String customerName, String customerPhone, String customerAddress, int customerId) {
+        customerDAO.createCustomer(weight, age, gender, customerName, customerPhone, customerAddress,customerId);
         System.out.println("Customer Details are added!");
     }
 
     @Override
-    public void editProfile(FlipFitCustomer flipFitCustomer) {
-        customerDAO.editProfile(flipFitCustomer);
+    public void editProfile(int weight, int age, String gender, String customerName, String customerPhone, String customerAddress, int customerId) {
+        customerDAO.editProfile(weight, age, gender, customerName,customerPhone, customerAddress, customerId);
         System.out.println("Customer Details are added!");
     }
 
