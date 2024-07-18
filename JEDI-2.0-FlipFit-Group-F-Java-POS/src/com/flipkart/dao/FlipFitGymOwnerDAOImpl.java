@@ -12,22 +12,22 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
 
 
     @Override
-    public void createGymOwner(FlipFitGymOwner flipFitGymOwner) {
+    public void createGymOwner(String ownerName, String ownerPhone, String ownerAddress, String ownerGstNum, String ownerPanNum, int ownerId) {
 
     }
 
     @Override
-    public void editProfile(FlipFitGymOwner flipFitGymOwner) {
+    public void editProfile(String ownerName, String ownerPhone, String ownerAddress, String ownerGstNum, String ownerPanNum, int ownerId) {
 
     }
 
     @Override
-    public void registerGym(FlipFitGymDetails flipFitGymDetails) {
+    public void registerGym(int gymId, int gymOwnerId, String gymName, String gymAddress, int noOfSlots) {
 
     }
 
     @Override
-    public void editGym(FlipFitGymDetails flipFitGymDetails) {
+    public void editGym(int gymId, int gymOwnerId, String gymName, String gymAddress, int noOfSlots) {
 
     }
 
