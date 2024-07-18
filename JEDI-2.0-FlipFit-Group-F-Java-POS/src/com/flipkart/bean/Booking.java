@@ -4,15 +4,21 @@ public class Booking {
     private int bookingId;
     private int userId;
     private int slotId;
-    private int status;
+    private String bookingDate;
+    private String bookingTimeSlotStart;
+    private String bookingTimeSlotEnd;
+    private int bookingStatus;
     private int transactionId;
     private int bookingAmount;
 
-    public Booking(int bookingId, int customerId, int slotId, int status, int transactionId, int bookingAmount) {
+    public Booking(int bookingId, int userId, int slotId, String bookingDate, String bookingTimeSlotStart, String bookingTimeSlotEnd, int bookingStatus, int transactionId, int bookingAmount) {
         this.bookingId = bookingId;
-        this.userId = customerId;
+        this.userId = userId;
         this.slotId = slotId;
-        this.status = status;
+        this.bookingDate = bookingDate;
+        this.bookingTimeSlotStart = bookingTimeSlotStart;
+        this.bookingTimeSlotEnd = bookingTimeSlotEnd;
+        this.bookingStatus = bookingStatus;
         this.transactionId = transactionId;
         this.bookingAmount = bookingAmount;
     }
@@ -41,12 +47,36 @@ public class Booking {
         this.slotId = slotId;
     }
 
-    public int getStatus() {
-        return status;
+    public String getBookingDate() {
+        return bookingDate;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setBookingDate(String bookingDate) {
+        this.bookingDate = bookingDate;
+    }
+
+    public String getBookingTimeSlotStart() {
+        return bookingTimeSlotStart;
+    }
+
+    public void setBookingTimeSlotStart(String bookingTimeSlotStart) {
+        this.bookingTimeSlotStart = bookingTimeSlotStart;
+    }
+
+    public int getBookingStatus() {
+        return bookingStatus;
+    }
+
+    public void setBookingStatus(int bookingStatus) {
+        this.bookingStatus = bookingStatus;
+    }
+
+    public String getBookingTimeSlotEnd() {
+        return bookingTimeSlotEnd;
+    }
+
+    public void setBookingTimeSlotEnd(String bookingTimeSlotEnd) {
+        this.bookingTimeSlotEnd = bookingTimeSlotEnd;
     }
 
     public int getTransactionId() {

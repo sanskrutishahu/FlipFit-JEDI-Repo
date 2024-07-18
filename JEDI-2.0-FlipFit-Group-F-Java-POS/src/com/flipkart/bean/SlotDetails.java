@@ -1,18 +1,17 @@
 package com.flipkart.bean;
 
-import java.sql.Time;
 
 public class SlotDetails {
 
 	private int slotID;
-	private int centreID;
-	private Time startTime;
-	private Time endTime;
+	private int gymId;
+	private String startTime;
+	private String endTime;
 	private int noOfSeats;
 
-	public SlotDetails(int slotID, int centreID, Time startTime, Time endTime, int noOfSeats) {
+	public SlotDetails(int slotID, int gymId, String startTime, String endTime, int noOfSeats) {
 		this.slotID = slotID;
-		this.centreID = centreID;
+		this.gymId = gymId;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.noOfSeats = noOfSeats;
@@ -26,27 +25,27 @@ public class SlotDetails {
 		this.slotID = slotID;
 	}
 
-	public int getCentreID() {
-		return centreID;
+	public int getGymId() {
+		return gymId;
 	}
 
-	public void setCentreID(int centreID) {
-		this.centreID = centreID;
+	public void setGymId(int gymId) {
+		this.gymId = gymId;
 	}
 
-	public Time getStartTime() {
+	public String getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(Time startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
 
-	public Time getEndTime() {
+	public String getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(Time endTime) {
+	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
 
@@ -57,5 +56,4 @@ public class SlotDetails {
 	public void setNoOfSeats(int noOfSeats) {
 		this.noOfSeats = noOfSeats;
 	}
-
 }
