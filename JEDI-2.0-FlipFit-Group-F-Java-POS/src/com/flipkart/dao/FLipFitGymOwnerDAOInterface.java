@@ -9,10 +9,10 @@ import java.util.List;
 
 public interface FLipFitGymOwnerDAOInterface {
 
-    public void createGymOwner(FlipFitGymOwner flipFitGymOwner);
-    public void editProfile(FlipFitGymOwner flipFitGymOwner);
-    public void registerGym(FlipFitGymDetails flipFitGymDetails);
-    public void editGym(FlipFitGymDetails flipFitGymDetails);
+    public void createGymOwner(String ownerName, String ownerPhone, String ownerAddress, String ownerGstNum, String ownerPanNum, int ownerId);
+    public void editProfile(String ownerName, String ownerPhone, String ownerAddress, String ownerGstNum, String ownerPanNum, int ownerId);
+    public void registerGym(int gymId, int gymOwnerId, String gymName, String gymAddress, int noOfSlots);
+    public void editGym(int gymId, int gymOwnerId, String gymName, String gymAddress, int noOfSlots);
     public void removeGym(int gymId);
     public List<FlipFitGymDetails> viewAllRegisteredGymCenters(int userId);
     public List<Booking> viewAllBookings(int userId);

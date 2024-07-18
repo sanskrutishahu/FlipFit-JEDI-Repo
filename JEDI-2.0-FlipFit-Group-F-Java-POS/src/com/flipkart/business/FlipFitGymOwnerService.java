@@ -15,23 +15,23 @@ public class FlipFitGymOwnerService implements FlipFitGymOwnerInterface{
     FLipFitGymOwnerDAOInterface fLipFitGymOwnerDAO = new FlipFitGymOwnerDAOImpl();
 
     @Override
-    public void createGymOwner(FlipFitGymOwner flipFitGymOwner) {
-        fLipFitGymOwnerDAO.createGymOwner(flipFitGymOwner);
+    public void createGymOwner(String ownerName, String ownerPhone, String ownerAddress, String ownerGstNum, String ownerPanNum, int ownerId) {
+        fLipFitGymOwnerDAO.createGymOwner(ownerName,ownerPhone,ownerAddress,ownerGstNum,ownerPanNum,ownerId);
     }
 
     @Override
-    public void editProfile(FlipFitGymOwner flipFitGymOwner) {
-        fLipFitGymOwnerDAO.editProfile(flipFitGymOwner);
+    public void editProfile(String ownerName, String ownerPhone, String ownerAddress, String ownerGstNum, String ownerPanNum, int ownerId) {
+        fLipFitGymOwnerDAO.editProfile(ownerName,ownerPhone,ownerAddress,ownerGstNum,ownerPanNum,ownerId);
     }
 
     @Override
-    public void registerGym(FlipFitGymDetails flipFitGymDetails) {
-        fLipFitGymOwnerDAO.registerGym(flipFitGymDetails);
+    public void registerGym(int gymId, int gymOwnerId, String gymName, String gymAddress, int noOfSlots) {
+        fLipFitGymOwnerDAO.registerGym(gymId, gymOwnerId, gymName, gymAddress, noOfSlots);
     }
 
     @Override
-    public void editGym(FlipFitGymDetails flipFitGymDetails) {
-        fLipFitGymOwnerDAO.editGym(flipFitGymDetails);
+    public void editGym(int gymId, int gymOwnerId, String gymName, String gymAddress, int noOfSlots) {
+        fLipFitGymOwnerDAO.editGym(gymId, gymOwnerId, gymName, gymAddress, noOfSlots);
     }
 
     @Override
