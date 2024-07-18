@@ -11,6 +11,6 @@ public class GymNotFoundException extends Exception {
      * @param gymId the ID of the gym center that was not found.
      */
     public GymNotFoundException(int gymId) {
-        super("Gym Centre " + gymId + " not found!");
+        super("Gym Centre with " + gymId + " ID not found!");
     }
 }
