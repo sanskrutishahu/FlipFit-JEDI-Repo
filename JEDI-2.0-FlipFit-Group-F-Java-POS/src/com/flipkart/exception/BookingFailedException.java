@@ -12,6 +12,6 @@ public class BookingFailedException extends Exception {
      */
     public BookingFailedException(String message) {
         super(message);
-        System.out.println("Booking Failed, try after some time");
+        System.out.println("Booking Failed, please try again after some time");
     }
 }
