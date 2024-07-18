@@ -12,6 +12,6 @@ public class LoginFailedException extends RuntimeException {
      */
     public LoginFailedException(String message) {
         super(message);
-        System.out.println("Unable to login, Check your username and password"); // Assuming this is for console output, not part of exception handling
+        System.out.println("Login Failed!!, please check your username and password"); // Assuming this is for console output, not part of exception handling
     }
 }
