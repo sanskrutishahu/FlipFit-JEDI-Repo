@@ -5,6 +5,22 @@ public class Booking {
     private int userId;
     private int slotId;
     private String bookingDate;
+
+    @Override
+    public String toString() {
+        return "---------------------------All Bookings-----------------------------\n" +
+                "Booking ID: " + bookingId + "\n" +
+                "User ID: " + userId + "\n" +
+                "Slot ID: " + slotId + "\n" +
+                "Date of Booking: '" + bookingDate + '\'' + "\n" +
+                "Start time of booking: '" + bookingTimeSlotStart + '\'' + "\n" +
+                "End time of booking: '" + bookingTimeSlotEnd + '\'' + "\n" +
+                "Status of booking: " + bookingStatus + "\n" +
+                "Transaction ID: " + transactionId + "\n" +
+                "Amount of booking: " + bookingAmount + "\n" +
+                "--------------------------------------------------------------------";
+    }
+
     private String bookingTimeSlotStart;
     private String bookingTimeSlotEnd;
     private int bookingStatus;

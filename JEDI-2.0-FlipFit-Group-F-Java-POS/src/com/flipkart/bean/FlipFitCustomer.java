@@ -6,6 +6,20 @@ public class FlipFitCustomer{
     private int age;
     private String gender;
     private String customerName;
+
+    @Override
+    public String toString() {
+        return "-------------------------Customer Details-------------------------\n" +
+                "Weight: " + weight + "\n" +
+                "Age: " + age + "\n" +
+                "Gender: '" + gender + '\'' + "\n" +
+                "Customer name: '" + customerName + '\'' + "\n" +
+                "Customer Phone: '" + customerPhone + '\'' + "\n" +
+                "Customer Address: '" + customerAddress + '\'' + "\n" +
+                "Customer Id: " + customerId + "\n" +
+                "----------------------------------------------------------------\n";
+    }
+
     private String customerPhone;
     private String customerAddress;
     private int customerId;

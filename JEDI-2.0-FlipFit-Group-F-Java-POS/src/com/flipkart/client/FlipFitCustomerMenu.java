@@ -1,4 +1,8 @@
 package com.flipkart.client;
+import com.flipkart.bean.Booking;
+import com.flipkart.business.FlipFitCustomerService;
+import com.flipkart.business.FlipFitGymBookingService;
+
 import java.util.*;
 
 
@@ -6,7 +10,11 @@ public class FlipFitCustomerMenu {
 
     public static void viewCustomerBookings()
     {
-        System.out.println("You are in view Customer Bookings function\n");
+        System.out.println("Your are in view customer bookings section\n");
+//        FlipFitGymBookingService service = new FlipFitGymBookingService();
+//        for(Booking booking: service.viewBookings(1)) {
+//            System.out.println(booking);
+//        }
     }
     public static void addBooking()
     {
@@ -18,7 +26,9 @@ public class FlipFitCustomerMenu {
     }
     public static void viewProfile()
     {
-        System.out.println("You are in view Profile function\n");
+//        System.out.println("You are in view Profile function\n");
+        FlipFitCustomerService service = new FlipFitCustomerService();
+        System.out.println(service.viewProfile(1));
     }
     public static void viewCenters()
     {
