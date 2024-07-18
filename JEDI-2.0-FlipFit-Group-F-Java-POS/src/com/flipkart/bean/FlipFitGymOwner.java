@@ -4,7 +4,6 @@ public class FlipFitGymOwner extends User{
 	private String ownerGstNum;
 	private String ownerPanNum;
 	private String approvalStatus;
-	private int userId;
 
 	public FlipFitGymOwner(int userId, int roleId, String userPhoneNumber, String userAddress, String userEmail,
 						   String userPassword, String userName,String ownerGstNum, String ownerPanNum, String approvalStatus) {
@@ -12,7 +11,6 @@ public class FlipFitGymOwner extends User{
 		this.ownerGstNum = ownerGstNum;
 		this.ownerPanNum = ownerPanNum;
 		this.approvalStatus = approvalStatus;
-		this.userId = userId;
 	}
 
 	public String getOwnerGstNum() {
@@ -39,11 +37,4 @@ public class FlipFitGymOwner extends User{
 		this.approvalStatus = approvalStatus;
 	}
 
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
 }
