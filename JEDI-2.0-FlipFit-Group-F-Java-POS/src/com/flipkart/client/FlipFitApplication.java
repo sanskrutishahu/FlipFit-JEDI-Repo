@@ -1,5 +1,9 @@
 package com.flipkart.client;
 
+import com.flipkart.bean.FlipFitCustomer;
+import com.flipkart.bean.FlipFitGymOwner;
+import com.flipkart.bean.User;
+
 import java.util.*;
 
 /**
@@ -15,14 +19,14 @@ public class FlipFitApplication {
 
         Scanner in = new Scanner(System.in);
         System.out.println("------- Login ------ ");
-        System.out.println("Enter your email: ");
+        System.out.println("Enter your Email: ");
         String email = in.next();
-        System.out.println("Enter your password: ");
+        System.out.println("Enter your Password: ");
         String password = in.next();
         System.out.println("Enter your role: \n1. Customer\n2. Gym owner\n3. Admin");
         int role = in.nextInt();
         if(role == 1) {
-                FlipFitCustomerMenu.main(null);
+                FlipFitCustomerMenu.login(email, password);
         } else if(role == 2) {
                 FlipFitGymOwnerMenu.main(null);
         } else if(role == 3) {
@@ -34,35 +38,55 @@ public class FlipFitApplication {
 
     public static void registerUser() {
 
-
         Scanner in = new Scanner(System.in);
         System.out.println("Welcome to the FlipFit. Please Register yourself Here");
-        System.out.println("Enter your name: ");
-        String userName = in.nextLine();
-        System.out.println("Enter your phone number: ");
-        String userPhoneNumber = in.next();
-        System.out.println("Enter your email: ");
-        String userEmail = in.next();
+        System.out.println("Enter your Email: ");
+        String email = in.next();
+        String password;
+        boolean flag = true;
+        do{
+            System.out.println("Enter your password: ");
+            password = in.next();
+            System.out.println("Enter your confirm password: ");
+            String confirmUserPassword = in.next();
+            if(password.equals(confirmUserPassword)) {
+                System.out.println("Password matched!");
+                flag = false;
+            }
+            else{
+                System.out.println("The Passwords did not match. Please check again");
+            }
+        }while(flag);
         System.out.println("Enter 1 to register as Gym Owner \nEnter 2 to register as Customer");
         int role = in.nextInt();
-        if(role == 0){
-            System.out.println("Enter your Aadhaar NUmber : ");
-            String ownerAadhaar = in.next();
-
-        } else if(role == 1){
+        if(role == 1){
+            System.out.println("Enter your Name: ");
+            String ownerName = in.next();
+            System.out.println("Enter your Phone Number: ");
+            String ownerPhone = in.next();
+            System.out.println("Enter your Address: ");
+            String ownerAddress = in.nextLine();
+            System.out.println("Enter your GST Number: ");
+            String ownerGstNum = in.next();
+            System.out.println("Enter your PAN Number: ");
+            String ownerPanNum = in.next();
+            User user = new User(0, email, password, 2);
+            FlipFitGymOwner owner = new FlipFitGymOwner(ownerName, ownerPhone, ownerAddress, ownerGstNum, ownerPanNum, "Waiting for approval", 0);;
+        } else if(role == 2){
+            System.out.println("Enter your Name: ");
+            String customerName = in.next();
+            System.out.println("Enter your Phone Number: ");
+            String customerPhone = in.next();
+            System.out.println("Enter your Age: ");
+            int age = Integer.parseInt(in.next());
+            System.out.println("Enter your Gender: ");
+            String gender = in.next();
+            System.out.println("Enter your Weight: ");
+            int weight = Integer.parseInt(in.next());
             System.out.println("Enter your address: ");
-            String temp = in.nextLine();
-            String address = in.nextLine();
-        }
-        System.out.println("Enter your password: ");
-        String password = in.next();
-        System.out.println("Enter your confirm password: ");
-        String confirmUserPassword = in.next();
-        if(password.equals(confirmUserPassword)) {
-            System.out.println("Congratulations! You've successfully registered with us");
-        }
-        else{
-            System.out.println("The Passwords did not match. Please check again");
+            String customerAddress = in.next();
+            User user = new User(0, email, password, 3);
+            FlipFitCustomer customer = new FlipFitCustomer(weight, age, gender, customerName, customerPhone, customerAddress, 0);
         }
     }
 
