@@ -1,10 +1,7 @@
 CREATE TABLE userDetails (
                              userId INT AUTO_INCREMENT PRIMARY KEY,
-                             userName VARCHAR(100),
                              userEmail VARCHAR(100),
                              userPassword VARCHAR(100),
-                             userAddress VARCHAR(100),
-                             userPhoneNumber VARCHAR(100),
                              roleID INT,
                              FOREIGN KEY (roleId) REFERENCES roleDetails(roleId)
 );
@@ -16,57 +13,67 @@ CREATE TABLE roleDetails (
 );
 
 CREATE TABLE adminDetails (
-                              userId INT PRIMARY KEY,
-                              customerUserName VARCHAR(100)
+                              adminId INT PRIMARY KEY,
+                              customerUserName VARCHAR(100),
+                              FOREIGN KEY (adminId) REFERENCES userDetails(userId)
 );
 
 CREATE TABLE customer (
-                          userId INT PRIMARY KEY,
-                          aadhaarNumber VARCHAR(100),
-                          weight INT
+                          customerId INT PRIMARY KEY,
+                          weight INT,
+                          age INT,
+                          gender VARCHAR(100),
+                          customerName VARCHAR(100),
+                          customerPhone VARCHAR(100),
+                          customerAddress VARCHAR(200)
+                          FOREIGN KEY (customerId) REFERENCES userDetails(userId)
 );
 
 CREATE TABLE gymOwner (
-                          userId INT PRIMARY KEY,
+                          ownerId INT PRIMARY KEY,
+                          ownerName VARCHAR(100),
                           ownerGstNum VARCHAR(100),
                           ownerPanNum VARCHAR(100),
-                          approvalStatus VARCHAR(100)
+                          approvalStatus VARCHAR(100),
+                          ownerAddress VARCHAR(100),
+                          ownerPhone VARCHAR(100),
+                          FOREIGN KEY (ownerId) REFERENCES userDetails(userId)
 );
 
 CREATE TABLE gymDetails (
-                            centerId INT AUTO_INCREMENT PRIMARY KEY,
-                            userId INT,
-                            centerName VARCHAR(100),
-                            centerAddress VARCHAR(200),
+                            gymId INT AUTO_INCREMENT PRIMARY KEY,
+                            gymOwnerId INT,
+                            gymName VARCHAR(100),
+                            gymAddress VARCHAR(200),
                             noOfSlots INT,
                             approvalStatus INT,
-                            FOREIGN KEY (userId) REFERENCES userDetails(userId)
+                            FOREIGN KEY (gymOwnerId) REFERENCES gymOwner(ownerId)
 );
 
 CREATE TABLE slotDetails (
                              slotId INT AUTO_INCREMENT PRIMARY KEY,
-                             centreId INT,
-                             startTime DATETIME,
-                             endTime DATETIME,
+                             gymId INT,
+                             startTime VARCHAR(100),
+                             endTime VARCHAR(100),
                              noOfSeats INT,
                              FOREIGN KEY (centreId) REFERENCES gymDetails(centreId)
 );
 
 CREATE TABLE booking (
                          bookingId INT AUTO_INCREMENT PRIMARY KEY,
-                         userId INT,
+                         customerId INT,
                          slotId INT,
                          bookingStatus INT,
                          transactionId INT,
                          bookingAmount INT,
-                         FOREIGN KEY (userId) REFERENCES userDetails(userId),
+                         FOREIGN KEY (customerId) REFERENCES customer(customerId),
                          FOREIGN KEY (slotId) REFERENCES slotDetails(slotId)
 );
 
 CREATE TABLE payments (
                           transactionId INT AUTO_INCREMENT PRIMARY KEY,
                           paymentDetails VARCHAR(100),
-                          expiryDate DATE,
+                          expiryDate VARCHAR(100),
                           modeOfPayment VARCHAR(100)
 );
 
