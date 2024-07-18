@@ -7,12 +7,12 @@ import java.util.List;
 public class BookGymDAOImpl implements BookGymDAOInterface{
 
     @Override
-    public void createBooking(Booking booking) {
+    public void createBooking(int bookingId, int userId, int slotId, String bookingDate, String bookingTimeSlotStart, String bookingTimeSlotEnd, int bookingStatus, int transactionId, int bookingAmount) {
 
     }
 
     @Override
-    public void bookSlots(Booking booking) {
+    public void bookSlots(int bookingId, int userId, int slotId, String bookingDate, String bookingTimeSlotStart, String bookingTimeSlotEnd, int bookingStatus, int transactionId, int bookingAmount) {
 
     }
 

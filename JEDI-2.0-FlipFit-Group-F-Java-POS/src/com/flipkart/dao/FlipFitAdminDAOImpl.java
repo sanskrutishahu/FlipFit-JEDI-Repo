@@ -7,7 +7,7 @@ import java.util.List;
 
 public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
     @Override
-    public void createAdmin(int adminId, String adminEmail, String adminPassword) {
+    public void createAdmin(String customUserName, int adminId) {
 
     }
 

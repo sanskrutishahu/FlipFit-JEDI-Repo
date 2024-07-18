@@ -11,7 +11,7 @@ public class FlipFitAdminService implements FlipFitAdminInterface {
     FlipFitAdminDAOInterface adminDAO = new FlipFitAdminDAOImpl();
 
     @Override
-    public void createAdmin(int adminId, int userId, String userEmail, String userPass) {
+    public void createAdmin(String customUserName, int adminId) {
         System.out.println("Create Admin Implementation.");
     }
 
