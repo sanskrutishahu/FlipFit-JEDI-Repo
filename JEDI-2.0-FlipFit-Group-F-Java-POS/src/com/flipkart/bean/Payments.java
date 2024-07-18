@@ -2,9 +2,9 @@ package com.flipkart.bean;
 
 public class Payments {
 
-    private int transactionId;       // Unique identifier for the transaction
-    private String paymentDetails;   // Details of the payment (e.g., card number, bank account)
-    private String expiryDate;       // Expiry date of the payment method
+    private int transactionId;
+    private String paymentDetails;
+    private String expiryDate;
     private String modeOfPayment;
 
     public Payments(int transactionId, String paymentDetails, String expiryDate, String modeOfPayment) {

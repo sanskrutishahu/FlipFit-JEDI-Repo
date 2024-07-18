@@ -1,14 +1,23 @@
 package com.flipkart.bean;
 
-public class FlipFitCustomer extends User{
-    private int weight;
-    private String aadhaarNumber;
+public class FlipFitCustomer{
 
-    public FlipFitCustomer(int userId, int roleId, String userPhoneNumber, String userAddress,
-                           String userEmail, String userPassword, String userName,int weight, String aadhaarNumber) {
-        super(userId, roleId, userPhoneNumber, userAddress, userEmail, userPassword, userName);
+    private int weight;
+    private int age;
+    private String gender;
+    private String customerName;
+    private String customerPhone;
+    private String customerAddress;
+    private int customerId;
+
+    public FlipFitCustomer(int weight, int age, String gender, String customerName, String customerPhone, String customerAddress, int customerId) {
         this.weight = weight;
-        this.aadhaarNumber = aadhaarNumber;
+        this.age = age;
+        this.gender = gender;
+        this.customerName = customerName;
+        this.customerPhone = customerPhone;
+        this.customerAddress = customerAddress;
+        this.customerId = customerId;
     }
 
     public int getWeight() {
@@ -19,12 +28,51 @@ public class FlipFitCustomer extends User{
         this.weight = weight;
     }
 
-    public String getAadhaarNumber() {
-        return aadhaarNumber;
+    public int getAge() {
+        return age;
     }
 
-    public void setAadhaarNumber(String aadhaarNumber) {
-        this.aadhaarNumber = aadhaarNumber;
+    public void setAge(int age) {
+        this.age = age;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getCustomerPhone() {
+        return customerPhone;
+    }
+
+    public void setCustomerPhone(String customerPhone) {
+        this.customerPhone = customerPhone;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getCustomerAddress() {
+        return customerAddress;
+    }
+
+    public void setCustomerAddress(String customerAddress) {
+        this.customerAddress = customerAddress;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
 }

@@ -1,14 +1,14 @@
 
 package com.flipkart.bean;
 
-public class FlipFitAdmin extends User{
+public class FlipFitAdmin{
 
     private String customUserName;
+    private int adminId;
 
-    public FlipFitAdmin(int userId, int roleId, String userPhoneNumber, String userAddress,
-                        String userEmail, String userPassword, String userName, String customerUserName) {
-        super(userId, roleId, userPhoneNumber, userAddress, userEmail, userPassword,  userName);
-        this.customUserName = customerUserName;
+    public FlipFitAdmin(String customUserName, int adminId) {
+        this.customUserName = customUserName;
+        this.adminId = adminId;
     }
 
     public String getCustomUserName() {
@@ -19,4 +19,11 @@ public class FlipFitAdmin extends User{
         this.customUserName = customUserName;
     }
 
+    public int getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(int adminId) {
+        this.adminId = adminId;
+    }
 }

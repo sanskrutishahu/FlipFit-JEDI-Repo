@@ -2,52 +2,52 @@ package com.flipkart.bean;
 
 public class FlipFitGymDetails {
 	
-    private int centerId;
-    private int useId;
-    private String centerName;
-    private String centerAddress;
+    private int gymId;
+    private int gymOwnerId;
+    private String gymName;
+    private String gymAddress;
     private int noOfSlots;
     private int approvalStatus;
 
-    public FlipFitGymDetails(int centerId, int centerOwnerId, String centerName, String address, int noOfSlots, int approvalStatus) {
-        this.centerId = centerId;
-        this.useId = centerOwnerId;
-        this.centerName = centerName;
-        this.centerAddress = address;
+    public FlipFitGymDetails(int gymId, int gymOwnerId, String gymName, String gymAddress, int noOfSlots, int approvalStatus) {
+        this.gymId = gymId;
+        this.gymOwnerId = gymOwnerId;
+        this.gymName = gymName;
+        this.gymAddress = gymAddress;
         this.noOfSlots = noOfSlots;
         this.approvalStatus = approvalStatus;
     }
 
-    public int getCenterId() {
-        return centerId;
+    public int getGymId() {
+        return gymId;
     }
 
-    public void setCenterId(int centerId) {
-        this.centerId = centerId;
+    public void setGymId(int gymId) {
+        this.gymId = gymId;
     }
 
-    public int getUseId() {
-        return useId;
+    public int getGymOwnerId() {
+        return gymOwnerId;
     }
 
-    public void setUseId(int useId) {
-        this.useId = useId;
+    public void setGymOwnerId(int gymOwnerId) {
+        this.gymOwnerId = gymOwnerId;
     }
 
-    public String getCenterName() {
-        return centerName;
+    public String getGymName() {
+        return gymName;
     }
 
-    public void setCenterName(String centerName) {
-        this.centerName = centerName;
+    public void setGymName(String gymName) {
+        this.gymName = gymName;
     }
 
-    public String getCenterAddress() {
-        return centerAddress;
+    public String getGymAddress() {
+        return gymAddress;
     }
 
-    public void setCenterAddress(String centerAddress) {
-        this.centerAddress = centerAddress;
+    public void setGymAddress(String gymAddress) {
+        this.gymAddress = gymAddress;
     }
 
     public int getNoOfSlots() {

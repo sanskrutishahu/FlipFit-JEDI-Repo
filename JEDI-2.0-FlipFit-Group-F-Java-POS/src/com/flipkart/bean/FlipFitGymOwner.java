@@ -1,16 +1,47 @@
 package com.flipkart.bean;
 
-public class FlipFitGymOwner extends User{
+public class FlipFitGymOwner{
+
+	private String ownerName;
+	private String ownerPhone;
+	private String ownerAddress;
 	private String ownerGstNum;
 	private String ownerPanNum;
 	private String approvalStatus;
+	private int ownerId;
 
-	public FlipFitGymOwner(int userId, int roleId, String userPhoneNumber, String userAddress, String userEmail,
-						   String userPassword, String userName,String ownerGstNum, String ownerPanNum, String approvalStatus) {
-		super(userId, roleId, userPhoneNumber, userAddress, userEmail, userPassword, userName);
+	public FlipFitGymOwner(String ownerName, String ownerPhone, String ownerAddress, String ownerGstNum, String ownerPanNum, String approvalStatus, int ownerId) {
+		this.ownerName = ownerName;
+		this.ownerPhone = ownerPhone;
+		this.ownerAddress = ownerAddress;
 		this.ownerGstNum = ownerGstNum;
 		this.ownerPanNum = ownerPanNum;
 		this.approvalStatus = approvalStatus;
+		this.ownerId = ownerId;
+	}
+
+	public String getOwnerName() {
+		return ownerName;
+	}
+
+	public void setOwnerName(String ownerName) {
+		this.ownerName = ownerName;
+	}
+
+	public String getOwnerPhone() {
+		return ownerPhone;
+	}
+
+	public void setOwnerPhone(String ownerPhone) {
+		this.ownerPhone = ownerPhone;
+	}
+
+	public String getOwnerAddress() {
+		return ownerAddress;
+	}
+
+	public void setOwnerAddress(String ownerAddress) {
+		this.ownerAddress = ownerAddress;
 	}
 
 	public String getOwnerGstNum() {
@@ -21,14 +52,6 @@ public class FlipFitGymOwner extends User{
 		this.ownerGstNum = ownerGstNum;
 	}
 
-	public String getOwnerPanNum() {
-		return ownerPanNum;
-	}
-
-	public void setOwnerPanNum(String ownerPanNum) {
-		this.ownerPanNum = ownerPanNum;
-	}
-
 	public String getApprovalStatus() {
 		return approvalStatus;
 	}
@@ -37,4 +60,19 @@ public class FlipFitGymOwner extends User{
 		this.approvalStatus = approvalStatus;
 	}
 
+	public String getOwnerPanNum() {
+		return ownerPanNum;
+	}
+
+	public void setOwnerPanNum(String ownerPanNum) {
+		this.ownerPanNum = ownerPanNum;
+	}
+
+	public int getOwnerId() {
+		return ownerId;
+	}
+
+	public void setOwnerId(int ownerId) {
+		this.ownerId = ownerId;
+	}
 }
