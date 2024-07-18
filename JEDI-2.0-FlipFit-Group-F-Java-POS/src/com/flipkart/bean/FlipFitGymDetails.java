@@ -3,7 +3,7 @@ package com.flipkart.bean;
 public class FlipFitGymDetails {
 	
     private int centerId;
-    private int centerOwnerId;
+    private int useId;
     private String centerName;
     private String centerAddress;
     private int noOfSlots;
@@ -11,7 +11,7 @@ public class FlipFitGymDetails {
 
     public FlipFitGymDetails(int centerId, int centerOwnerId, String centerName, String address, int noOfSlots, int approvalStatus) {
         this.centerId = centerId;
-        this.centerOwnerId = centerOwnerId;
+        this.useId = centerOwnerId;
         this.centerName = centerName;
         this.centerAddress = address;
         this.noOfSlots = noOfSlots;
@@ -26,12 +26,12 @@ public class FlipFitGymDetails {
         this.centerId = centerId;
     }
 
-    public int getCenterOwnerId() {
-        return centerOwnerId;
+    public int getUseId() {
+        return useId;
     }
 
-    public void setCenterOwnerId(int centerOwnerId) {
-        this.centerOwnerId = centerOwnerId;
+    public void setUseId(int useId) {
+        this.useId = useId;
     }
 
     public String getCenterName() {
