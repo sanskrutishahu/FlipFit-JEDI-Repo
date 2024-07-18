@@ -2,7 +2,7 @@ package com.flipkart.bean;
 
 public class Booking {
     private int bookingId;
-    private int customerId;
+    private int userId;
     private int slotId;
     private int status;
     private int transactionId;
@@ -10,7 +10,7 @@ public class Booking {
 
     public Booking(int bookingId, int customerId, int slotId, int status, int transactionId, int bookingAmount) {
         this.bookingId = bookingId;
-        this.customerId = customerId;
+        this.userId = customerId;
         this.slotId = slotId;
         this.status = status;
         this.transactionId = transactionId;
@@ -25,12 +25,12 @@ public class Booking {
         this.bookingId = bookingId;
     }
 
-    public int getCustomerId() {
-        return customerId;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public int getSlotId() {
