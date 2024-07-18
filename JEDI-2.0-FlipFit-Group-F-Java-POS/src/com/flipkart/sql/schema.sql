@@ -1,3 +1,9 @@
+CREATE TABLE roleDetails (
+                             roleId INT PRIMARY KEY,
+                             roleName VARCHAR(100),
+                             roleDescription VARCHAR(200)
+);
+
 CREATE TABLE userDetails (
                              userId INT AUTO_INCREMENT PRIMARY KEY,
                              userEmail VARCHAR(100),
@@ -6,11 +12,6 @@ CREATE TABLE userDetails (
                              FOREIGN KEY (roleId) REFERENCES roleDetails(roleId)
 );
 
-CREATE TABLE roleDetails (
-                             roleId INT PRIMARY KEY,
-                             roleName VARCHAR(100),
-                             roleDescription VARCHAR(200)
-);
 
 CREATE TABLE adminDetails (
                               adminId INT PRIMARY KEY,
@@ -25,7 +26,7 @@ CREATE TABLE customer (
                           gender VARCHAR(100),
                           customerName VARCHAR(100),
                           customerPhone VARCHAR(100),
-                          customerAddress VARCHAR(200)
+                          customerAddress VARCHAR(200),
                           FOREIGN KEY (customerId) REFERENCES userDetails(userId)
 );
 
@@ -56,7 +57,7 @@ CREATE TABLE slotDetails (
                              startTime VARCHAR(100),
                              endTime VARCHAR(100),
                              noOfSeats INT,
-                             FOREIGN KEY (centreId) REFERENCES gymDetails(centreId)
+                             FOREIGN KEY (gymId) REFERENCES gymDetails(gymId)
 );
 
 CREATE TABLE booking (
@@ -76,6 +77,7 @@ CREATE TABLE payments (
                           expiryDate VARCHAR(100),
                           modeOfPayment VARCHAR(100)
 );
+
 
 
 
