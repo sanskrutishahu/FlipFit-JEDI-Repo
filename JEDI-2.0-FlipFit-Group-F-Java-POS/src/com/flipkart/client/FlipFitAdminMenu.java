@@ -12,61 +12,73 @@ public class FlipFitAdminMenu {
 
         System.out.println("You are in view View Pending Centre function\n");
         flipFitAdminService.viewPendingCenter();
+        System.out.println("Pending Centres \n");
     }
     public  void viewPendingOwner()
     {
         System.out.println("You are in View Pending Owner function\n");
         flipFitAdminService.viewPendingOwner();
+        System.out.println("Pending Owners \n");
     }
     public  void approveCentre(int gymId)
     {
 
         System.out.println("You are in Approve Centre function\n");
         flipFitAdminService.approveGymRequests(gymId);
+        System.out.println(" Approved Centres \n");
     }
     public void approveOwner(int ownerId)
     {
-        flipFitAdminService.approveGymOwnerRequests(ownerId);
         System.out.println("You are in Approve Owner function\n");
+        flipFitAdminService.approveGymOwnerRequests(ownerId);
+       System.out.println(" Approved Owners \n");
+
     }
     public void rejectCentre(int gymId)
     {
         System.out.println("You are in Reject Centre function\n");
         flipFitAdminService.rejectGymRequests(gymId);
+        System.out.println("Rejected Centres \n");
     }
     public void rejectOwner(int ownerId)
     {
 
         System.out.println("You are in Reject Owner function\n");
         flipFitAdminService.rejectGymOwnerRequests(ownerId);
+        System.out.println("Rejected Owners \n");
     }
     public void removeCentre(int GymId)
     {
 
         System.out.println("You are in Remove Centre function\n");
         flipFitAdminService.removeGym(GymId);
+        System.out.println("Successfully Removed Centre \n");
     }
     public  void removeOwner(int ownerId)
     {
 
         System.out.println("You are in Remove Owner function\n");
         flipFitAdminService.removeGymOwner(ownerId);
+        System.out.println("Successfully Removed Owner \n");
     }
     public  void viewAllGymOwners()
     {
-        flipFitAdminService.viewAllGymOwners();
         System.out.println("You are in View All Gym Owner function\n");
+        flipFitAdminService.viewAllGymOwners();
+        System.out.println("View All Gym Owner \n");
+
     }
     public  void viewGymOwnersDetails(int ownerId)
     {
         System.out.println("You are in View Gym Owner Details function\n");
         flipFitAdminService.viewGymOwnerDetails(ownerId);
+        System.out.println("View Gym Owner Details \n");
 
     }
     public void userLogout()
     {
 
-        System.out.println("Logged out\n");
+        System.out.println("Successfully Logged out\n");
     }
     public int TakeGymId()
     {

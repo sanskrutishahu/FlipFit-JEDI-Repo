@@ -26,6 +26,7 @@ public class FlipFitCustomerMenu {
         System.out.println("Enter Date (DD/MM/YYYY): ");
         String date = in.next();
         booking.bookSlots(0, id, slotID, date, "", "", 1, 1, 1);
+        System.out.println("You Book a Slot Successfully\n ");
     }
     public static void cancelBooking(FlipFitGymBookingService booking)
     {
@@ -33,6 +34,7 @@ public class FlipFitCustomerMenu {
         System.out.println("Enter Booking ID: ");
         int bookingId = Integer.parseInt(in.next());
         booking.cancelBookings(bookingId);
+        System.out.println("You Cancel a Slot Successfully \n ");
     }
     public static void viewProfile(int id, FlipFitCustomerService customer)
     {
