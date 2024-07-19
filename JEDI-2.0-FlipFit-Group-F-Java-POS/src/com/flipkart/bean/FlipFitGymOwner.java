@@ -10,7 +10,7 @@ public class FlipFitGymOwner{
 	private String approvalStatus;
 	private int ownerId;
 
-	public FlipFitGymOwner(String ownerName, String ownerPhone, String ownerAddress, String ownerGstNum, String ownerPanNum, String approvalStatus, int ownerId) {
+	public FlipFitGymOwner(int gymOwnerId, String ownerName, String ownerPhone, String ownerAddress, String ownerGstNum, String ownerPanNum, String approvalStatus, int ownerId) {
 		this.ownerName = ownerName;
 		this.ownerPhone = ownerPhone;
 		this.ownerAddress = ownerAddress;

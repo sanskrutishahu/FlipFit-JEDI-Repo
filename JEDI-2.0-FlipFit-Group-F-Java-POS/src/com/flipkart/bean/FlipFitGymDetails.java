@@ -7,9 +7,9 @@ public class FlipFitGymDetails {
     private String gymName;
     private String gymAddress;
     private int noOfSlots;
-    private int approvalStatus;
+    private String approvalStatus;
 
-    public FlipFitGymDetails(int gymId, int gymOwnerId, String gymName, String gymAddress, int noOfSlots, int approvalStatus) {
+    public FlipFitGymDetails(int gymId, int gymOwnerId, String gymName, String gymAddress, int noOfSlots, String approvalStatus) {
         this.gymId = gymId;
         this.gymOwnerId = gymOwnerId;
         this.gymName = gymName;
@@ -58,11 +58,11 @@ public class FlipFitGymDetails {
         this.noOfSlots = noOfSlots;
     }
 
-    public int getApprovalStatus() {
+    public String getApprovalStatus() {
         return approvalStatus;
     }
 
-    public void setApprovalStatus(int approvalStatus) {
+    public void setApprovalStatus(String approvalStatus) {
         this.approvalStatus = approvalStatus;
     }
 }

@@ -5,16 +5,18 @@ public class SlotDetails {
 
 	private int slotID;
 	private int gymId;
+	private String date;
 	private String startTime;
 	private String endTime;
 	private int noOfSeats;
 
-	public SlotDetails(int slotID, int gymId, String startTime, String endTime, int noOfSeats) {
-		this.slotID = slotID;
+	public SlotDetails(int gymId, int slotID, String date, String startTime, int noOfSeats, String endTime) {
 		this.gymId = gymId;
+		this.slotID = slotID;
+		this.date = date;
 		this.startTime = startTime;
-		this.endTime = endTime;
 		this.noOfSeats = noOfSeats;
+		this.endTime = endTime;
 	}
 
 	public int getSlotID() {
@@ -31,6 +33,14 @@ public class SlotDetails {
 
 	public void setGymId(int gymId) {
 		this.gymId = gymId;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public String getStartTime() {
