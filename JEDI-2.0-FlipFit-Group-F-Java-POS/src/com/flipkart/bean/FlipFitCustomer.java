@@ -20,6 +20,19 @@ public class FlipFitCustomer{
         this.customerId = customerId;
     }
 
+    @Override
+    public String toString() {
+        return "-------------------------Customer Details-------------------------\n" +
+                "Weight: " + weight + "\n" +
+                "Age: " + age + "\n" +
+                "Gender: '" + gender + '\'' + "\n" +
+                "Customer name: '" + customerName + '\'' + "\n" +
+                "Customer Phone: '" + customerPhone + '\'' + "\n" +
+                "Customer Address: '" + customerAddress + '\'' + "\n" +
+                "Customer Id: " + customerId + "\n" +
+                "----------------------------------------------------------------\n";
+    }
+
     public int getWeight() {
         return weight;
     }

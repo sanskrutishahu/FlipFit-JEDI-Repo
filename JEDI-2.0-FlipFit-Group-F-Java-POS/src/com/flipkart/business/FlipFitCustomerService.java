@@ -26,7 +26,18 @@ public class FlipFitCustomerService implements FlipFitCustomerInterface {
 
     @Override
     public FlipFitCustomer viewProfile(int userId) {
+
         return customerDAO.viewProfile(userId);
+//        FlipFitCustomer customer = new FlipFitCustomer(
+//                60,
+//                21,
+//                "Male",
+//                "ankur",
+//                "882034532423",
+//                "delhi",
+//                43
+//        );
+//        return customer;
     }
 
     @Override

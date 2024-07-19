@@ -7,4 +7,6 @@ public interface FlipFitUserDAOInterface {
     public int authenticateUser(int userId, String userEmail, String userPassword, int roleId);
 
     public int createUser(int userId, String userEmail, String userPassword, int roleId);
+
+    public int getUserId(String email);
 }
