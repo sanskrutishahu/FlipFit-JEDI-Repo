@@ -10,7 +10,7 @@ public class BookingNotFoundException extends Exception {
      *
      * @param gymId the ID of the gym center that was not found.
      */
-    public BookingNotFoundException(int gymId) {
+    public BookingNotFoundException(int bookingId) {
         super("Booking with " + bookingId + " ID not found!");
     }
 }
