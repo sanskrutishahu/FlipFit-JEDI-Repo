@@ -13,4 +13,11 @@ public class FlipFitUserDAOImpl implements FlipFitUserDAOInterface{
     public int createUser(int userId, String userEmail, String userPassword, int roleId) {
         return 0;
     }
+
+    @Override
+    public int getUserId(String email) {
+        return 0;
+    }
+
+
 }
