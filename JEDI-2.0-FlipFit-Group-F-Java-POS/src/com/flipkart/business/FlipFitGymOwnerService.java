@@ -15,7 +15,7 @@ public class FlipFitGymOwnerService implements FlipFitGymOwnerInterface{
     FLipFitGymOwnerDAOInterface fLipFitGymOwnerDAO = new FlipFitGymOwnerDAOImpl();
 
     @Override
-    public void createGymOwner(String ownerName, String ownerPhone, String ownerAddress, String ownerGstNum, String ownerPanNum, int ownerId) {
+    public void createGymOwner(String ownerName, String ownerPhone, String ownerAddress, String ownerGstNum, String ownerPanNum,String approvalStatus, int ownerId) {
         fLipFitGymOwnerDAO.createGymOwner(ownerName,ownerPhone,ownerAddress,ownerGstNum,ownerPanNum,ownerId);
     }
 

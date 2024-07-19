@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface FlipFitGymOwnerInterface {
 
-    public void createGymOwner(String ownerName, String ownerPhone, String ownerAddress, String ownerGstNum, String ownerPanNum, int ownerId);
+    public void createGymOwner(String ownerName, String ownerPhone, String ownerAddress, String ownerGstNum, String ownerPanNum,String approvalStatus,int ownerId);
     public void editProfile(String ownerName, String ownerPhone, String ownerAddress, String ownerGstNum, String ownerPanNum, int ownerId);
     public void registerGym(int gymId, int gymOwnerId, String gymName, String gymAddress, int noOfSlots);
     public void editGym(int gymId, int gymOwnerId, String gymName, String gymAddress, int noOfSlots);

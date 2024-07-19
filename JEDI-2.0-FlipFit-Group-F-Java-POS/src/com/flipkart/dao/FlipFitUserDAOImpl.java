@@ -66,7 +66,6 @@ public class FlipFitUserDAOImpl implements FlipFitUserDAOInterface{
             System.out.println(roleId);
             String queryUser = "INSERT INTO userDetails (userEmail, userPassword, roleID) VALUES (?,?,?)";
             stmtUser = con.prepareStatement(queryUser,Statement.RETURN_GENERATED_KEYS);
-            System.out.println(stmtUser);
             stmtUser.setString(1, userEmail);
             stmtUser.setString(2, userPassword);
             stmtUser.setInt(3, roleId);

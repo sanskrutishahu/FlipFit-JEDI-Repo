@@ -3,6 +3,8 @@ package com.flipkart.client;
 import com.flipkart.bean.FlipFitCustomer;
 import com.flipkart.bean.FlipFitGymOwner;
 import com.flipkart.bean.User;
+import com.flipkart.business.FlipFitCustomerService;
+import com.flipkart.business.FlipFitGymOwnerService;
 import com.flipkart.business.FlipFituserInterface;
 import com.flipkart.business.FlipFituserService;
 
@@ -37,6 +39,8 @@ public class FlipFitApplication {
     public static void registerUser() {
 
         FlipFituserInterface userService = new FlipFituserService();
+        FlipFitGymOwnerService ownerService = new FlipFitGymOwnerService();
+        FlipFitCustomerService customerService =new FlipFitCustomerService();
 
         Scanner in = new Scanner(System.in);
         System.out.println("Welcome to the FlipFit. Please Register yourself Here");
@@ -64,15 +68,14 @@ public class FlipFitApplication {
             String ownerName = in.next();
             System.out.println("Enter your Phone Number: ");
             String ownerPhone = in.next();
-
             System.out.println("Enter your Address: ");
-            String ownerAddress = in.nextLine();
+            String ownerAddress = in.next();
             System.out.println("Enter your GST Number: ");
             String ownerGstNum = in.next();
             System.out.println("Enter your PAN Number: ");
             String ownerPanNum = in.next();
             int userId = userService.createUser(0,email, password, 1);
-            FlipFitGymOwner owner = new FlipFitGymOwner(ownerName, ownerPhone, ownerAddress, ownerGstNum, ownerPanNum, "Waiting for approval", 0);;
+            ownerService.createGymOwner(ownerName, ownerPhone, ownerAddress, ownerGstNum, ownerPanNum, "PENDING",userId);
         } else if(role == 2){
             System.out.println("Enter your Name: ");
             String customerName = in.next();
@@ -86,8 +89,8 @@ public class FlipFitApplication {
             int weight = Integer.parseInt(in.next());
             System.out.println("Enter your address: ");
             String customerAddress = in.next();
-            User user = new User(0, email, password, 2);
-            FlipFitCustomer customer = new FlipFitCustomer(weight, age, gender, customerName, customerPhone, customerAddress, 0);
+            int userId = userService.createUser(0,email, password, 2);
+            customerService.createCustomer(weight, age, gender, customerName, customerPhone, customerAddress, userId);
         }
     }
 

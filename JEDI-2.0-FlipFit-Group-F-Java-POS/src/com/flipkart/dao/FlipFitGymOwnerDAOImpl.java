@@ -23,17 +23,17 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "mysqliswow");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "Sushma@22");
             con.setAutoCommit(false);
 
-            String queryOwner = "INSERT INTO flipfitGymOwner (ownerName, ownerPhone, ownerAddress, ownerGSTNum, ownerPANNum, approvalStatus, userId) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String queryOwner = "INSERT INTO gymOwner (ownerName, ownerPhone, ownerAddress, ownerGSTNum, ownerPanNum, approvalStatus, ownerId) VALUES (?, ?, ?, ?, ?, ?, ?)";
             stmtOwner = con.prepareStatement(queryOwner);
             stmtOwner.setString(1, ownerName);
             stmtOwner.setString(2, ownerPhone);
             stmtOwner.setString(3, ownerAddress);
             stmtOwner.setString(4, ownerGstNum);
             stmtOwner.setString(5, ownerPanNum);
-            stmtOwner.setString(6, "Not Approved");
+            stmtOwner.setString(6, "PENDING");
             stmtOwner.setInt(7, ownerId);
 
             int ownerInsertCount = stmtOwner.executeUpdate();
@@ -61,10 +61,10 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/FlipFit", "root", "mysqliswow");
+                    "jdbc:mysql://localhost:3306/FlipFit", "root", "Sushma@22");
             con.setAutoCommit(false);
 
-            String queryGym = "INSERT INTO FlipFitGym (gymOwnerId, gymName, gymAddress, noOfSlots, approvalStatus) VALUES (?, ?, ?, ?, ?);";
+            String queryGym = "INSERT INTO gymDetails (gymOwnerId, gymName, gymAddress, noOfSlots, approvalStatus) VALUES (?, ?, ?, ?, ?);";
             stmtGym = con.prepareStatement(queryGym);
             stmtGym.setInt(1, gymOwnerId);
             stmtGym.setString(2, gymName);
