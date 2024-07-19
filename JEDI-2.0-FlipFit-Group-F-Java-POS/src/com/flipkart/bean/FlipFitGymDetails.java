@@ -18,6 +18,18 @@ public class FlipFitGymDetails {
         this.approvalStatus = approvalStatus;
     }
 
+    @Override
+    public String toString() {
+        return "--------------------Gym Center Details--------------------------\n" +
+                "Gym Id: " + gymId + "\n" +
+                "Gym Owner Id: " + gymOwnerId + "\n" +
+                "Gym Name: '" + gymName + '\'' + "\n" +
+                "Gym Address: '" + gymAddress + '\'' + "\n" +
+                "No Of Slots: " + noOfSlots + "\n" +
+                "Approval Status: " + approvalStatus + "\n" +
+                "---------------------------------------------------------------\n";
+    }
+
     public int getGymId() {
         return gymId;
     }

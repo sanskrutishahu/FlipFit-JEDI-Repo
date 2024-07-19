@@ -5,6 +5,7 @@ import com.flipkart.bean.FlipFitGymDetails;
 import com.flipkart.dao.FlipFitCustomerDAOImpl;
 import com.flipkart.dao.FlipFitCustomerDAOInterface;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -43,6 +44,18 @@ public class FlipFitCustomerService implements FlipFitCustomerInterface {
     @Override
     public List<FlipFitGymDetails> viewGyms() {
         return customerDAO.viewGyms();
+//        FlipFitGymDetails gym = new FlipFitGymDetails(
+//                1,
+//                2,
+//                "Ankur gym",
+//                "Shivaji nagar",
+//                2,
+//                1
+//        );
+//        ArrayList<FlipFitGymDetails> gyms = new ArrayList<>();
+//        gyms.add(gym);
+//        return gyms;
+
     }
 
     @Override

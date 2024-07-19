@@ -1,5 +1,6 @@
 package com.flipkart.client;
 import com.flipkart.bean.Booking;
+import com.flipkart.bean.FlipFitGymDetails;
 import com.flipkart.business.FlipFitGymBookingService;
 import com.flipkart.business.FlipFitCustomerService;
 
@@ -42,6 +43,10 @@ public class FlipFitCustomerMenu {
     public static void viewGymCenters(FlipFitCustomerService customer)
     {
         customer.viewGyms();
+//        FlipFitCustomerService service = new FlipFitCustomerService();
+//        for(FlipFitGymDetails x : service.viewGyms()) {
+//            System.out.println(x);
+//        }
     }
     public static void viewAvailableSlots(FlipFitCustomerService customer)
     {
