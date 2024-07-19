@@ -58,10 +58,11 @@ public class FlipFitCustomerService implements FlipFitCustomerInterface {
 
     }
 
+
     @Override
     public HashMap<String, Integer> viewSlots(int gymId, String date) {
         try {
-            return customerDAO.viewSlots(gymId, date);
+            return customerDAO.viewSlots(gymId);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
