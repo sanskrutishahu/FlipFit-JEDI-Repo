@@ -83,7 +83,7 @@ public class FlipFitAdminMenu {
         return ownerId;
     }
 
-    public static void main(String[] args){
+    public static void login(String email, String password){
 
         System.out.println("--------Welcome to FlipFit Admin Menu Page--------");
         System.out.println("Enter preferred choices:\n1. View Pending Centre\n2. View Pending Owner\n3. Approve Centre\n4. Approve Owner\n5. Reject Centre\n6. Reject Owner\n7. Remove Centre\n8. Remove Owner \n9. View all Gym Owners \n10.View Gym Owner details \n11. Log Out");

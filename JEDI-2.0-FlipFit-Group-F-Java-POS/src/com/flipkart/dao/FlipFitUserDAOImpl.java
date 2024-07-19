@@ -89,4 +89,11 @@ public class FlipFitUserDAOImpl implements FlipFitUserDAOInterface{
         return userId;
 
     }
+
+    @Override
+    public int getUserId(String email) {
+        return 0;
+    }
+
+
 }

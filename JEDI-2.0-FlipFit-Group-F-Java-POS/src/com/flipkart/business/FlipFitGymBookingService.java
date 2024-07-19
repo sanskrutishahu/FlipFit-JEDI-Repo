@@ -23,6 +23,20 @@ public class FlipFitGymBookingService implements FlipFitGymBookingInterface {
     @Override
     public List<Booking> viewBookings(int userId) {
         return bookGymDAO.viewBookings(userId);
+//        Booking booking = new Booking(
+//               1,
+//               2,
+//               3,
+//               "18-7-2024",
+//               "21-07-2024|15:06",
+//                "21-07-2024|16:00",
+//                1,
+//                4,
+//                500
+//        );
+//        List<Booking> bookings = new ArrayList<>();
+//        bookings.add(booking);
+//        return bookings;
     }
 
     @Override
