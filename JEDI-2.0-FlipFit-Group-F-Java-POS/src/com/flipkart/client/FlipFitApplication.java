@@ -3,13 +3,11 @@ package com.flipkart.client;
 import com.flipkart.bean.FlipFitCustomer;
 import com.flipkart.bean.FlipFitGymOwner;
 import com.flipkart.bean.User;
+import com.flipkart.business.FlipFituserInterface;
+import com.flipkart.business.FlipFituserService;
 
 import java.util.*;
 
-/**
- * Main application class for FlipFit, which handles user login, registration,
- * and menu navigation for different roles (Customer, Gym Owner, Admin).
- */
 public class FlipFitApplication {
 
     /**
@@ -38,6 +36,8 @@ public class FlipFitApplication {
 
     public static void registerUser() {
 
+        FlipFituserInterface userService = new FlipFituserService();
+
         Scanner in = new Scanner(System.in);
         System.out.println("Welcome to the FlipFit. Please Register yourself Here");
         System.out.println("Enter your Email: ");
@@ -64,13 +64,14 @@ public class FlipFitApplication {
             String ownerName = in.next();
             System.out.println("Enter your Phone Number: ");
             String ownerPhone = in.next();
+
             System.out.println("Enter your Address: ");
             String ownerAddress = in.nextLine();
             System.out.println("Enter your GST Number: ");
             String ownerGstNum = in.next();
             System.out.println("Enter your PAN Number: ");
             String ownerPanNum = in.next();
-            User user = new User(0, email, password, 2);
+            int userId = userService.createUser(0,email, password, 1);
             FlipFitGymOwner owner = new FlipFitGymOwner(ownerName, ownerPhone, ownerAddress, ownerGstNum, ownerPanNum, "Waiting for approval", 0);;
         } else if(role == 2){
             System.out.println("Enter your Name: ");
@@ -85,7 +86,7 @@ public class FlipFitApplication {
             int weight = Integer.parseInt(in.next());
             System.out.println("Enter your address: ");
             String customerAddress = in.next();
-            User user = new User(0, email, password, 3);
+            User user = new User(0, email, password, 2);
             FlipFitCustomer customer = new FlipFitCustomer(weight, age, gender, customerName, customerPhone, customerAddress, 0);
         }
     }
@@ -116,4 +117,5 @@ public class FlipFitApplication {
         }
         in.close();
     }
+
 }
