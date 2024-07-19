@@ -16,7 +16,7 @@ public interface FlipFitCustomerDAOInterface {
 
     public List<FlipFitGymDetails> viewGyms();
 
-    public HashMap<String, Integer> viewSlots(int gymId, String date);
+    HashMap<String,Integer> viewSlots(int gymId,String date);
 
     public int makePayment(int userId, String paymentDetails, String expiryDate, String modeOfPayment);
 

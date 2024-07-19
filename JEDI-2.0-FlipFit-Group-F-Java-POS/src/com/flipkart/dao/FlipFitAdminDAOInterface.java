@@ -14,23 +14,25 @@ public interface FlipFitAdminDAOInterface {
 
     public List<FlipFitGymOwner> viewGymOwnerRequests();
 
-    public void approveGymOwnerRequests(int ownerId);
+    public boolean approveGymOwnerRequests(int ownerId);
 
-    public void approveGymRequests (int gymId);
+    public boolean approveGymRequests (int gymId);
 
-    public void rejectGymOwnerRequests (int ownerId);
+    public boolean rejectGymOwnerRequests (int ownerId);
 
-    public void removeGym (int gymId);
+    public boolean removeGym (int gymId);
 
     public List<FlipFitGymOwner> viewPendingOwner ();
 
     public List<FlipFitGymDetails> viewPendingCenter();
 
-    public void rejectGymRequests (int gymId);
+    public boolean rejectGymRequests (int gymId);
 
-    public void removeGymOwner(int ownerId);
+    public boolean removeGymOwner(int ownerId);
 
-    public void cancelRequest(int ownerId);
+    void cancelRequest(int ownerId);
+
+//    public void cancelRequest(int ownerId);
 
 
 

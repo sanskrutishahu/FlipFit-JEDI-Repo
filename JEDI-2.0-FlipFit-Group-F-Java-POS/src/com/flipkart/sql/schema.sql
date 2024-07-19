@@ -54,6 +54,7 @@ CREATE TABLE gymDetails (
 CREATE TABLE slotDetails (
                              slotId INT AUTO_INCREMENT PRIMARY KEY,
                              gymId INT,
+                             date VARCHAR(100),
                              startTime VARCHAR(100),
                              endTime VARCHAR(100),
                              noOfSeats INT,
@@ -67,6 +68,9 @@ CREATE TABLE booking (
                          bookingStatus INT,
                          transactionId INT,
                          bookingAmount INT,
+                         bookingDate VARCHAR(100),
+                         bookingTimeSlotStart VARCHAR(100),
+                         bookingTimeSlotEnd VARCHAR(100),
                          FOREIGN KEY (customerId) REFERENCES customer(customerId),
                          FOREIGN KEY (slotId) REFERENCES slotDetails(slotId)
 );
@@ -77,9 +81,3 @@ CREATE TABLE payments (
                           expiryDate VARCHAR(100),
                           modeOfPayment VARCHAR(100)
 );
-
-
-
-
-
-
