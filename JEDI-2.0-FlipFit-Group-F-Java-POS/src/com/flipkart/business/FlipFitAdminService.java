@@ -4,6 +4,7 @@ import com.flipkart.bean.FlipFitGymOwner;
 import com.flipkart.dao.FlipFitAdminDAOImpl;
 import com.flipkart.dao.FlipFitAdminDAOInterface;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FlipFitAdminService implements FlipFitAdminInterface {
@@ -89,7 +90,21 @@ public class FlipFitAdminService implements FlipFitAdminInterface {
 
     @Override
     public List<FlipFitGymOwner> viewPendingOwner() {
+/*
         return adminDAO.viewPendingOwner();
+*/
+        FlipFitGymOwner owner = new FlipFitGymOwner(
+                "priyanka",
+                "93423435435",
+                "shivaji nagar",
+                "33432423",
+                "3534532",
+                "true",
+                1343
+        );
+        ArrayList<FlipFitGymOwner> owners = new ArrayList<>();
+        owners.add(owner);
+        return owners;
     }
 
     @Override

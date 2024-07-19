@@ -20,6 +20,19 @@ public class FlipFitGymOwner{
 		this.ownerId = ownerId;
 	}
 
+	@Override
+	public String toString() {
+		return "-----------------Onwer Details-------------------\n" +
+				"Owner Name: '" + ownerName + '\'' +"\n"+
+				"Owner Phone: '" + ownerPhone + '\'' +"\n"+
+				"Owner Address: '" + ownerAddress + '\'' +"\n"+
+				"Owner GstNum: '" + ownerGstNum + '\'' +"\n"+
+				"Owner PanNum: '" + ownerPanNum + '\'' +"\n"+
+				"Opproval Status: '" + approvalStatus + '\'' +"\n"+
+				"Owner Id: " + ownerId +"\n"+
+				"-------------------------------------------------";
+	}
+
 	public String getOwnerName() {
 		return ownerName;
 	}

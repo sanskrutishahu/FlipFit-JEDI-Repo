@@ -1,6 +1,7 @@
 package com.flipkart.client;
 import java.util.*;
 
+import com.flipkart.bean.FlipFitGymOwner;
 import com.flipkart.business.FlipFitAdminInterface;
 import com.flipkart.business.FlipFitAdminService;
 import com.flipkart.bean.FlipFitAdmin;
@@ -15,8 +16,12 @@ public class FlipFitAdminMenu {
     }
     public  void viewPendingOwner()
     {
-        System.out.println("You are in View Pending Owner function\n");
-        flipFitAdminService.viewPendingOwner();
+        //System.out.println("You are in View Pending Owner function\n");
+        //flipFitAdminService.viewPendingOwner();
+        FlipFitAdminService service = new FlipFitAdminService();
+        for(FlipFitGymOwner x : service.viewPendingOwner()){
+            System.out.println(x);
+        }
     }
     public  void approveCentre(int gymId)
     {
