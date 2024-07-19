@@ -11,34 +11,35 @@ public class FlipFitGymOwnerMenu {
     {
 
         System.out.println("You are in Edit Profile function\n");
-        System.out.print("Enter Owner Name: ");
+        System.out.println("Enter Owner Name: ");
         String ownerName = scanner.nextLine();
-        System.out.print("Enter Owner Phone: ");
+        System.out.println("Enter Owner Phone: ");
         String ownerPhone = scanner.nextLine();
-        System.out.print("Enter Owner Address: ");
+        System.out.println("Enter Owner Address: ");
         String ownerAddress = scanner.nextLine();
-        System.out.print("Enter Owner GST Number: ");
+        System.out.println("Enter Owner GST Number: ");
         String ownerGstNum = scanner.nextLine();
-        System.out.print("Enter Owner PAN Number: ");
+        System.out.println("Enter Owner PAN Number: ");
         String ownerPanNum = scanner.nextLine();
-        System.out.print("Enter Owner ID: ");
+        System.out.println("Enter Owner ID: ");
         int ownerId = scanner.nextInt();
         scanner.nextLine();
         flipFitGymOwnerService.editProfile(ownerName, ownerPhone, ownerAddress, ownerGstNum, ownerPanNum, ownerId);
+
     }
     public  void addGym()
     {
         System.out.println("You are in add Gym function\n");
-        System.out.print("Enter Gym ID: ");
+        System.out.println("Enter Gym ID: ");
         int gymId = scanner.nextInt();
-        System.out.print("Enter Gym Owner ID: ");
+        System.out.println("Enter Gym Owner ID: ");
         int gymOwnerId = scanner.nextInt();
         scanner.nextLine(); // consume newline
         System.out.print("Enter Gym Name: ");
         String gymName = scanner.nextLine();
-        System.out.print("Enter Gym Address: ");
+        System.out.println("Enter Gym Address: ");
         String gymAddress = scanner.nextLine();
-        System.out.print("Enter Number of Slots: ");
+        System.out.println("Enter Number of Slots: ");
         int noOfSlots = scanner.nextInt();
         flipFitGymOwnerService.registerGym(gymId, gymOwnerId, gymName, gymAddress, noOfSlots);
 
@@ -61,16 +62,16 @@ public class FlipFitGymOwnerMenu {
     public void editGym()
     {
         System.out.println("You are in Edit Gym function\n");
-        System.out.print("Enter Gym ID: ");
+        System.out.println("Enter Gym ID: ");
         int gymId = scanner.nextInt();
-        System.out.print("Enter Gym Owner ID: ");
+        System.out.println("Enter Gym Owner ID: ");
         int gymOwnerId = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Enter Gym Name: ");
+        System.out.println("Enter Gym Name: ");
         String gymName = scanner.nextLine();
-        System.out.print("Enter Gym Address: ");
+        System.out.println("Enter Gym Address: ");
         String gymAddress = scanner.nextLine();
-        System.out.print("Enter Number of Slots: ");
+        System.out.println("Enter Number of Slots: ");
         int noOfSlots = scanner.nextInt();
         flipFitGymOwnerService.editGym(gymId, gymOwnerId, gymName, gymAddress, noOfSlots);
     }
@@ -127,7 +128,9 @@ public class FlipFitGymOwnerMenu {
         String endTime = scanner.nextLine();
         System.out.print("Enter Number of Seats: ");
         int noOfSeats = scanner.nextInt();
-        SlotDetails slotDetails= new SlotDetails(gymId, slotID, startTime, endTime, noOfSeats);
+        System.out.print("Enter Date: ");
+        String date= scanner.nextLine();
+        SlotDetails slotDetails= new SlotDetails(gymId, slotID,date,startTime, noOfSeats,endTime);
         flipFitGymOwnerService.addSlot(slotDetails);
     }
     public void removeSlot()
@@ -144,7 +147,7 @@ public class FlipFitGymOwnerMenu {
     {
         System.out.println("Logged out\n");
     }
-    public static void main(String[] args){
+    public static void login(String email, String password){
 
         System.out.println("--------Welcome to FlipFit Owner Menu Page--------");
         System.out.println("Enter preferred choices:\n1. Edit Profile\n2. Add Gym\n3. Remove Gym\n4. View Bookings\n5.Edit Gym \n6.View Registered Gym Centers \n 7.View Gym Booking \n8.View Available Slots \n9.Add Slots \n10.Remove Slots\n11.Log Out");

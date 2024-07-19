@@ -28,9 +28,9 @@ public class FlipFitApplication {
         if(role == 1) {
                 FlipFitCustomerMenu.login(email, password);
         } else if(role == 2) {
-                FlipFitGymOwnerMenu.main(null);
+                FlipFitGymOwnerMenu.login(email, password);
         } else if(role == 3) {
-                FlipFitAdminMenu.main(null);
+                FlipFitAdminMenu.login(email, password);
         }  else {
             System.out.println("Invalid role choice");
         }
