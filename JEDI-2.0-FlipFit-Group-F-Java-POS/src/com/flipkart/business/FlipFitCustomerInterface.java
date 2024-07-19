@@ -17,8 +17,8 @@ public interface FlipFitCustomerInterface {
 
     public List<FlipFitGymDetails> viewGyms();
 
-    public HashMap<String, Integer> viewSlots(int gymId, String date);
 
+    HashMap<String, Integer> viewSlots(int gymId, String date);
 
     public void filterSlots();
 }
