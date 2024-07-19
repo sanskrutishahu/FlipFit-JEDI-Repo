@@ -30,7 +30,6 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
     public void editGym(int gymId, int gymOwnerId, String gymName, String gymAddress, int noOfSlots) {
 
     }
-
     @Override
     public void removeGym(int gymId) {
 
