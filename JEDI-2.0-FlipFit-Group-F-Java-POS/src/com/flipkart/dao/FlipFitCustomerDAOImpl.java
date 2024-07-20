@@ -69,8 +69,8 @@ public class FlipFitCustomerDAOImpl implements FlipFitCustomerDAOInterface{
                 String gymName = rs.getString("gymName");
                 String gymLocation = rs.getString("gymAddress");
                 int noOfSlots= rs.getInt("noOfSlots");
-//                String aprovalStatus = rs.getString("approvalStatus");
-                gymList.add(new FlipFitGymDetails(gymId, ownerId, gymName, gymLocation,noOfSlots));
+                String approvalStatus = rs.getString("approvalStatus");
+                gymList.add(new FlipFitGymDetails(gymId, ownerId, gymName, gymLocation,noOfSlots, approvalStatus));
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());

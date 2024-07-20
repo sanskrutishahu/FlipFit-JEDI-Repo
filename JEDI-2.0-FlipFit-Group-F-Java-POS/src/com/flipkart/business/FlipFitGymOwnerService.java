@@ -25,8 +25,8 @@ public class FlipFitGymOwnerService implements FlipFitGymOwnerInterface{
     }
 
     @Override
-    public void registerGym(int gymId, int gymOwnerId, String gymName, String gymAddress, int noOfSlots) {
-        fLipFitGymOwnerDAO.registerGym(gymId, gymOwnerId, gymName, gymAddress, noOfSlots);
+    public void registerGym(int gymOwnerId, String gymName, String gymAddress) {
+        fLipFitGymOwnerDAO.registerGym(gymOwnerId, gymName, gymAddress);
     }
 
     @Override
@@ -40,8 +40,17 @@ public class FlipFitGymOwnerService implements FlipFitGymOwnerInterface{
     }
 
     @Override
-    public List<FlipFitGymDetails> viewAllRegisteredGymCenters(int userId) {
-        return fLipFitGymOwnerDAO.viewAllRegisteredGymCenters(userId);
+    public void viewAllRegisteredGymCenters(int userId) {
+        if (fLipFitGymOwnerDAO.viewAllRegisteredGymCenters(userId).isEmpty())
+        {
+            System.out.println("No Gym registered yet!!");
+            return;
+        }
+        System.out.println("-------- All Gym Details --------");
+        for(FlipFitGymDetails x : fLipFitGymOwnerDAO.viewAllRegisteredGymCenters(userId)){
+            System.out.println("Approval Status: "+x.getApprovalStatus().toString());
+            System.out.println(x);
+        }
     }
 
     @Override
@@ -55,19 +64,26 @@ public class FlipFitGymOwnerService implements FlipFitGymOwnerInterface{
     }
 
     @Override
-    public HashMap<String, Integer> viewAvailableSlots(int gymId, String date) {
-        return null;
+    public void viewAvailableSlots(int gymId, String date) {
+        fLipFitGymOwnerDAO.viewAvailableSlots(gymId,date);
+        if (fLipFitGymOwnerDAO.viewAvailableSlots(gymId,date).isEmpty())
+        {
+            System.out.println("No Slots available right now, please try again later.");
+            return;
+        }
+        System.out.println("-------- All Available Slot Details --------");
+        for(SlotDetails x : fLipFitGymOwnerDAO.viewAvailableSlots(gymId,date)){
+            System.out.println(x);
+        }
     }
 
     @Override
-    public void addSlot(SlotDetails slotDetails) {
-        fLipFitGymOwnerDAO.addSlot(slotDetails);
-        System.out.println("Added slot");
+    public void addSlot(int gymId, String date, String startTime, String endTime, int noOfSeats) {
+        fLipFitGymOwnerDAO.addSlot(gymId,date,startTime,endTime,noOfSeats);
     }
 
     @Override
     public void removeSlot(int gymId, int slotId) {
         fLipFitGymOwnerDAO.removeSlot(gymId, slotId);
-        System.out.println("Removed slot " + slotId + " for gym " + gymId);
     }
 }

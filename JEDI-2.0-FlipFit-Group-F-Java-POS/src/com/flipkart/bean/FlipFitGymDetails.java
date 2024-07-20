@@ -9,13 +9,13 @@ public class FlipFitGymDetails {
     private int noOfSlots;
     private String approvalStatus;
 
-    public FlipFitGymDetails(int gymId, int gymOwnerId, String gymName, String gymAddress, int noOfSlots) {
+    public FlipFitGymDetails(int gymId, int gymOwnerId, String gymName, String gymAddress, int noOfSlots, String approvalStatus) {
         this.gymId = gymId;
         this.gymOwnerId = gymOwnerId;
         this.gymName = gymName;
         this.gymAddress = gymAddress;
         this.noOfSlots = noOfSlots;
-//        this.approvalStatus = approvalStatus;
+        this.approvalStatus = approvalStatus;
     }
 
     @Override
@@ -25,9 +25,9 @@ public class FlipFitGymDetails {
                 "Gym Owner Id: " + gymOwnerId + "\n" +
                 "Gym Name: '" + gymName + '\'' + "\n" +
                 "Gym Address: '" + gymAddress + '\'' + "\n" +
-                "No Of Slots: " + noOfSlots + "\n" +
+//                "No Of Slots: " + noOfSlots + "\n" +
 //                "Approval Status: " + approvalStatus + "\n" +
-                "------------------------------------\n";
+                "-----------------------------------\n";
     }
 
     public int getGymId() {
