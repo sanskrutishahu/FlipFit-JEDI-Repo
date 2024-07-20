@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c6feb00f-6132-41b8-9611-7a111fc71dbe" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/flipkart.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flipkart.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/app/Sample.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/app/Sample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/Booking.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/Booking.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/FlipFitAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/FlipFitAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/FlipFitCustomer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/FlipFitCustomer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/FlipFitGymDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/FlipFitGymDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/FlipFitGymOwner.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/FlipFitGymOwner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/Payments.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/Payments.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/SlotDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/SlotDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/bean/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/business/FlipFitAdminInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/business/FlipFitAdminInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/business/FlipFitAdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/business/FlipFitAdminService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/business/FlipFitCustomerInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/business/FlipFitCustomerInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/business/FlipFitCustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/business/FlipFitCustomerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/business/FlipFitGymOwnerInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/business/FlipFitGymOwnerInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/business/FlipFitGymOwnerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/business/FlipFitGymOwnerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/business/FlipFituserInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/business/FlipFituserInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/business/FlipFituserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/business/FlipFituserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/client/FlipFitAdminMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/client/FlipFitAdminMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/client/FlipFitApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/client/FlipFitApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/client/FlipFitCustomerMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/client/FlipFitCustomerMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/client/FlipFitGymOwnerMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/client/FlipFitGymOwnerMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/constants/Sample.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/constants/Sample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/BookGymDAOInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/BookGymDAOInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/FLipFitGymOwnerDAOInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/FLipFitGymOwnerDAOInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/FlipFitAdminDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/FlipFitAdminDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/FlipFitAdminDAOInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/FlipFitAdminDAOInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/FlipFitCustomerDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/FlipFitCustomerDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/FlipFitCustomerDAOInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/FlipFitCustomerDAOInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/FlipFitGymOwnerDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/FlipFitGymOwnerDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/FlipFitUserDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/FlipFitUserDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/FlipFitUserDAOInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/dao/FlipFitUserDAOInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/helper/Sample.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/helper/Sample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bin/com/flipkart/validator/Sample.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bin/com/flipkart/validator/Sample.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2jShK6OKiz5NmAJWoiiLLFOPlKj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.FlipFitApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c6feb00f-6132-41b8-9611-7a111fc71dbe" name="Changes" comment="" />
+      <created>1721386318610</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721386318610</updated>
+      <workItem from="1721386319666" duration="3837000" />
+      <workItem from="1721413158003" duration="619000" />
+      <workItem from="1721413784564" duration="105000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

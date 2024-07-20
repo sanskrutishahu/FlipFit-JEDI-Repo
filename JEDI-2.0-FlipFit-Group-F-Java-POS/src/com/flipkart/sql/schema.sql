@@ -8,7 +8,7 @@ CREATE TABLE userDetails (
                              userId INT AUTO_INCREMENT PRIMARY KEY,
                              userEmail VARCHAR(100),
                              userPassword VARCHAR(100),
-                             roleID INT,
+                             roleId INT,
                              FOREIGN KEY (roleId) REFERENCES roleDetails(roleId)
 );
 
@@ -47,7 +47,7 @@ CREATE TABLE gymDetails (
                             gymName VARCHAR(100),
                             gymAddress VARCHAR(200),
                             noOfSlots INT,
-                            approvalStatus INT,
+                            approvalStatus VARCHAR(50),
                             FOREIGN KEY (gymOwnerId) REFERENCES gymOwner(ownerId)
 );
 

@@ -1,6 +1,7 @@
 package com.flipkart.client;
 import java.util.*;
 
+import com.flipkart.bean.FlipFitGymDetails;
 import com.flipkart.bean.FlipFitGymOwner;
 import com.flipkart.business.FlipFitAdminInterface;
 import com.flipkart.business.FlipFitAdminService;
@@ -10,136 +11,126 @@ public class FlipFitAdminMenu {
     FlipFitAdminInterface flipFitAdminService = new FlipFitAdminService();
     public  void viewPendingCentre()
     {
-
-        System.out.println("You are in view View Pending Centre function\n");
         flipFitAdminService.viewPendingCenter();
     }
     public  void viewPendingOwner()
     {
-        //System.out.println("You are in View Pending Owner function\n");
-        //flipFitAdminService.viewPendingOwner();
-        FlipFitAdminService service = new FlipFitAdminService();
-        for(FlipFitGymOwner x : service.viewPendingOwner()){
-            System.out.println(x);
-        }
+        flipFitAdminService.viewPendingOwner();
     }
     public  void approveCentre(int gymId)
     {
-
-        System.out.println("You are in Approve Centre function\n");
         flipFitAdminService.approveGymRequests(gymId);
     }
     public void approveOwner(int ownerId)
     {
         flipFitAdminService.approveGymOwnerRequests(ownerId);
-        System.out.println("You are in Approve Owner function\n");
     }
     public void rejectCentre(int gymId)
     {
-        System.out.println("You are in Reject Centre function\n");
         flipFitAdminService.rejectGymRequests(gymId);
     }
     public void rejectOwner(int ownerId)
     {
-
-        System.out.println("You are in Reject Owner function\n");
         flipFitAdminService.rejectGymOwnerRequests(ownerId);
     }
     public void removeCentre(int GymId)
     {
-
-        System.out.println("You are in Remove Centre function\n");
         flipFitAdminService.removeGym(GymId);
     }
     public  void removeOwner(int ownerId)
     {
-
-        System.out.println("You are in Remove Owner function\n");
         flipFitAdminService.removeGymOwner(ownerId);
     }
     public  void viewAllGymOwners()
     {
         flipFitAdminService.viewAllGymOwners();
-        System.out.println("You are in View All Gym Owner function\n");
     }
-    public  void viewGymOwnersDetails(int ownerId)
+    public  void viewGymDetails()
     {
-        System.out.println("You are in View Gym Owner Details function\n");
-        flipFitAdminService.viewGymOwnerDetails(ownerId);
-
+        flipFitAdminService.viewGymDetails();
     }
     public void userLogout()
     {
-
         System.out.println("Logged out\n");
     }
     public int TakeGymId()
     {
         Scanner in = new Scanner(System.in);
-        System.out.println("Select Gym Id: \n");
+        System.out.println("Select Gym Id: ");
         int gymId = in.nextInt();
         return gymId;
     }
     public int TakeGymOwnerId()
     {
         Scanner in = new Scanner(System.in);
-        System.out.println("Select Gym Owner Id: \n");
+        System.out.println("Select Gym Owner Id: ");
         int ownerId = in.nextInt();
         return ownerId;
     }
 
+    public void displayAdminMenu()
+    {
+        System.out.println("-------- Welcome to FlipFit Admin Menu Page --------");
+        System.out.println("Enter preferred choices:\n1. View all Pending Gym Centre requests\n2. View all Pending Gym Owner requests\n3. Approve Gym Centre request\n4. Approve Gym Owner request\n5. Reject Gym Centre request\n6. Reject Gym Owner request\n7. View all Gym Owners \n8. View all Gym Centres \n9. Remove Gym Centre \n10.Remove Gym Owner \n11.Log Out");
+    }
+
     public static void login(String email, String password){
 
-        System.out.println("--------Welcome to FlipFit Admin Menu Page--------");
-        System.out.println("Enter preferred choices:\n1. View Pending Centre\n2. View Pending Owner\n3. Approve Centre\n4. Approve Owner\n5. Reject Centre\n6. Reject Owner\n7. Remove Centre\n8. Remove Owner \n9. View all Gym Owners \n10.View Gym Owner details \n11. Log Out");
         Scanner in = new Scanner(System.in);
-        int choice = in.nextInt();
         FlipFitAdminMenu menu = new FlipFitAdminMenu();
         int gymId;
         int ownerId;
-        switch(choice) {
-            case 1:
-                menu.viewPendingCentre();
-                break;
-            case 2:
-                menu.viewPendingOwner();
-                break;
-            case 3:
-                gymId=menu.TakeGymId();
-                menu.approveCentre(gymId);
-                break;
-            case 4:
-                ownerId= menu.TakeGymOwnerId();
-                menu.approveOwner(ownerId);
-                break;
-            case 5:
-                gymId = menu.TakeGymId();
-                menu.rejectCentre(gymId);
-                break;
-            case 6:
-                ownerId=menu.TakeGymOwnerId();
-                menu.rejectOwner(ownerId);
-                break;
-            case 7:
-                gymId=menu.TakeGymId();
-                menu.removeCentre(gymId);
-                break;
-            case 8:
-                ownerId= menu.TakeGymOwnerId();
-                menu.removeOwner(ownerId);
-                break;
-            case 9:
-                menu.viewAllGymOwners();
-                break;
-            case 10:
-                ownerId=menu.TakeGymOwnerId();
-                menu.viewGymOwnersDetails(ownerId);
-                break;
-            case 11:
-                menu.userLogout();
-                break;
-            default:
-                System.out.println("Invalid choice");
+        int choice = 0;
+        menu.displayAdminMenu();
+        while(choice != 11){
+            choice = in.nextInt();
+            switch(choice) {
+                case 1:
+                    menu.viewPendingCentre();
+                    break;
+                case 2:
+                    menu.viewPendingOwner();
+                    break;
+                case 3:
+                    gymId = menu.TakeGymId();
+                    menu.approveCentre(gymId);
+                    break;
+                case 4:
+                    ownerId = menu.TakeGymOwnerId();
+                    menu.approveOwner(ownerId);
+                    break;
+                case 5:
+                    gymId = menu.TakeGymId();
+                    menu.rejectCentre(gymId);
+                    break;
+                case 6:
+                    ownerId = menu.TakeGymOwnerId();
+                    menu.rejectOwner(ownerId);
+                    break;
+                case 7:
+                    menu.viewAllGymOwners();
+                    break;
+                case 8:
+                    menu.viewGymDetails();
+                    break;
+                case 9:
+                    gymId = menu.TakeGymId();
+                    menu.removeCentre(gymId);
+                    break;
+                case 10:
+                    ownerId = menu.TakeGymOwnerId();
+                    menu.removeOwner(ownerId);
+                    break;
+                case 11:
+                    menu.userLogout();
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+            }
+            System.out.println("Press 1 to go back to 'Admin Menu Page' OR any other key to 'Log Out'");
+            int newChoice = in.nextInt();
+            if(newChoice == 1) menu.displayAdminMenu();
+            else break;
         }
         in.close();
     }

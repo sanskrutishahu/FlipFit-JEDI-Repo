@@ -7,11 +7,9 @@ public interface FlipFitAdminInterface {
 
     public void createAdmin(String customUserName, int adminId);
 
-    public List <FlipFitGymOwner> viewAllGymOwners();
+    public void viewAllGymOwners();
 
-    public List<FlipFitGymOwner> viewGymOwnerDetails(int ownerId);
-
-    public List<FlipFitGymOwner> viewGymOwnerRequests();
+    public void viewGymDetails();
 
     public void approveGymOwnerRequests(int ownerId);
 
@@ -23,12 +21,12 @@ public interface FlipFitAdminInterface {
 
     public void removeGym(int gymId);
 
-    public List<FlipFitGymOwner> viewPendingOwner();
+    public void viewPendingOwner();
 
-    public List<FlipFitGymDetails> viewPendingCenter();
+    public void viewPendingCenter();
 
     public void removeGymOwner(int ownerId);
 
-    public void cancelRequest(int ownerId);
+//    public void cancelRequest(int ownerId);
 
 }

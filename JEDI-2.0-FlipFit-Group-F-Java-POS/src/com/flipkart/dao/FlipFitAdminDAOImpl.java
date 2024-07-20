@@ -26,15 +26,12 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
 
             Class.forName("com.mysql.jdbc.Driver");
 
-            con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/FlipFit", "root", "Sushma@22");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
-            String query = "SELECT * FROM gymOwner";
+            String query = "SELECT * FROM gymOwner WHERE approvalStatus = 'APPROVED'";
 
             stmt = con.prepareStatement(query);
             rs = stmt.executeQuery();
-
-            System.out.println("All Registered GymOwners");
 
             while (rs.next()) {
                 int gymOwnerId = rs.getInt("ownerId");
@@ -62,45 +59,34 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
     }
 
     @Override
-    public List<FlipFitGymOwner> viewGymOwnerDetails(int ownerId) {
+    public List<FlipFitGymDetails> viewGymDetails() {
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        List<FlipFitGymOwner> gymOwnerList = new ArrayList<FlipFitGymOwner>();
+        List<FlipFitGymDetails> gymList = new ArrayList<>();
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/FlipFit", "root", "Sushma@22");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
-            String query = "SELECT * FROM gymOwner WHERE ownerId = ?";
+            String query = "SELECT * FROM gymDetails WHERE approvalStatus = 'APPROVED'";
             stmt = con.prepareStatement(query);
-            stmt.setInt(1, ownerId);
+//            stmt.setInt(1, ownerId);
 
             rs = stmt.executeQuery();
 
-            System.out.println("All Details of GymOwner: " + ownerId);
+            while (rs.next()) {
+                int gymId = rs.getInt("gymId");
+                int gymOwnerId = rs.getInt("gymOwnerId");
+                String gymName = rs.getString("gymName");
+                String gymAddress = rs.getString("gymAddress");
+                int noOfSlots = rs.getInt("noOfSlots");
+//                String approvalStatus = rs.getString("approvalStatus");
+//                int userId = rs.getInt("userId");
 
-            if (rs.next()) {
-                // Retrieve and display the gym owner details
-
-                int gymOwnerId = rs.getInt("ownerId");
-                String name = rs.getString("ownerName");
-                String gstNum = rs.getString("ownerGstNum");
-                String panNum = rs.getString("ownerPanNum");
-                String approvalStatus = rs.getString("approvalStatus");
-                String address = rs.getString("ownerAddress");
-                String phone = rs.getString("ownerPhone");
-
-//                //int userId = rs.getInt("ownerId");
-
-                gymOwnerList.add(new FlipFitGymOwner(name, phone, address, gstNum, panNum, approvalStatus, gymOwnerId));
-
-                return gymOwnerList;
-            } else {
-                System.out.println("No gym owner found with ID " + ownerId);
+                gymList.add(new FlipFitGymDetails(gymId, gymOwnerId, gymName, gymAddress, noOfSlots));
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
@@ -113,7 +99,7 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
                 System.out.println("Error closing resources: " + e.getMessage());
             }
         }
-        return gymOwnerList;
+        return gymList;
     }
 
     @Override
@@ -128,8 +114,7 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
 
             Class.forName("com.mysql.jdbc.Driver");
 
-            con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/FlipFit", "root", "Sushma@22");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
 
             String query = "SELECT * FROM gymOwner WHERE approvalStatus = 'PENDING'";
@@ -177,8 +162,7 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/FlipFit", "root", "Sushma@22");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
 
             String query = "UPDATE gymOwner SET approvalStatus = 'APPROVED' WHERE ownerId = ? AND approvalStatus = 'PENDING'";
@@ -189,7 +173,6 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
 
 
             if (rowsAffected > 0) {
-                System.out.println("Gym owner with ID " + ownerId + " has been approved.");
                 return true;
             } else {
                 return false;
@@ -216,8 +199,7 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/FlipFit", "root", "Sushma@22");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
 
             String query = "UPDATE gymDetails SET approvalStatus = 'APPROVED' WHERE gymId = ? AND approvalStatus = 'PENDING'";
@@ -226,9 +208,7 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
 
             int rowsAffected = stmt.executeUpdate();
 
-
             if (rowsAffected > 0) {
-                System.out.println("Gym request with ID " + gymId + " has been approved.");
                 return true;
             } else {
                 return false;
@@ -257,10 +237,9 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
             Class.forName("com.mysql.cj.jdbc.Driver");
 
 
-            con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/FlipFit", "root", "Sushma@22");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
-            String query = "UPDATE gymOwner SET approvalStatus = 'CANCELED' WHERE ownerId = ? AND approvalStatus = 'PENDING'";
+            String query = "UPDATE gymOwner SET approvalStatus = 'REJECTED' WHERE ownerId = ? AND approvalStatus = 'PENDING'";
             stmt = con.prepareStatement(query);
             stmt.setInt(1, ownerId);
 
@@ -269,8 +248,8 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
 
 
             if (rowsAffected > 0) {
-                System.out.println("Request for gym owner with ID " + ownerId + " has been canceled.");
-                return true;             } else {
+                return true;
+            } else {
                 return false;
             }
         } catch (Exception e) {
@@ -298,20 +277,18 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
             Class.forName("com.mysql.cj.jdbc.Driver");
 
 
-            con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/FlipFit", "root", "Sushma@22");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
-            String query = "UPDATE gymDetails SET approvalStatus = 'CANCELED' WHERE gymId = ? AND approvalStatus = 'PENDING'";
+            String query = "UPDATE gymDetails SET approvalStatus = 'REMOVED' WHERE gymId = ? AND approvalStatus = 'APPROVED'";
             stmt = con.prepareStatement(query);
             stmt.setInt(1, gymId);
 
 
             int rowsAffected = stmt.executeUpdate();
 
-
             if (rowsAffected > 0) {
-                System.out.println("Request for gym owner with ID " + gymId + " has been canceled.");
-                return true;             } else {
+                return true;
+            } else {
                 return false;
             }
         } catch (Exception e) {
@@ -342,19 +319,15 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
 
             Class.forName("com.mysql.jdbc.Driver");
 
-            con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/FlipFit", "root", "Sushma@22");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
 
             String query = "SELECT * FROM gymOwner WHERE approvalStatus = 'PENDING'";
             stmt = con.prepareStatement(query);
 
-
             rs = stmt.executeQuery();
 
-
             boolean hasRequests = false;
-            System.out.println("Pending Gym Owner Requests:");
 
             while (rs.next()) {
                 int gymOwnerId = rs.getInt("ownerId");
@@ -389,25 +362,20 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        List<FlipFitGymDetails> gymOwnerList = new ArrayList<>();
+        List<FlipFitGymDetails> gymList = new ArrayList<>();
 
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
 
-            con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/FlipFit", "root", "Sushma@22");
-
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
             String query = "SELECT * FROM gymDetails WHERE approvalStatus = 'PENDING'";
             stmt = con.prepareStatement(query);
 
-
             rs = stmt.executeQuery();
 
-
             boolean hasRequests = false;
-            System.out.println("Pending Gym Center Requests:");
 
             while (rs.next()) {
                 int gymId = rs.getInt("gymId");
@@ -418,8 +386,7 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
                 String approvalStatus = rs.getString("approvalStatus");
 //                int userId = rs.getInt("userId");
 
-                gymOwnerList.add(new FlipFitGymDetails(gymId,gymOwnerId, gymName, gymAddress, noOfSlots, approvalStatus));
-
+                gymList.add(new FlipFitGymDetails(gymId, gymOwnerId, gymName, gymAddress, noOfSlots));
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
@@ -432,7 +399,7 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
                 System.out.println("Error closing resources: " + e.getMessage());
             }
         }
-        return gymOwnerList;
+        return gymList;
     }
 
     @Override
@@ -443,21 +410,17 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
-            con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/FlipFit", "root", "Sushma@22");
-
-            String query = "UPDATE gymDetails SET approvalStatus = 'CANCELED' WHERE gymId = ? AND approvalStatus = 'PENDING'";
+            String query = "UPDATE gymDetails SET approvalStatus = 'REJECTED' WHERE gymId = ? AND approvalStatus = 'PENDING'";
             stmt = con.prepareStatement(query);
             stmt.setInt(1, gymId);
 
-
             int rowsAffected = stmt.executeUpdate();
 
-
             if (rowsAffected > 0) {
-                System.out.println("Request for gym with ID " + gymId + " has been canceled.");
-                return true;             } else {
+                return true;
+            } else {
                 return false;
             }
         } catch (Exception e) {
@@ -485,21 +448,17 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
-            con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/FlipFit", "root", "Sushma@22");
-
-            String query = "UPDATE gymOwner SET approvalStatus = 'CANCELED' WHERE ownerId = ? AND approvalStatus = 'PENDING'";
+            String query = "UPDATE gymOwner SET approvalStatus = 'REMOVED' WHERE ownerId = ? AND approvalStatus = 'APPROVED'";
             stmt = con.prepareStatement(query);
             stmt.setInt(1, ownerId);
 
-
             int rowsAffected = stmt.executeUpdate();
 
-
             if (rowsAffected > 0) {
-                System.out.println("Request for gym owner with ID " + ownerId + " has been canceled.");
-                return true;             } else {
+                return true;
+            } else {
                 return false;
             }
         } catch (Exception e) {
@@ -515,13 +474,5 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
                 System.out.println("Error closing resources: " + e.getMessage());
             }
         }
-
-
     }
-
-    @Override
-    public void cancelRequest(int ownerId) {
-
-    }
-
 }

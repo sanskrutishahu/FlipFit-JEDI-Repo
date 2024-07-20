@@ -24,7 +24,7 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "root@123");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
             String query = "INSERT INTO booking (userId, slotId, transactionId, bookingDate, bookingTimeSlot, bookingType, bookingAmount, bookingStatus) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             stmt = con.prepareStatement(query);
@@ -68,7 +68,7 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "root@123");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
             // Now, get all bookings for the customerId
             String bookingQuery = "SELECT * FROM booking WHERE userId = ?";
@@ -116,7 +116,7 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "Sushma@22");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
             String querySelect = "SELECT transactionId FROM Booking WHERE bookingId = ?";
             stmtSelect = con.prepareStatement(querySelect);

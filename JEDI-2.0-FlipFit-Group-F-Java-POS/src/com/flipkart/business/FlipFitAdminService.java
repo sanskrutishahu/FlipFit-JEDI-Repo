@@ -13,44 +13,54 @@ public class FlipFitAdminService implements FlipFitAdminInterface {
 
     @Override
     public void createAdmin(String customUserName, int adminId) {
-        System.out.println("Create Admin Implementation.");
+        System.out.println("Admin is Created");
     }
 
     @Override
-    public List<FlipFitGymOwner> viewAllGymOwners() {
-        return adminDAO.viewAllGymOwners();
+    public void viewAllGymOwners() {
+        if (adminDAO.viewAllGymOwners().isEmpty())
+        {
+            System.out.println("No Gym Owner Found!!");
+            return;
+        }
+        System.out.println("-------- All Gym Owners --------");
+        for(FlipFitGymOwner x : adminDAO.viewAllGymOwners()){
+            System.out.println(x);
+        }
     }
 
     @Override
-    public List<FlipFitGymOwner> viewGymOwnerDetails(int ownerId) {
-        return adminDAO.viewGymOwnerDetails(ownerId);
-    }
-
-    @Override
-    public List<FlipFitGymOwner> viewGymOwnerRequests() {
-        return adminDAO.viewGymOwnerRequests();
+    public void viewGymDetails() {
+        if (adminDAO.viewGymDetails().isEmpty())
+        {
+            System.out.println("No Gym centre found!!");
+            return;
+        }
+        System.out.println("-------- All Gym Centres  --------");
+        for(FlipFitGymDetails x : adminDAO.viewGymDetails()){
+            System.out.println(x);
+        }
     }
 
     @Override
     public void approveGymOwnerRequests(int ownerId) {
         boolean res=adminDAO.approveGymOwnerRequests(ownerId);
         if (res){
-            System.out.println("Approved the gym owner requests with Id " + ownerId);
+            System.out.println("Gym Owner request with ID " + ownerId + " has been approved.");
         }
         else{
-            System.out.println("The gym owner requests with Id could not be approved" + ownerId);
+            System.out.println("Gym Owner request with ID " + ownerId + " could not be found!!");
         }
-
     }
 
     @Override
     public void approveGymRequests(int gymId) {
         boolean res=adminDAO.approveGymRequests(gymId);
         if (res){
-            System.out.println("Approved the gym requests with Id " + gymId);
+            System.out.println("Gym request with ID " + gymId + " has been approved.");
         }
         else{
-            System.out.println("The gym request with Id could not be approved" + gymId);
+            System.out.println("Gym request with ID " + gymId + " could not be found!!");
         }
     }
 
@@ -58,22 +68,21 @@ public class FlipFitAdminService implements FlipFitAdminInterface {
     public void rejectGymOwnerRequests(int ownerId) {
         boolean res=adminDAO.rejectGymOwnerRequests(ownerId);
         if (res){
-            System.out.println("Rejected the gym owner requests with Id " + ownerId);
+            System.out.println("Gym Owner request with ID " + ownerId + " has been rejected.");
         }
         else{
-            System.out.println("The gym owner request with Id could not be rejected" + ownerId);
+            System.out.println("Gym Owner request with ID " + ownerId + " could not be found!!");
         }
-
     }
 
     @Override
     public void rejectGymRequests(int gymId) {
         boolean res=adminDAO.rejectGymRequests(gymId);
         if (res){
-            System.out.println("Rejected the gym requests with Id " + gymId);
+            System.out.println("Gym request with ID " + gymId + " has been rejected.");
         }
         else{
-            System.out.println("The gym request with Id could not be rejected" + gymId);
+            System.out.println("Gym request with ID " + gymId + " could not be found!!");
         }
     }
 
@@ -81,52 +90,47 @@ public class FlipFitAdminService implements FlipFitAdminInterface {
     public void removeGym(int gymId) {
         boolean res =adminDAO.removeGym(gymId);
         if (res){
-            System.out.println("Removed the gym requests with Id " + gymId);
+            System.out.println("Gym with ID " + gymId + " has been removed successfully.");
         }
         else{
-            System.out.println("The gym request with Id could not be removed" + gymId);
+            System.out.println("Gym with ID " + gymId + " could not be found!!");
         }
     }
 
     @Override
-    public List<FlipFitGymOwner> viewPendingOwner() {
-/*
-        return adminDAO.viewPendingOwner();
-*/
-        FlipFitGymOwner owner = new FlipFitGymOwner(
-                "priyanka",
-                "93423435435",
-                "shivaji nagar",
-                "33432423",
-                "3534532",
-                "true",
-                1343
-        );
-        ArrayList<FlipFitGymOwner> owners = new ArrayList<>();
-        owners.add(owner);
-        return owners;
+    public void viewPendingOwner() {
+        if (adminDAO.viewPendingOwner().isEmpty())
+        {
+            System.out.println("No Pending Gym Owner Request!!");
+            return;
+        }
+        System.out.println("Pending Gym Owner Requests:");
+        for(FlipFitGymOwner x : adminDAO.viewPendingOwner()){
+            System.out.println(x);
+        }
     }
 
     @Override
-    public List<FlipFitGymDetails> viewPendingCenter() {
-        return adminDAO.viewPendingCenter();
+    public void viewPendingCenter() {
+        if(adminDAO.viewPendingCenter().isEmpty())
+        {
+            System.out.println("No Pending Gym Centre Request!!");
+            return;
+        }
+        System.out.println("Pending Gym Center Requests:");
+        for(FlipFitGymDetails x : adminDAO.viewPendingCenter()){
+            System.out.println(x);
+        }
     }
 
     @Override
     public void removeGymOwner(int ownerId) {
         boolean res= adminDAO.removeGymOwner(ownerId);
         if (res){
-            System.out.println("Removed the gym owner with Id " + ownerId);
+            System.out.println("Gym Owner with ID " + ownerId + " has been removed successfully.");
         }
         else{
-            System.out.println("The gym request with Id could not be removed" + ownerId);
+            System.out.println("Gym Owner with ID " + ownerId + " could not be found!!");
         }
-
-    }
-
-
-    public void cancelRequest(int ownerId) {
-        adminDAO.cancelRequest(ownerId);
-        System.out.println("Cancelled the gym owner request with Id " + ownerId);
     }
 }

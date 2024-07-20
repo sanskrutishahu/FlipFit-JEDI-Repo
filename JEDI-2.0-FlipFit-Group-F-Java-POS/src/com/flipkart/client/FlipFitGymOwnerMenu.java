@@ -150,7 +150,7 @@ public class FlipFitGymOwnerMenu {
     public static void login(String email, String password){
 
         System.out.println("--------Welcome to FlipFit Owner Menu Page--------");
-        System.out.println("Enter preferred choices:\n1. Edit Profile\n2. Add Gym\n3. Remove Gym\n4. View Bookings\n5.Edit Gym \n6.View Registered Gym Centers \n 7.View Gym Booking \n8.View Available Slots \n9.Add Slots \n10.Remove Slots\n11.Log Out");
+        System.out.println("Enter preferred choices:\n1. Add Gym\n2. Remove Gym\n3. View Bookings\n4. Edit Gym \n5. View Registered Gym Centers \n6. View Gym Booking \n7. View Available Slots \n8. Add Slots \n9. Remove Slots\n10. Log Out");
         FlipFitGymOwnerMenu menu = new FlipFitGymOwnerMenu();
         Scanner in = new Scanner(System.in);
         int choice = in.nextInt();

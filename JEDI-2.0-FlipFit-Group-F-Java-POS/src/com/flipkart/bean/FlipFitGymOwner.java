@@ -22,15 +22,15 @@ public class FlipFitGymOwner{
 
 	@Override
 	public String toString() {
-		return "-----------------Onwer Details-------------------\n" +
+		return
 				"Owner Name: '" + ownerName + '\'' +"\n"+
 				"Owner Phone: '" + ownerPhone + '\'' +"\n"+
 				"Owner Address: '" + ownerAddress + '\'' +"\n"+
 				"Owner GstNum: '" + ownerGstNum + '\'' +"\n"+
 				"Owner PanNum: '" + ownerPanNum + '\'' +"\n"+
-				"Opproval Status: '" + approvalStatus + '\'' +"\n"+
+				"Approval Status: '" + approvalStatus + '\'' +"\n"+
 				"Owner Id: " + ownerId +"\n"+
-				"-------------------------------------------------";
+				"-----------------------------------";
 	}
 
 	public String getOwnerName() {

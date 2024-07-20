@@ -23,12 +23,12 @@ public class FlipFitApplication {
         String email = in.next();
         System.out.println("Enter your Password: ");
         String password = in.next();
-        System.out.println("Enter your role: \n1. Customer\n2. Gym owner\n3. Admin");
+        System.out.println("Enter your role: \n1. Gym Owner\n2. Customer\n3. Admin");
         int role = in.nextInt();
         if(role == 1) {
-                FlipFitCustomerMenu.login(email, password);
+            FlipFitGymOwnerMenu.login(email, password);
         } else if(role == 2) {
-                FlipFitGymOwnerMenu.login(email, password);
+            FlipFitCustomerMenu.login(email, password);
         } else if(role == 3) {
                 FlipFitAdminMenu.login(email, password);
         }  else {

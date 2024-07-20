@@ -42,11 +42,16 @@ public class FlipFitCustomerMenu {
     }
     public static void viewGymCenters(FlipFitCustomerService customer)
     {
-        customer.viewGyms();
-//        FlipFitCustomerService service = new FlipFitCustomerService();
-//        for(FlipFitGymDetails x : service.viewGyms()) {
-//            System.out.println(x);
-//        }
+//        customer.viewGyms();
+        FlipFitCustomerService service = new FlipFitCustomerService();
+        if(service.viewGyms()==null)
+        {
+            System.out.println("No Gym Centre Found!!");
+            return;
+        }
+        for(FlipFitGymDetails x : service.viewGyms()) {
+            System.out.println(x);
+        }
     }
     public static void viewAvailableSlots(FlipFitCustomerService customer)
     {
