@@ -123,7 +123,8 @@ public class FlipFitAdminMenu {
                     break;
                 case 11:
                     menu.userLogout();
-                    break;
+                    in.close();
+                    return;
                 default:
                     System.out.println("Invalid choice");
             }

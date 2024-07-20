@@ -88,7 +88,6 @@ public class FlipFitGymOwnerMenu {
 //    }
     public void viewAvailableSlots()
     {
-        System.out.println("You are in view Available slots function\n");
         System.out.print("Enter Gym ID: ");
         int gymId = scanner.nextInt();
         scanner.nextLine();
@@ -160,7 +159,8 @@ public class FlipFitGymOwnerMenu {
                     break;
                 case 7:
                     menu.userLogout();
-                    break;
+                    in.close();
+                    return;
                 default:
                     System.out.println("Invalid choice");
             }
