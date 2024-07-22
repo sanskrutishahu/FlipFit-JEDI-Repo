@@ -42,7 +42,7 @@ public class FlipFitGymBookingService implements FlipFitGymBookingInterface {
     @Override
     public void cancelBookings(int bookingId) {
         bookGymDAO.cancelBookings(bookingId);
-        System.out.println("Booking is cancelled");
+//        System.out.println("Booking is cancelled");
     }
 
     @Override

@@ -18,13 +18,13 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
 
     @Override
     public void bookSlots(int bookingId, int useId, int slotId, String bookingDate, String bookingTimeSlotStart, String bookingTimeSlotEnd, int bookingStatus, int transactionId, int bookingAmount){
+        System.out.println("Slot book");
         Connection con = null;
         PreparedStatement stmt = null;
-        ResultSet rs1 = null;
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "tushmahe");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
             String query = "SELECT * FROM slotDetails WHERE slotId = ?";
             stmt = con.prepareStatement(query);
@@ -35,6 +35,8 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
                 System.out.println("Slot not found. Please book another slot!");
                 return;
             }
+
+            System.out.println("slot present");
             String query2 = "INSERT INTO booking (userId, slotId, transactionId, bookingDate, bookingTimeSlot, bookingType, bookingAmount, bookingStatus) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             stmt = con.prepareStatement(query2);
 
@@ -77,7 +79,7 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "tushmahe");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
             // Now, get all bookings for the userId
             String bookingQuery = "SELECT * FROM booking WHERE customerId = ?";
@@ -129,33 +131,33 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "tushmahe");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
-            String querySelect = "SELECT transactionId FROM Booking WHERE bookingId = ?";
-            stmtSelect = con.prepareStatement(querySelect);
-            stmtSelect.setInt(1, bookingId);
-            rs = stmtSelect.executeQuery();
+//            String querySelect = "SELECT transactionId FROM booking WHERE bookingId = ?";
+//            stmtSelect = con.prepareStatement(querySelect);
+//            stmtSelect.setInt(1, bookingId);
+//            rs = stmtSelect.executeQuery();
 
             if (rs.next()) {
-                int transactionId = rs.getInt("transactionId");
-                String queryDeleteBooking = "DELETE FROM Booking WHERE bookingId = ?";
+//                int transactionId = rs.getInt("transactionId");
+                String queryDeleteBooking = "DELETE FROM booking WHERE bookingId = ?";
                 stmtDeleteBooking = con.prepareStatement(queryDeleteBooking);
                 stmtDeleteBooking.setInt(1, bookingId);
                 int resultBooking = stmtDeleteBooking.executeUpdate();
 
                 if (resultBooking > 0) {
-                    System.out.println("Booking successfully canceled.");
+                    System.out.println("Booking successfully cancelled.");
 
-                    String queryDeletePayment = "DELETE FROM Payment WHERE transactionId = ?";
-                    stmtDeletePayment = con.prepareStatement(queryDeletePayment);
-                    stmtDeletePayment.setInt(1, transactionId);
-                    int resultPayment = stmtDeletePayment.executeUpdate();
-
-                    if (resultPayment > 0) {
-                        System.out.println("Payment successfully removed.");
-                    } else {
-                        System.out.println("No payment found with the given transactionId.");
-                    }
+//                    String queryDeletePayment = "DELETE FROM Payment WHERE transactionId = ?";
+//                    stmtDeletePayment = con.prepareStatement(queryDeletePayment);
+//                    stmtDeletePayment.setInt(1, transactionId);
+//                    int resultPayment = stmtDeletePayment.executeUpdate();
+//
+//                    if (resultPayment > 0) {
+//                        System.out.println("Payment successfully removed.");
+//                    } else {
+//                        System.out.println("No payment found with the given transactionId.");
+//                    }
                 } else {
                     System.out.println("No booking found with the given bookingId.");
                 }

@@ -88,19 +88,17 @@ public class FlipFitCustomerMenu {
     public static void displayCustomerMenu()
     {
         System.out.println("--------Welcome to FlipFit Customer Menu Page--------");
-        System.out.println("Enter preferred choices:\n1. View Profile \n2. Edit Profile\n3. View Bookings\n4. View Gym Centers\n5. View Available Slots\n6. Book A Slot\n7. Cancel Booking\n8. Log Out");
+        System.out.println("Enter preferred choices:\n1. View Profile \n2. View Bookings\n3. View Gym Centers\n4. View Available Slots\n5. Book A Slot\n6. Cancel Booking\n7. Log Out");
     }
 
     public static void login(int id, String email, String password){
         Scanner in = new Scanner(System.in);
         FlipFitCustomerMenu menu = new FlipFitCustomerMenu();
-        int gymId;
-        int ownerId;
         int choice = 0;
         FlipFitCustomerService customer = new FlipFitCustomerService();
         FlipFitGymBookingService booking = new FlipFitGymBookingService();
         menu.displayCustomerMenu();
-        while(choice != 11) {
+        while(choice != 7) {
             choice = in.nextInt();
             switch(choice) {
                 case 1:
@@ -126,13 +124,14 @@ public class FlipFitCustomerMenu {
                     break;
                 case 7:
                     userLogout();
-                    break;
+                    in.close();
+                    return;
                 default:
                     System.out.println("Invalid choice");
             }
-            System.out.println("Press 1 to go back to 'Admin Menu Page' OR any other key to 'Log Out'");
+            System.out.println("Press 1 to go back to 'Customer Menu Page' OR any other key to 'Log Out'");
             int newChoice = in.nextInt();
-            if (newChoice == 1) menu.displayAdminMenu();
+            if (newChoice == 1) menu.displayCustomerMenu();
             else break;
         }
         in.close();

@@ -26,7 +26,7 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
 
             Class.forName("com.mysql.jdbc.Driver");
 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "tushmahe");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
             String query = "SELECT * FROM gymOwner WHERE approvalStatus = 'APPROVED'";
 
@@ -69,7 +69,7 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "tushmahe");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
             String query = "SELECT * FROM gymDetails WHERE approvalStatus = 'APPROVED'";
             stmt = con.prepareStatement(query);

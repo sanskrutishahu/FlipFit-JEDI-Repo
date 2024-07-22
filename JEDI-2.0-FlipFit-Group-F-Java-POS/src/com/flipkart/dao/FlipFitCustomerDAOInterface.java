@@ -2,6 +2,7 @@ package com.flipkart.dao;
 
 import com.flipkart.bean.FlipFitCustomer;
 import com.flipkart.bean.FlipFitGymDetails;
+import com.flipkart.bean.SlotDetails;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,8 +17,8 @@ public interface FlipFitCustomerDAOInterface {
 
     public List<FlipFitGymDetails> viewGyms();
 
-    HashMap<String,Integer> viewSlots(int gymId,String date);
+    List<SlotDetails> viewSlots(int gymId, String date);
 
-    public int makePayment(int userId, String paymentDetails, String expiryDate, String modeOfPayment);
+//    public int makePayment(int userId, String paymentDetails, String expiryDate, String modeOfPayment);
 
 }

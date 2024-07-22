@@ -1,5 +1,5 @@
 package com.flipkart.constants;
 
-public class Sample {
+public class Queries {
 
 }

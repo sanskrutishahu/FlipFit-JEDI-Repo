@@ -28,7 +28,7 @@ public class FlipFitApplication {
         int userId = userService.authenticateUser(email,password,role);
         if(userId<=0) return;
         if(role == 1) {
-            FlipFitGymOwnerMenu.login(email, password);
+            FlipFitGymOwnerMenu.login(userId, email, password);
         } else if(role == 2) {
             FlipFitCustomerMenu.login(userId, email, password);
         } else if(role == 3) {
@@ -78,7 +78,8 @@ public class FlipFitApplication {
             String ownerPanNum = in.next();
             int userId = userService.createUser(0,email, password, 1);
             ownerService.createGymOwner(ownerName, ownerPhone, ownerAddress, ownerGstNum, ownerPanNum, "PENDING",userId);
-        } else if(role == 2){
+            login();
+        } else if(role == 2) {
             System.out.println("Enter your Name: ");
             String customerName = in.next();
             System.out.println("Enter your Phone Number: ");
@@ -91,8 +92,9 @@ public class FlipFitApplication {
             int weight = Integer.parseInt(in.next());
             System.out.println("Enter your address: ");
             String customerAddress = in.next();
-            int userId = userService.createUser(0,email, password, 2);
+            int userId = userService.createUser(0, email, password, 2);
             customerService.createCustomer(weight, age, gender, customerName, customerPhone, customerAddress, userId);
+            login();
         }
     }
 
@@ -106,23 +108,22 @@ public class FlipFitApplication {
         String oldpassword;
         System.out.println("Enter your old password: ");
         oldpassword = in.next();
-        int userId = userService.authenticateUser(email,oldpassword,role);
-        if(userId<=0) return;
+        int userId = userService.authenticateUser(email, oldpassword, role);
+        if (userId <= 0) return;
         boolean flag = true;
         System.out.println("Enter new password: ");
         String newPassword = in.next();
-        do{
+        do {
             System.out.println("Confirm new password: ");
             String confirmNewPassword = in.next();
-            if(newPassword.equals(confirmNewPassword)) {
+            if (newPassword.equals(confirmNewPassword)) {
                 System.out.println("Password matched!");
                 flag = false;
-            }
-            else{
+            } else {
                 System.out.println("The Passwords did not match. Please check again");
             }
-        }while(flag);
-        userService.changeUserPassword(userId,newPassword);
+        } while (flag);
+        userService.changeUserPassword(userId, newPassword);
     }
 
     public static void main(String[] args){

@@ -27,12 +27,12 @@ public class FlipFitGymOwnerMenu {
 //        flipFitGymOwnerService.editProfile(ownerName, ownerPhone, ownerAddress, ownerGstNum, ownerPanNum, ownerId);
 //
 //    }
-    public  void addGym()
+    public  void addGym(int gymOwnerId)
     {
         System.out.println("Enter following details to get your Gym listed:");
-        System.out.println("Enter Gym Owner ID: ");
-        int gymOwnerId = scanner.nextInt();
-        scanner.nextLine(); // consume newline
+//        System.out.println("Enter Gym Owner ID: ");
+//        int gymOwnerId = scanner.nextInt();
+//        scanner.nextLine(); // consume newline
         System.out.print("Enter Gym Name: \n");
         String gymName = scanner.nextLine();
         System.out.println("Enter Gym Address: ");
@@ -68,11 +68,9 @@ public class FlipFitGymOwnerMenu {
 //        int noOfSlots = scanner.nextInt();
 //        flipFitGymOwnerService.editGym(gymId, gymOwnerId, gymName, gymAddress, noOfSlots);
 //    }
-    public void viewRegisteredGymCenters()
+    public void viewRegisteredGymCenters(int userId)
     {
-        System.out.println("You are in view Registered Gym centers function\n");
-        System.out.print("Enter User ID: ");
-        int userId = scanner.nextInt();
+//        System.out.println("You are in view Registered Gym centers function\n");
         flipFitGymOwnerService.viewAllRegisteredGymCenters(userId);
     }
 //    public void viewGymBookings()
@@ -129,7 +127,7 @@ public class FlipFitGymOwnerMenu {
         System.out.println("-------- Welcome to FlipFit Owner Menu Page --------");
         System.out.println("Enter preferred choices:\n1. Add Gym\n2. Remove Gym\n3. View all my registered Gyms \n4. View all Available Slots \n5. Add Slots \n6. Remove Slots \n7. Log Out");
     }
-    public static void login(String email, String password){
+    public static void login(int id, String email, String password){
 
         FlipFitGymOwnerMenu menu = new FlipFitGymOwnerMenu();
         Scanner in = new Scanner(System.in);
@@ -140,13 +138,13 @@ public class FlipFitGymOwnerMenu {
             choice = in.nextInt();
             switch (choice) {
                 case 1:
-                    menu.addGym();
+                    menu.addGym(id);
                     break;
                 case 2:
                     menu.removeGym();
                     break;
                 case 3:
-                    menu.viewRegisteredGymCenters();
+                    menu.viewRegisteredGymCenters(id);
                     break;
                 case 4:
                     menu.viewAvailableSlots();

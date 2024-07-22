@@ -2,8 +2,11 @@ package com.flipkart.business;
 
 import com.flipkart.bean.FlipFitCustomer;
 import com.flipkart.bean.FlipFitGymDetails;
+import com.flipkart.bean.SlotDetails;
+import com.flipkart.dao.FLipFitGymOwnerDAOInterface;
 import com.flipkart.dao.FlipFitCustomerDAOImpl;
 import com.flipkart.dao.FlipFitCustomerDAOInterface;
+import com.flipkart.dao.FlipFitGymOwnerDAOImpl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,11 +15,11 @@ import java.util.List;
 public class FlipFitCustomerService implements FlipFitCustomerInterface {
 
     FlipFitCustomerDAOInterface customerDAO = new FlipFitCustomerDAOImpl();
+    FLipFitGymOwnerDAOInterface gymOwnerDAO = new FlipFitGymOwnerDAOImpl();
 
     @Override
     public void createCustomer(int weight, int age, String gender, String customerName, String customerPhone, String customerAddress, int customerId) {
         customerDAO.createCustomer(weight, age, gender, customerName, customerPhone, customerAddress,customerId);
-        System.out.println("Customer Details are added!");
     }
 
     @Override
@@ -28,16 +31,6 @@ public class FlipFitCustomerService implements FlipFitCustomerInterface {
     @Override
     public FlipFitCustomer viewProfile(int userId) {
         return customerDAO.viewProfile(userId);
-//        FlipFitCustomer customer = new FlipFitCustomer(
-//                60,
-//                21,
-//                "Male",
-//                "ankur",
-//                "882034532423",
-//                "delhi",
-//                43
-//        );
-//        return customer;
     }
 
     @Override
@@ -47,12 +40,15 @@ public class FlipFitCustomerService implements FlipFitCustomerInterface {
 
 
     @Override
-    public HashMap<String, Integer> viewSlots(int gymId, String date) {
-        try {
-            return customerDAO.viewSlots(gymId,date);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
+    public void viewSlots(int gymId, String date) {
+        if (customerDAO.viewSlots(gymId,date).isEmpty())
+        {
+            System.out.println("No Slots available right now, please try again later.");
+            return;
+        }
+        System.out.println("-------- All Available Slot Details --------");
+        for(SlotDetails x : customerDAO.viewSlots(gymId,date)){
+            System.out.println(x);
         }
     }
 

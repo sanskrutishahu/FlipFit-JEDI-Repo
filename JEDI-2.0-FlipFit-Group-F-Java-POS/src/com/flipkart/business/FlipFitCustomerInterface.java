@@ -2,6 +2,7 @@ package com.flipkart.business;
 
 import com.flipkart.bean.FlipFitCustomer;
 import com.flipkart.bean.FlipFitGymDetails;
+import com.flipkart.bean.SlotDetails;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,8 +18,7 @@ public interface FlipFitCustomerInterface {
 
     public List<FlipFitGymDetails> viewGyms();
 
-
-    HashMap<String, Integer> viewSlots(int gymId, String date);
+    public void viewSlots(int gymId, String date);
 
     public void filterSlots();
 }
