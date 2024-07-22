@@ -7,8 +7,18 @@ import com.flipkart.business.FlipFitCustomerService;
 import java.util.*;
 
 
+/**
+ * Class to handle the customer menu functionalities for the FlipFit application.
+ */
 public class FlipFitCustomerMenu {
 
+
+    /**
+     * Views the bookings for a customer.
+     *
+     * @param id The customer ID.
+     * @param booking The booking service.
+     */
     public static void viewCustomerBookings(int id, FlipFitGymBookingService booking)
     {
         booking.viewBookings(id);
@@ -22,6 +32,12 @@ public class FlipFitCustomerMenu {
         }
     }
 
+    /**
+     * Books a slot for the customer.
+     *
+     * @param id The customer ID.
+     * @param booking The booking service.
+     */
     public static void BookASlot(int id, FlipFitGymBookingService booking)
     {
         Scanner in = new Scanner(System.in);
@@ -31,6 +47,12 @@ public class FlipFitCustomerMenu {
         String date = in.next();
         booking.bookSlots(0, id, slotID, date, "", "", 1, 1, 1);
     }
+
+    /**
+     * Cancels a booking for the customer.
+     *
+     * @param booking The booking service.
+     */
     public static void cancelBooking(FlipFitGymBookingService booking)
     {
         Scanner in = new Scanner(System.in);
@@ -38,10 +60,23 @@ public class FlipFitCustomerMenu {
         int bookingId = Integer.parseInt(in.next());
         booking.cancelBookings(bookingId);
     }
+
+    /**
+     * Views the profile of the customer.
+     *
+     * @param id The customer ID.
+     * @param customer The customer service.
+     */
     public static void viewProfile(int id, FlipFitCustomerService customer)
     {
         System.out.println(customer.viewProfile(id));
     }
+
+    /**
+     * Views all the gym centers.
+     *
+     * @param customer The customer service.
+     */
     public static void viewGymCenters(FlipFitCustomerService customer)
     {
         if(customer.viewGyms()==null)
@@ -53,6 +88,12 @@ public class FlipFitCustomerMenu {
             System.out.println(x);
         }
     }
+
+    /**
+     * Views the available slots for a gym on a given date.
+     *
+     * @param customer The customer service.
+     */
     public static void viewAvailableSlots(FlipFitCustomerService customer)
     {
         Scanner in = new Scanner(System.in);
@@ -80,17 +121,30 @@ public class FlipFitCustomerMenu {
 //        customer.editProfile(weight, age, gender, customerName, customerPhone, customerAddress, id);
 //
 //    }
+
+    /**
+     * Logs out the user.
+     */
     public static void userLogout()
     {
         System.out.println("Logged out\n");
     }
 
+    /**
+     * Displays the customer menu options.
+     */
     public static void displayCustomerMenu()
     {
         System.out.println("--------Welcome to FlipFit Customer Menu Page--------");
         System.out.println("Enter preferred choices:\n1. View Profile \n2. View Bookings\n3. View Gym Centers\n4. View Available Slots\n5. Book A Slot\n6. Cancel Booking\n7. Log Out");
     }
 
+
+    /**
+     * Handles customer login and menu interactions.
+     *
+     * @param id The customer ID.
+     */
     public static void login(int id){
         Scanner in = new Scanner(System.in);
         FlipFitCustomerMenu menu = new FlipFitCustomerMenu();
@@ -104,9 +158,6 @@ public class FlipFitCustomerMenu {
                 case 1:
                     viewProfile(id, customer);
                     break;
-//            case 2:
-//                editProfile(id, customer);
-//                break;
                 case 2:
                     viewCustomerBookings(id, booking);
                     break;
