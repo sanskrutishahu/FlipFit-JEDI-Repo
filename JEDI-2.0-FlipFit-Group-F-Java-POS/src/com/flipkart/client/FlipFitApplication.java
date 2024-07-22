@@ -16,7 +16,7 @@ public class FlipFitApplication {
      * Handles user login based on role (Customer, Gym Owner, Admin).
      */
     public static void login() {
-
+        FlipFituserInterface userService = new FlipFituserService();
         Scanner in = new Scanner(System.in);
         System.out.println("------- Login ------ ");
         System.out.println("Enter your Email: ");
@@ -25,12 +25,14 @@ public class FlipFitApplication {
         String password = in.next();
         System.out.println("Enter your role: \n1. Gym Owner\n2. Customer\n3. Admin");
         int role = in.nextInt();
+        boolean auth = userService.authenticateUser(email,password,role);
+        if(!auth) return;
         if(role == 1) {
             FlipFitGymOwnerMenu.login(email, password);
         } else if(role == 2) {
             FlipFitCustomerMenu.login(email, password);
         } else if(role == 3) {
-                FlipFitAdminMenu.login(email, password);
+            FlipFitAdminMenu.login(email, password);
         }  else {
             System.out.println("Invalid role choice");
         }
@@ -94,6 +96,36 @@ public class FlipFitApplication {
         }
     }
 
+    public static void changePassword() {
+        FlipFituserInterface userService = new FlipFituserService();
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter your UserId: ");
+        int userId = in.nextInt();
+        System.out.println("Enter your Email: ");
+        String email = in.next();
+        System.out.println("Enter your role: \n1. Gym Owner\n2. Customer\n3. Admin");
+        int role = in.nextInt();
+        String oldpassword;
+        System.out.println("Enter your old password: ");
+        oldpassword = in.next();
+        boolean auth = userService.authenticateUser(email,oldpassword,role);
+        if(!auth) return;
+        boolean flag = true;
+        System.out.println("Enter new password: ");
+        String newPassword = in.next();
+        do{
+            System.out.println("Confirm new password: ");
+            String confirmNewPassword = in.next();
+            if(newPassword.equals(confirmNewPassword)) {
+                System.out.println("Password matched!");
+                flag = false;
+            }
+            else{
+                System.out.println("The Passwords did not match. Please check again");
+            }
+        }while(flag);
+        userService.changeUserPassword(userId,newPassword);
+    }
 
     public static void main(String[] args){
 
@@ -109,7 +141,7 @@ public class FlipFitApplication {
                 registerUser();
                 break;
             case 3:
-                System.out.println("This is Change Password Function");
+                changePassword();
                 break;
             case 4:
                 System.out.println("Thank you for using FlipFit App");

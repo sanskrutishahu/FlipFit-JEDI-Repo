@@ -6,7 +6,7 @@ import java.sql.*;
 public class FlipFitUserDAOImpl implements FlipFitUserDAOInterface{
 
     @Override
-    public int authenticateUser(int userId, String userEmail, String userPassword, int roleId) {
+    public int authenticateUser(String userEmail, String userPassword, int roleId) {
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -26,12 +26,10 @@ public class FlipFitUserDAOImpl implements FlipFitUserDAOInterface{
                     return rs.getInt("userId");
                 }
                 else {
-                    return 0;
+                    return -1;
                 }
             } else {
-
                 return 0;
-
             }
         }
         catch (Exception e) {
@@ -59,9 +57,6 @@ public class FlipFitUserDAOImpl implements FlipFitUserDAOInterface{
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "tushmahe");
 
             con.setAutoCommit(false);
-            System.out.println(userEmail);
-            System.out.println(userPassword);
-            System.out.println(roleId);
             String queryUser = "INSERT INTO userDetails (userEmail, userPassword, roleID) VALUES (?,?,?)";
             stmtUser = con.prepareStatement(queryUser,Statement.RETURN_GENERATED_KEYS);
             stmtUser.setString(1, userEmail);
@@ -74,23 +69,42 @@ public class FlipFitUserDAOImpl implements FlipFitUserDAOInterface{
                 ResultSet generatedKeys = stmtUser.getGeneratedKeys();
                 if (generatedKeys.next()) {
                     userId = generatedKeys.getInt(1);
-                    System.out.println(userInsertCount + " user records inserted");
                 }
-            } else {
-                System.out.println("User insertion failed.");
             }
             con.commit(); // Commit transaction
         } catch (Exception e) {
             System.out.println(e);
         }
         return userId;
-
     }
 
     @Override
-    public int getUserId(String email) {
-        return 0;
+    public boolean changeUserPassword(int userId, String userPassword)
+    {
+        Connection con = null;
+        PreparedStatement stmtUser = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
+
+            con.setAutoCommit(false);
+            String queryUser = "UPDATE userDetails SET userPassword = ? WHERE userId = ?";
+            stmtUser = con.prepareStatement(queryUser);
+            stmtUser.setString(1, userPassword);
+            stmtUser.setInt(2, userId);
+
+            int userInsertCount = stmtUser.executeUpdate();
+
+            if (userInsertCount <= 0) {
+                return false;
+            }
+            con.commit(); // Commit transaction
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
+        return true;
     }
-
-
 }

@@ -51,7 +51,7 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
     }
 
     @Override
-    public void registerGym(int gymId, int gymOwnerId, String gymName, String gymAddress, int noOfSlots) {
+    public void registerGym(int gymOwnerId, String gymName, String gymAddress) {
         Connection con = null;
         PreparedStatement stmt = null;
         PreparedStatement stmtGym = null;
@@ -63,16 +63,28 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "tushmahe");
             con.setAutoCommit(false);
 
-            String queryGym = "INSERT INTO gymDetails (gymOwnerId, gymName, gymAddress, noOfSlots, approvalStatus) VALUES (?, ?, ?, ?, ?);";
+            String query = "SELECT * FROM gymOwner WHERE ownerId = ? AND approvalStatus = 'APPROVED'";
+            stmt = con.prepareStatement(query);
+            stmt.setInt(1, gymOwnerId);
+            ResultSet resultSet = stmt.executeQuery();
+
+            if (!resultSet.next()) {
+                System.out.println("Gym owner is not registered, Please try again after registering Gym Owner.");
+                return;
+            }
+
+            String queryGym = "INSERT INTO gymDetails ( gymOwnerId, gymName, gymAddress, noOfSlots, approvalStatus) VALUES (?, ?, ?, ?, ?);";
             stmtGym = con.prepareStatement(queryGym);
             stmtGym.setInt(1, gymOwnerId);
             stmtGym.setString(2, gymName);
             stmtGym.setString(3, gymAddress);
-            stmtGym.setInt(4, noOfSlots);
+            stmtGym.setInt(4, 0);
             stmtGym.setString(5, "PENDING");
 
             int ownerInsertCount = stmtGym.executeUpdate();
-            System.out.println(ownerInsertCount + " gym records inserted");
+            if(ownerInsertCount > 0) {
+                System.out.println("Your Gym has been registered successfully");
+            }
 
             con.commit();
         } catch (Exception e) {
@@ -97,17 +109,24 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
         Connection con = null;
         PreparedStatement stmt = null;
         int count;
-
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "tushmahe");
+            con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
 
-            String gymQuery = "DELETE FROM FlipFitGym WHERE gymId=?";
+            String gymQuery = "DELETE FROM gymDetails WHERE gymId=? AND approvalStatus = 'APPROVED'";
             stmt = con.prepareStatement(gymQuery);
             stmt.setInt(1, gymId);
             count = stmt.executeUpdate();
-
+            if(count!=0)
+            {
+                System.out.println("Your Gym with ID " + gymId + " has been removed");
+            }
+            else
+            {
+                System.out.println("Your Gym with ID " + gymId + " does not exist or has not been approved yet. Please Contact FlipFit Admin for further assistance.");
+            }
             stmt.close();
 
         } catch (Exception e) {
@@ -132,9 +151,10 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "tushmahe");
-
-            String gymQuery = "SELECT * FROM FlipFitGym WHERE gymOwnerId = ?";
+            con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
+          
+            String gymQuery = "SELECT * FROM gymDetails WHERE gymOwnerId = ?";
             stmt = con.prepareStatement(gymQuery);
             stmt.setInt(1, gymOwnerId);
             rs = stmt.executeQuery();
@@ -146,7 +166,7 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
                 int noOfSlots = rs.getInt("noOfSlots");
                 String approvalStatus = rs.getString("approvalStatus");
 
-                FlipFitGymDetails gym = new FlipFitGymDetails(gymId, gymOwnerId, gymName, gymAddress, noOfSlots);
+                FlipFitGymDetails gym = new FlipFitGymDetails(gymId, gymOwnerId, gymName, gymAddress, noOfSlots, approvalStatus);
                 gymList.add(gym);
             }
         }catch (Exception e) {
@@ -259,29 +279,77 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
     }
 
     @Override
-    public List<SlotDetails> viewAvailableSlots(int gymId) {
+    public List<SlotDetails> viewAvailableSlots(int gymId, String date) {
         List<SlotDetails> slotList = new ArrayList<SlotDetails>();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
+
+            String query = "SELECT * FROM gymDetails WHERE gymId = ? AND approvalStatus = 'APPROVED'";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setInt(1, gymId);
+            ResultSet resultSet = stmt.executeQuery();
+
+            if (!resultSet.next()) {
+                System.out.println("Gym is not registered, Please try again after registering Gym.");
+                return null;
+            }
+
+            String query2 = "SELECT * FROM slotDetails WHERE gymId=? AND date=? AND noOfSeats!=0";
+            stmt = con.prepareStatement(query2);
+            stmt.setInt(1, gymId);
+            stmt.setString(2, date);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int slotId = rs.getInt("slotId");
+                int slotGymId = rs.getInt("gymId");
+                String slotDate = rs.getString("date");
+                String slotSTime = rs.getString("startTime");
+                String slotETime = rs.getString("endTime");
+                int slotNoOfSeats = rs.getInt("noOfSeats");
+                slotList.add(new SlotDetails(slotGymId, slotId, slotDate, slotSTime, slotETime, slotNoOfSeats));
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
         return slotList;
     }
 
     @Override
-    public void addSlot(SlotDetails slotDetails) {
+    public void addSlot(int gymId, String date, String startTime, String endTime, int noOfSeats) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "tushmahe");
 
+            String query = "SELECT * FROM gymDetails WHERE gymId = ? AND approvalStatus = 'APPROVED'";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setInt(1, gymId);
+            ResultSet resultSet = stmt.executeQuery();
+
+            if (!resultSet.next()) {
+                System.out.println("Gym is not registered, Please try again after registering Gym.");
+                return;
+            }
+
             PreparedStatement slotStmt = con.prepareStatement(
-                    "INSERT INTO slot (gymId, date, startTime, endTime, slotCapacity) VALUES (?, ?, ?, ?, ?)"
+                    "INSERT INTO slotDetails (gymId, date, startTime, endTime, noOfSeats) VALUES (?, ?, ?, ?, ?)"
             );
 
-            slotStmt.setInt(1, slotDetails.getGymId());
-            slotStmt.setString(2, slotDetails.getDate());
-            slotStmt.setString(3, slotDetails.getStartTime());
-            slotStmt.setString(4, slotDetails.getEndTime());
-            slotStmt.setInt(5, slotDetails.getNoOfSeats());
+            slotStmt.setInt(1, gymId);
+            slotStmt.setString(2, date);
+            slotStmt.setString(3, startTime);
+            slotStmt.setString(4, endTime);
+            slotStmt.setInt(5, noOfSeats);
 
             int slotInsertCount = slotStmt.executeUpdate();
-            System.out.println(slotInsertCount + " slot record(s) inserted");
+            if (slotInsertCount > 0) {
+                System.out.println("New slot has been successfully added");
+            }
+            else
+            {
+                System.out.println("Unable to insert new slot, Please try again after some time.");
+            }
             con.close();
 
         } catch (Exception e) {
@@ -300,22 +368,30 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
 
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "tushmahe");
 
-            String query = "DELETE FROM Slot WHERE slotId = ? and gymId = ?";
-
+            String query = "SELECT * FROM gymDetails WHERE gymId = ? AND approvalStatus = 'APPROVED'";
             stmt = con.prepareStatement(query);
+            stmt.setInt(1, gymId);
+            ResultSet resultSet = stmt.executeQuery();
+
+            if (!resultSet.next()) {
+                System.out.println("Gym is not registered, Please try again after registering Gym.");
+                return ;
+            }
+
+            String query2 = "DELETE FROM slotDetails WHERE slotId = ? and gymId = ?";
+
+            stmt = con.prepareStatement(query2);
             stmt.setInt(1, slotId);
             stmt.setInt(2, gymId);
 
 
             int rowsAffected = stmt.executeUpdate();
 
-
             if (rowsAffected > 0) {
-                System.out.println("slot with ID " + slotId + " has been deleted.");
+                System.out.println("slot with ID " + slotId + " has been removed.");
 
             } else {
                 System.out.println("No slot found with ID " + slotId);
-
             }
         } catch (Exception e) {
 
