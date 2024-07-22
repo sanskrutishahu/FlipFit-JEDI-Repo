@@ -10,8 +10,22 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Implementation of FlipFitCustomerDAOInterface for interacting with customer-related data in the FlipFit system.
+ */
 public class FlipFitCustomerDAOImpl implements FlipFitCustomerDAOInterface{
 
+    /**
+     * Creates a new customer with the given details.
+     *
+     * @param weight         The weight of the customer.
+     * @param age            The age of the customer.
+     * @param gender         The gender of the customer.
+     * @param customerName   The name of the customer.
+     * @param customerPhone  The phone number of the customer.
+     * @param customerAddress The address of the customer.
+     * @param customerId     The ID of the customer.
+     */
     @Override
     public void createCustomer(int weight, int age, String gender, String customerName, String customerPhone, String customerAddress, int customerId) {
         Connection con = null;
@@ -45,10 +59,27 @@ public class FlipFitCustomerDAOImpl implements FlipFitCustomerDAOInterface{
         }
     }
 
+    /**
+     * Edits the profile of a customer with the given details.
+     *
+     * @param weight         The new weight of the customer.
+     * @param age            The new age of the customer.
+     * @param gender         The new gender of the customer.
+     * @param customerName   The new name of the customer.
+     * @param customerPhone  The new phone number of the customer.
+     * @param customerAddress The new address of the customer.
+     * @param customerId     The ID of the customer.
+     */
     @Override
     public void editProfile(int weight, int age, String gender, String customerName, String customerPhone, String customerAddress, int customerId) {
     }
 
+    /**
+     * Retrieves the profile of a customer with the given user ID.
+     *
+     * @param userId The ID of the customer.
+     * @return FlipFitCustomer object representing the customer's profile.
+     */
     @Override
     public FlipFitCustomer viewProfile(int userId){
         System.out.println("User "+userId);
@@ -89,6 +120,11 @@ public class FlipFitCustomerDAOImpl implements FlipFitCustomerDAOInterface{
         return customer;
     }
 
+    /**
+     * Retrieves a list of all approved gym details.
+     *
+     * @return List of FlipFitGymDetails objects representing gym details.
+     */
     @Override
     public List<FlipFitGymDetails> viewGyms() {
         Connection con = null;
@@ -131,6 +167,13 @@ public class FlipFitCustomerDAOImpl implements FlipFitCustomerDAOInterface{
         return gymList;
     }
 
+    /**
+     * Retrieves available slots for a given gym and date.
+     *
+     * @param gymId The ID of the gym.
+     * @param date  The date for which slots are required.
+     * @return List of SlotDetails objects representing available slots.
+     */
     @Override
     public List<SlotDetails> viewSlots(int gymId, String date) {
         List<SlotDetails> slotList = new ArrayList<SlotDetails>();

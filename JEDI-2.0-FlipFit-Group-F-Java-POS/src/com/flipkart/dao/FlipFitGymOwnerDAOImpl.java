@@ -13,9 +13,21 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementation of FlipFitGymOwnerDAOInterface providing methods to interact with gym owners in the database.
+ */
 public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
 
-
+    /**
+     * Creates a new gym owner entry in the database with the provided details.
+     *
+     * @param ownerName     The name of the gym owner.
+     * @param ownerPhone    The phone number of the gym owner.
+     * @param ownerAddress  The address of the gym owner.
+     * @param ownerGstNum   The GST number of the gym owner.
+     * @param ownerPanNum   The PAN number of the gym owner.
+     * @param ownerId       The unique identifier of the gym owner.
+     */
     @Override
     public void createGymOwner(String ownerName, String ownerPhone, String ownerAddress, String ownerGstNum, String ownerPanNum, int ownerId) {
         Connection con = null;
@@ -45,11 +57,28 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
         }
     }
 
+    /**
+     * Edits the profile of an existing gym owner with the provided details.
+     *
+     * @param ownerName     The updated name of the gym owner.
+     * @param ownerPhone    The updated phone number of the gym owner.
+     * @param ownerAddress  The updated address of the gym owner.
+     * @param ownerGstNum   The updated GST number of the gym owner.
+     * @param ownerPanNum   The updated PAN number of the gym owner.
+     * @param ownerId       The unique identifier of the gym owner.
+     */
     @Override
     public void editProfile(String ownerName, String ownerPhone, String ownerAddress, String ownerGstNum, String ownerPanNum, int ownerId) {
 
     }
 
+    /**
+     * Registers a new gym associated with an existing gym owner in the database.
+     *
+     * @param gymOwnerId    The ID of the gym owner registering the gym.
+     * @param gymName       The name of the gym being registered.
+     * @param gymAddress    The address of the gym being registered.
+     */
     @Override
     public void registerGym(int gymOwnerId, String gymName, String gymAddress) {
         Connection con = null;
@@ -104,6 +133,11 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
 
     }
 
+    /**
+     * Removes a gym from the database based on the provided gymId.
+     *
+     * @param gymId The ID of the gym to be removed.
+     */
     @Override
     public void removeGym(int gymId) {
         Connection con = null;
@@ -141,6 +175,12 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
         }
     }
 
+    /**
+     * Retrieves all registered gym centers associated with a specific gym owner from the database.
+     *
+     * @param gymOwnerId The ID of the gym owner whose gyms are to be retrieved.
+     * @return A list of FlipFitGymDetails objects representing the gyms registered by the gym owner.
+     */
     @Override
     public List<FlipFitGymDetails> viewAllRegisteredGymCenters(int gymOwnerId) {
         Connection con = null;
@@ -183,6 +223,12 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
         return gymList;
     }
 
+    /**
+     * Retrieves all bookings made by a specific user from the database.
+     *
+     * @param userId The ID of the user whose bookings are to be retrieved.
+     * @return A list of Booking objects representing the bookings made by the user.
+     */
     @Override
     public List<Booking> viewAllBookings(int userId) {
         Connection con = null;
@@ -230,6 +276,12 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
 
     }
 
+    /**
+     * Retrieves all bookings associated with a specific gym from the database.
+     *
+     * @param gymId The ID of the gym for which bookings are to be retrieved.
+     * @return A list of Booking objects representing the bookings made for the gym.
+     */
     @Override
     public List<Booking> viewBookings(int gymId) {
         Connection con = null;
@@ -278,6 +330,13 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
         return bookings;
     }
 
+    /**
+     * Retrieves all available slots for a specific gym on a given date from the database.
+     *
+     * @param gymId The ID of the gym for which available slots are to be retrieved.
+     * @param date  The date for which available slots are to be retrieved.
+     * @return A list of SlotDetails objects representing the available slots for the gym on the given date.
+     */
     @Override
     public List<SlotDetails> viewAvailableSlots(int gymId, String date) {
         List<SlotDetails> slotList = new ArrayList<SlotDetails>();
@@ -316,6 +375,15 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
         return slotList;
     }
 
+    /**
+     * Adds a new slot for a specific gym into the database.
+     *
+     * @param gymId     The ID of the gym for which the slot is to be added.
+     * @param date      The date of the slot.
+     * @param startTime The start time of the slot.
+     * @param endTime   The end time of the slot.
+     * @param noOfSeats The number of seats available in the slot.
+     */
     @Override
     public void addSlot(int gymId, String date, String startTime, String endTime, int noOfSeats) {
         try {
@@ -357,6 +425,12 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
         }
     }
 
+    /**
+     * Removes a slot associated with a specific gym from the database.
+     *
+     * @param gymId The ID of the gym from which the slot is to be removed.
+     * @param slotId The ID of the slot to be removed.
+     */
     @Override
     public void removeSlot(int gymId, int slotId) {
         Connection con = null;
