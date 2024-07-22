@@ -8,6 +8,8 @@ import com.flipkart.business.FlipFitGymOwnerService;
 import com.flipkart.business.FlipFituserInterface;
 import com.flipkart.business.FlipFituserService;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.*;
 
 public class FlipFitApplication {
@@ -28,11 +30,11 @@ public class FlipFitApplication {
         int userId = userService.authenticateUser(email,password,role);
         if(userId<=0) return;
         if(role == 1) {
-            FlipFitGymOwnerMenu.login(userId, email, password);
+            FlipFitGymOwnerMenu.login(userId);
         } else if(role == 2) {
-            FlipFitCustomerMenu.login(userId, email, password);
+            FlipFitCustomerMenu.login(userId);
         } else if(role == 3) {
-            FlipFitAdminMenu.login(email, password);
+            FlipFitAdminMenu.login(userId);
         }  else {
             System.out.println("Invalid role choice");
         }
@@ -129,6 +131,12 @@ public class FlipFitApplication {
     public static void main(String[] args){
 
         System.out.println("--------Welcome to FlipFit Application--------");
+        LocalDate localDate=LocalDate.now();
+        LocalTime localTime=LocalTime.now();
+        System.out.println("-----------------------------------------------");
+        System.out.println("Date : " +localDate);
+        System.out.println("Time : " +localTime);
+        System.out.println("-----------------------------------------------");
         System.out.println("Enter preferred choices: \n1. Login\n2. Register \n3. Change Password\n4. Exit");
         Scanner in = new Scanner(System.in);
         int choice = in.nextInt();

@@ -74,7 +74,7 @@ public class FlipFitAdminMenu {
         System.out.println("Enter preferred choices:\n1. View all Pending Gym Centre requests\n2. View all Pending Gym Owner requests\n3. Approve Gym Centre request\n4. Approve Gym Owner request\n5. Reject Gym Centre request\n6. Reject Gym Owner request\n7. View all Gym Owners \n8. View all Gym Centres \n9. Remove Gym Centre \n10.Remove Gym Owner \n11.Log Out");
     }
 
-    public static void login(String email, String password){
+    public static void login(int userId){
 
         Scanner in = new Scanner(System.in);
         FlipFitAdminMenu menu = new FlipFitAdminMenu();
