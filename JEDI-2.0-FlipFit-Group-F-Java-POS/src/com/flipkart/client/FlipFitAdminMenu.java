@@ -6,6 +6,8 @@ import com.flipkart.bean.FlipFitGymOwner;
 import com.flipkart.business.FlipFitAdminInterface;
 import com.flipkart.business.FlipFitAdminService;
 import com.flipkart.bean.FlipFitAdmin;
+import com.flipkart.exceptions.GymOwnerNotFoundException;
+
 /**
  * A client class that simulates an admin menu for managing gym centres and owners in the FlipFit application.
  */
@@ -73,7 +75,7 @@ public class FlipFitAdminMenu {
     /**
      * Removes a gym centre by gym ID.
      *
-     * @param gymId The ID of the gym to remove.
+     * @param GymId The ID of the gym to remove.
      */
     public void removeCentre(int GymId)
     {

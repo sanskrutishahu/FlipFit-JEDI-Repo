@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Implementation for methods related to Customer
+ */
 public class FlipFitCustomerService implements FlipFitCustomerInterface {
 
     FlipFitCustomerDAOInterface customerDAO = new FlipFitCustomerDAOImpl();

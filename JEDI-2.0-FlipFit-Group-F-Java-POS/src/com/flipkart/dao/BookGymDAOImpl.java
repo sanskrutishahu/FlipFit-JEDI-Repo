@@ -36,7 +36,7 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
      * Books slots for a user in the gym system.
      *
      * @param bookingId              The unique identifier for the booking.
-     * @param userId                 The ID of the user making the booking.
+     * @param customerId             The ID of the customer making the booking.
      * @param slotId                 The ID of the time slot for the booking.
      * @param bookingDate            The date of the booking in string format.
      * @param bookingTimeSlotStart   The start time of the booking time slot in string format.

@@ -1,8 +1,13 @@
 package com.flipkart.business;
 import com.flipkart.bean.FlipFitGymDetails;
 import com.flipkart.bean.FlipFitGymOwner;
+import com.flipkart.exceptions.GymOwnerNotFoundException;
+
 import java.util.List;
 
+/**
+ * Interface for Admin Operation
+ */
 public interface FlipFitAdminInterface {
 
     /**
@@ -49,7 +54,6 @@ public interface FlipFitAdminInterface {
     /**
      * Method to remove Gym from  Gym Catalog
      * @param gymId
-     * @throws GymNotFoundException
      */
     public void removeGym(int gymId);
 
@@ -66,7 +70,6 @@ public interface FlipFitAdminInterface {
     /**
      * Method to remove Gym Owners
      * @param ownerId
-     * @throws GymOwnerNotFoundException
      */
     public void removeGymOwner(int ownerId);
 

@@ -7,6 +7,9 @@ import com.flipkart.bean.SlotDetails;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Interface for Customer Operation
+ */
 public interface FlipFitCustomerInterface {
 
     /**

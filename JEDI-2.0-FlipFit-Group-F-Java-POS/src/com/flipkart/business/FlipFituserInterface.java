@@ -2,6 +2,9 @@ package com.flipkart.business;
 
 import com.flipkart.bean.User;
 
+/**
+ * Interface for method related to Login and register
+ */
 public interface FlipFituserInterface {
 
     /**

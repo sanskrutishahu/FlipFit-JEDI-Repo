@@ -6,9 +6,9 @@ package com.flipkart.exceptions;
 public class BookingNotFoundException extends Exception {
 
     /**
-     * Constructs a new GymNotFoundException with the specified gymId.
+     * Constructs a new BookingNotFoundException with the specified bookingId.
      *
-     * @param gymId the ID of the gym center that was not found.
+     * @param bookingId the ID of the gym center that was not found.
      */
     public BookingNotFoundException(int bookingId) {
         super("Booking with " + bookingId + " ID not found!");

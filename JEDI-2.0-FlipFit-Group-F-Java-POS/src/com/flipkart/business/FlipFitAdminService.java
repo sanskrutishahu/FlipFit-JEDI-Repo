@@ -7,6 +7,9 @@ import com.flipkart.dao.FlipFitAdminDAOInterface;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementation for Admin Operations
+ */
 public class FlipFitAdminService implements FlipFitAdminInterface {
 
     FlipFitAdminDAOInterface adminDAO = new FlipFitAdminDAOImpl();
@@ -117,7 +120,6 @@ public class FlipFitAdminService implements FlipFitAdminInterface {
     /**
      * Method to remove Gym from  Gym Catalog
      * @param gymId
-     * @throws GymNotFoundException
      */
     @Override
     public void removeGym(int gymId) {
@@ -165,7 +167,6 @@ public class FlipFitAdminService implements FlipFitAdminInterface {
     /**
      * Method to remove Gym Owners
      * @param ownerId
-     * @throws GymOwnerNotFoundException
      */
     @Override
     public void removeGymOwner(int ownerId) {

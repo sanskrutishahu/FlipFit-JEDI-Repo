@@ -7,6 +7,7 @@ import com.flipkart.business.FlipFitCustomerService;
 import com.flipkart.business.FlipFitGymOwnerService;
 import com.flipkart.business.FlipFituserInterface;
 import com.flipkart.business.FlipFituserService;
+import com.flipkart.exceptions.GymOwnerNotFoundException;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -21,7 +22,7 @@ public class FlipFitApplication {
     /**
      * Handles user login based on role (Customer, Gym Owner, Admin).
      */
-    public static void login() {
+    public static void login() throws GymOwnerNotFoundException {
         FlipFituserInterface userService = new FlipFituserService();
         Scanner in = new Scanner(System.in);
         System.out.println("------- Login ------ ");

@@ -4,6 +4,9 @@ import com.flipkart.bean.User;
 import com.flipkart.dao.FlipFitUserDAOImpl;
 import com.flipkart.dao.FlipFitUserDAOInterface;
 
+/**
+ * Implementation for methods related to login and register
+ */
 public class FlipFituserService implements FlipFituserInterface{
 
     FlipFitUserDAOInterface userDAO = new FlipFitUserDAOImpl();

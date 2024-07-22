@@ -6,6 +6,9 @@ import com.flipkart.dao.BookGymDAOInterface;
 
 import java.util.List;
 
+/**
+ * Implementation for methods related to Gym
+ */
 public class FlipFitGymBookingService implements FlipFitGymBookingInterface {
 
     BookGymDAOInterface bookGymDAO = new BookGymDAOImpl();
@@ -36,7 +39,6 @@ public class FlipFitGymBookingService implements FlipFitGymBookingInterface {
      * @param bookingStatus
      * @param transactionId
      * @param bookingAmount
-     * @throws BookingFailedException
      */
     @Override
     public void bookSlots(int bookingId, int userId, int slotId, String bookingDate, String bookingTimeSlotStart, String bookingTimeSlotEnd, int bookingStatus, int transactionId, int bookingAmount) {
@@ -46,7 +48,6 @@ public class FlipFitGymBookingService implements FlipFitGymBookingInterface {
 
     /**
      * Method to return list of bookings by a particular user
-     * @param userId
      * @return BookingList
      */
     @Override

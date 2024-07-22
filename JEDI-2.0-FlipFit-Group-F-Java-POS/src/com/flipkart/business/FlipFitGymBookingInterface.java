@@ -4,6 +4,9 @@ import com.flipkart.bean.Booking;
 
 import java.util.List;
 
+/**
+ * Interface for methods related to Gym Booking
+ */
 public interface FlipFitGymBookingInterface {
 
     /**
@@ -29,7 +32,6 @@ public interface FlipFitGymBookingInterface {
      * @param bookingStatus
      * @param transactionId
      * @param bookingAmount
-     * @throws BookingFailedException
      */
     public void bookSlots(int bookingId, int userId, int slotId, String bookingDate, String bookingTimeSlotStart, String bookingTimeSlotEnd, int bookingStatus, int transactionId, int bookingAmount);
 

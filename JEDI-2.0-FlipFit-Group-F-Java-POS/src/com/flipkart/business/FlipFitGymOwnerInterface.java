@@ -8,6 +8,9 @@ import com.flipkart.bean.SlotDetails;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Interface for methods related to Gym Owner
+ */
 public interface FlipFitGymOwnerInterface {
 
     /**
@@ -86,7 +89,7 @@ public interface FlipFitGymOwnerInterface {
 
     /**
      * Method to add slot
-     * @param userId
+     * @param gymId
      * @param date
      * @param startTime
      * @param endTime

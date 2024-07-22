@@ -8,7 +8,7 @@ public class GymOwnerNotFoundException extends Exception {
     /**
      * Constructs a new GymNotFoundException with the specified gymId.
      *
-     * @param gymId the ID of the gym center that was not found.
+     * @param gymOwnerId the ID of the gym center that was not found.
      */
     public GymOwnerNotFoundException(int gymOwnerId) {
         super("Gym Owner with ID " + gymOwnerId + " not found!");

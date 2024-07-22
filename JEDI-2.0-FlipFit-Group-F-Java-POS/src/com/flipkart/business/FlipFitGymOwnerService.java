@@ -10,6 +10,9 @@ import com.flipkart.dao.FlipFitGymOwnerDAOImpl;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Implementation for methods related to Gym Owner
+ */
 public class FlipFitGymOwnerService implements FlipFitGymOwnerInterface{
 
     FLipFitGymOwnerDAOInterface fLipFitGymOwnerDAO = new FlipFitGymOwnerDAOImpl();
@@ -135,7 +138,7 @@ public class FlipFitGymOwnerService implements FlipFitGymOwnerInterface{
 
     /**
      * Method to add slot
-     * @param userId
+     * @param gymId
      * @param date
      * @param startTime
      * @param endTime

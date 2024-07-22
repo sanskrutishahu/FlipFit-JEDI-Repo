@@ -89,13 +89,10 @@ public interface FLipFitGymOwnerDAOInterface {
     public List<Booking> viewBookings(int gymId);
 
     /**
-     * Adds a new slot (time slot) for booking at a specific gym on a given date.
+     * Retrieves a list of all available slots at a specific gym on a given date.
      *
      * @param gymId         The ID of the gym for which the slot is being added.
      * @param date          The date of the slot (in YYYY-MM-DD format).
-     * @param startTime     The start time of the slot (in HH:MM format).
-     * @param endTime       The end time of the slot (in HH:MM format).
-     * @param noOfSeats     The number of available seats in the slot.
      */
     public List<SlotDetails> viewAvailableSlots(int gymId, String date);
 
