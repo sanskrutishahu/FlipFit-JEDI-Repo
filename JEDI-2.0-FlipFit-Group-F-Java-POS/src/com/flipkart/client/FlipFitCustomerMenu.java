@@ -27,9 +27,7 @@ public class FlipFitCustomerMenu {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter Slot ID: ");
         int slotID = Integer.parseInt(in.next());
-        System.out.println("Enter Date (DD/MM/YYYY): ");
-        String date = in.next();
-        booking.bookSlots(0, id, slotID, date, "", "", 1, 1, 1);
+        booking.bookSlots(0, id, slotID, "", "", "", 1, 1, 1);
     }
     public static void cancelBooking(FlipFitGymBookingService booking)
     {
