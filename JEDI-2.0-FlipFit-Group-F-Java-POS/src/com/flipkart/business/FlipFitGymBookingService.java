@@ -17,7 +17,7 @@ public class FlipFitGymBookingService implements FlipFitGymBookingInterface {
     @Override
     public void bookSlots(int bookingId, int userId, int slotId, String bookingDate, String bookingTimeSlotStart, String bookingTimeSlotEnd, int bookingStatus, int transactionId, int bookingAmount) {
         bookGymDAO.bookSlots(bookingId,userId,slotId,bookingDate,bookingTimeSlotStart,bookingTimeSlotEnd,bookingStatus,transactionId,bookingAmount);
-        System.out.println("Slot booked successfully.");
+//        System.out.println("Slot booked successfully.");
     }
 
     @Override
