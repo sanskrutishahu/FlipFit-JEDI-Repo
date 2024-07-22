@@ -9,6 +9,7 @@ public class SlotDetails {
 	private String startTime;
 	private String endTime;
 	private int noOfSeats;
+	private int seatsLeft;
 
 	public SlotDetails(int gymId, int slotID, String date, String startTime, String endTime, int noOfSeats) {
 		this.gymId = gymId;
@@ -17,18 +18,20 @@ public class SlotDetails {
 		this.startTime = startTime;
 		this.noOfSeats = noOfSeats;
 		this.endTime = endTime;
+		this.seatsLeft = noOfSeats;
 	}
 
 	@Override
 	public String toString() {
 		return
-			"Gym Id: " + gymId +"\n"+
-			"Slot Id: " + slotID +"\n"+
-			"Date: " + date +"\n"+
-			"Start Time: " + startTime  +"\n"+
-			"End Time: " + endTime +"\n"+
-			"Available Seats: " + noOfSeats +"\n"+
-			"-----------------------------------";
+				"Gym Id: " + gymId +"\n"+
+						"Slot Id: " + slotID +"\n"+
+						"Date: " + date +"\n"+
+						"Start Time: " + startTime  +"\n"+
+						"End Time: " + endTime +"\n"+
+						"Available Seats: " + noOfSeats +"\n"+
+						"Seats Left: " + seatsLeft +"\n"+
+						"-----------------------------------";
 	}
 
 	public int getSlotID() {
@@ -77,5 +80,13 @@ public class SlotDetails {
 
 	public void setNoOfSeats(int noOfSeats) {
 		this.noOfSeats = noOfSeats;
+	}
+
+	public int getSeatsLeft() {
+		return seatsLeft;
+	}
+
+	public void setSeatsLeft(int seatsLeft) {
+		this.seatsLeft = seatsLeft;
 	}
 }

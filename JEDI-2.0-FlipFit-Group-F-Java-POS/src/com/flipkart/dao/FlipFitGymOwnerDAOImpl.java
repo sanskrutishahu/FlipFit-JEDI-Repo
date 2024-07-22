@@ -52,7 +52,7 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
             System.out.println(ownerInsertCount + " owner records inserted");
 
             con.commit();
-        }catch(Exception e) {
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
@@ -111,7 +111,7 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
             stmtGym.setString(5, "PENDING");
 
             int ownerInsertCount = stmtGym.executeUpdate();
-            if(ownerInsertCount > 0) {
+            if (ownerInsertCount > 0) {
                 System.out.println("Your Gym has been registered successfully");
             }
 
@@ -153,12 +153,9 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
             stmt = con.prepareStatement(gymQuery);
             stmt.setInt(1, gymId);
             count = stmt.executeUpdate();
-            if(count!=0)
-            {
+            if (count != 0) {
                 System.out.println("Your Gym with ID " + gymId + " has been removed");
-            }
-            else
-            {
+            } else {
                 System.out.println("Your Gym with ID " + gymId + " does not exist or has not been approved yet. Please Contact FlipFit Admin for further assistance.");
             }
             stmt.close();
@@ -193,7 +190,7 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
 
             con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
-          
+
             String gymQuery = "SELECT * FROM gymDetails WHERE gymOwnerId = ?";
             stmt = con.prepareStatement(gymQuery);
             stmt.setInt(1, gymOwnerId);
@@ -209,7 +206,7 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
                 FlipFitGymDetails gym = new FlipFitGymDetails(gymId, gymOwnerId, gymName, gymAddress, noOfSlots, approvalStatus);
                 gymList.add(gym);
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         } finally {
             try {
@@ -401,7 +398,7 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
             }
 
             PreparedStatement slotStmt = con.prepareStatement(
-                    "INSERT INTO slotDetails (gymId, date, startTime, endTime, noOfSeats) VALUES (?, ?, ?, ?, ?)"
+                    "INSERT INTO slotDetails (gymId, date, startTime, endTime, noOfSeats, slotsLeft) VALUES (?, ?, ?, ?, ?, ?)"
             );
 
             slotStmt.setInt(1, gymId);
@@ -409,13 +406,12 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
             slotStmt.setString(3, startTime);
             slotStmt.setString(4, endTime);
             slotStmt.setInt(5, noOfSeats);
+            slotStmt.setInt(6, noOfSeats);
 
             int slotInsertCount = slotStmt.executeUpdate();
             if (slotInsertCount > 0) {
                 System.out.println("New slot has been successfully added");
-            }
-            else
-            {
+            } else {
                 System.out.println("Unable to insert new slot, Please try again after some time.");
             }
             con.close();
@@ -449,7 +445,7 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
 
             if (!resultSet.next()) {
                 System.out.println("Gym is not registered, Please try again after registering Gym.");
-                return ;
+                return;
             }
 
             String query2 = "DELETE FROM slotDetails WHERE slotId = ? and gymId = ?";
@@ -471,8 +467,7 @@ public class FlipFitGymOwnerDAOImpl implements FLipFitGymOwnerDAOInterface {
 
             System.out.println("Error: " + e.getMessage());
 
-        }
-        finally {
+        } finally {
             try {
                 if (stmt != null) stmt.close();
                 if (con != null) con.close();

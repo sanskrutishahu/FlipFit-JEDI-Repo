@@ -46,7 +46,7 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
      * @param bookingAmount          The amount paid for the booking (if applicable).
      */
     @Override
-    public void bookSlots(int bookingId, int useId, int slotId, String bookingDate, String bookingTimeSlotStart, String bookingTimeSlotEnd, int bookingStatus, int transactionId, int bookingAmount){
+    public void bookSlots(int bookingId, int customerId, int slotId, String bookingDate, String bookingTimeSlotStart, String bookingTimeSlotEnd, int bookingStatus, int transactionId, int bookingAmount){
         System.out.println("Slot book");
         Connection con = null;
         PreparedStatement stmt = null;
@@ -59,30 +59,42 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
             stmt = con.prepareStatement(query);
             stmt.setInt(1, slotId);
             ResultSet resultSet = stmt.executeQuery();
+            int seatsLeft = 0;
 
             if (!resultSet.next()) {
                 System.out.println("Slot not found. Please book another slot!");
                 return;
+            }else{
+                String query2 = "INSERT INTO booking (customerId, slotId, bookingStatus, transactionId, bookingAmount, bookingDate, bookingTimeSlotStart, bookingTimeSlotEnd) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                stmt = con.prepareStatement(query2);
+
+                stmt.setInt(1, customerId);
+                stmt.setInt(2, slotId);
+                stmt.setInt(4, transactionId);
+                stmt.setInt(5, bookingAmount);
+                stmt.setString(6, resultSet.getString("date"));
+                stmt.setString(7, resultSet.getString("startTime"));
+                stmt.setString(8, resultSet.getString("endTime"));
+
+                seatsLeft = resultSet.getInt("seatsLeft");
+                if(seatsLeft <= 0){
+                    stmt.setInt(3, 0);
+                }else{
+                    stmt.setInt(3, 1);
+                }
             }
-
-            System.out.println("slot present");
-            String query2 = "INSERT INTO booking (userId, slotId, transactionId, bookingDate, bookingTimeSlot, bookingType, bookingAmount, bookingStatus) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-            stmt = con.prepareStatement(query2);
-
-            stmt.setInt(1, useId);
-            stmt.setInt(2, slotId);
-            stmt.setInt(3, transactionId);
-            stmt.setString(4, bookingDate);
-            stmt.setString(5, "bookingTimeSlot");
-            stmt.setString(6, "bookingType");
-            stmt.setInt(7, bookingAmount);
-            stmt.setInt(8, 1);
 
             int rowsAffected = stmt.executeUpdate();
 
-            if (rowsAffected > 0) {
+            if (rowsAffected > 0 && seatsLeft > 0) {
                 System.out.println("Booking created successfully");
-            } else {
+                String query3 = "Update slotDetails SET seatsLeft = seatsLeft - 1";
+                stmt = con.prepareStatement(query3);
+                stmt.executeUpdate();
+            }else if(rowsAffected > 0){
+                System.out.println("Booking created successfully but it is in Pending State once conformed you will be pinged.");
+            }
+            else {
 //                throw new Exception();
                 throw new com.flipkart.exceptions.BookingFailedException("Failed to create booking");
             }
