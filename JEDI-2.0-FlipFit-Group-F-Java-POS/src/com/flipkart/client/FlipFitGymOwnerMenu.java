@@ -127,7 +127,7 @@ public class FlipFitGymOwnerMenu {
         System.out.println("-------- Welcome to FlipFit Owner Menu Page --------");
         System.out.println("Enter preferred choices:\n1. Add Gym\n2. Remove Gym\n3. View all my registered Gyms \n4. View all Available Slots \n5. Add Slots \n6. Remove Slots \n7. Log Out");
     }
-    public static void login(int id, String email, String password){
+    public static void login(int id){
 
         FlipFitGymOwnerMenu menu = new FlipFitGymOwnerMenu();
         Scanner in = new Scanner(System.in);

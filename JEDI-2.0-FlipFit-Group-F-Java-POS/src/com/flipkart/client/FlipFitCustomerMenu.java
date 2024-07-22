@@ -91,7 +91,7 @@ public class FlipFitCustomerMenu {
         System.out.println("Enter preferred choices:\n1. View Profile \n2. View Bookings\n3. View Gym Centers\n4. View Available Slots\n5. Book A Slot\n6. Cancel Booking\n7. Log Out");
     }
 
-    public static void login(int id, String email, String password){
+    public static void login(int id){
         Scanner in = new Scanner(System.in);
         FlipFitCustomerMenu menu = new FlipFitCustomerMenu();
         int choice = 0;
