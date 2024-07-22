@@ -24,10 +24,19 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "tushmahe");
 
-            String query = "INSERT INTO booking (userId, slotId, transactionId, bookingDate, bookingTimeSlot, bookingType, bookingAmount, bookingStatus) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = "SELECT * FROM slotDetails WHERE slotId = ?";
             stmt = con.prepareStatement(query);
+            stmt.setInt(1, slotId);
+            ResultSet resultSet = stmt.executeQuery();
+
+            if (!resultSet.next()) {
+                System.out.println("Slot not found. Please book another slot!");
+                return;
+            }
+            String query2 = "INSERT INTO booking (userId, slotId, transactionId, bookingDate, bookingTimeSlot, bookingType, bookingAmount, bookingStatus) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            stmt = con.prepareStatement(query2);
 
             stmt.setInt(1, useId);
             stmt.setInt(2, slotId);
@@ -68,10 +77,10 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "tushmahe");
 
-            // Now, get all bookings for the customerId
-            String bookingQuery = "SELECT * FROM booking WHERE userId = ?";
+            // Now, get all bookings for the userId
+            String bookingQuery = "SELECT * FROM booking WHERE customerId = ?";
             stmt = con.prepareStatement(bookingQuery);
             stmt.setInt(1, userId);
             rs = stmt.executeQuery();
@@ -101,9 +110,13 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
                 System.out.println("Error closing resources: " + e.getMessage());
             }
         }
-
+        if(bookings.isEmpty())
+        {
+            return null;
+        }
         return bookings;
     }
+
 
     @Override
     public void cancelBookings(int bookingId) {
@@ -116,7 +129,7 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "tushmahe");
 
             String querySelect = "SELECT transactionId FROM Booking WHERE bookingId = ?";
             stmtSelect = con.prepareStatement(querySelect);
