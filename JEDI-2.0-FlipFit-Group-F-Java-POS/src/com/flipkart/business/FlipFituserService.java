@@ -9,23 +9,23 @@ public class FlipFituserService implements FlipFituserInterface{
     FlipFitUserDAOInterface userDAO = new FlipFitUserDAOImpl();
 
     @Override
-    public boolean authenticateUser( String userEmail, String userPassword, int roleId) {
+    public int authenticateUser( String userEmail, String userPassword, int roleId) {
         try {
             int i = userDAO.authenticateUser(userEmail,userPassword,roleId);
             if(i<0)
             {
                 System.out.println("Incorrect Password!!");
-                return false;
+                return -1;
             }
             else if(i==0)
             {
                 System.out.println("User is not registered!!");
-                return false;
+                return 0;
             }
-            return true;
+            return i;
         } catch (Exception e) {
             System.out.println(e);
-            return false;
+            return 0;
         }
     }
 

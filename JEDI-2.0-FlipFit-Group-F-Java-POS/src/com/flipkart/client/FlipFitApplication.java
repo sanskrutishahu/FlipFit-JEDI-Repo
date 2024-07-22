@@ -25,12 +25,12 @@ public class FlipFitApplication {
         String password = in.next();
         System.out.println("Enter your role: \n1. Gym Owner\n2. Customer\n3. Admin");
         int role = in.nextInt();
-        boolean auth = userService.authenticateUser(email,password,role);
-        if(!auth) return;
+        int userId = userService.authenticateUser(email,password,role);
+        if(userId<=0) return;
         if(role == 1) {
             FlipFitGymOwnerMenu.login(email, password);
         } else if(role == 2) {
-            FlipFitCustomerMenu.login(email, password);
+            FlipFitCustomerMenu.login(userId, email, password);
         } else if(role == 3) {
             FlipFitAdminMenu.login(email, password);
         }  else {
@@ -99,8 +99,6 @@ public class FlipFitApplication {
     public static void changePassword() {
         FlipFituserInterface userService = new FlipFituserService();
         Scanner in = new Scanner(System.in);
-        System.out.println("Enter your UserId: ");
-        int userId = in.nextInt();
         System.out.println("Enter your Email: ");
         String email = in.next();
         System.out.println("Enter your role: \n1. Gym Owner\n2. Customer\n3. Admin");
@@ -108,8 +106,8 @@ public class FlipFitApplication {
         String oldpassword;
         System.out.println("Enter your old password: ");
         oldpassword = in.next();
-        boolean auth = userService.authenticateUser(email,oldpassword,role);
-        if(!auth) return;
+        int userId = userService.authenticateUser(email,oldpassword,role);
+        if(userId<=0) return;
         boolean flag = true;
         System.out.println("Enter new password: ");
         String newPassword = in.next();

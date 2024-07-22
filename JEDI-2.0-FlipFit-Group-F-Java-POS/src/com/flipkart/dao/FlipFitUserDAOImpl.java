@@ -33,7 +33,6 @@ public class FlipFitUserDAOImpl implements FlipFitUserDAOInterface{
             }
         }
         catch (Exception e) {
-
             System.out.println("Error: " + e.getMessage());
         } finally {
             try {
