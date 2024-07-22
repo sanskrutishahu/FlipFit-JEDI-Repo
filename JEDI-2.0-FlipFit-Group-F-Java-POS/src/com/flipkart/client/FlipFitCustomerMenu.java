@@ -87,7 +87,8 @@ public class FlipFitCustomerMenu {
 
     public static void displayCustomerMenu()
     {
-
+        System.out.println("--------Welcome to FlipFit Customer Menu Page--------");
+        System.out.println("Enter preferred choices:\n1. View Profile \n2. Edit Profile\n3. View Bookings\n4. View Gym Centers\n5. View Available Slots\n6. Book A Slot\n7. Cancel Booking\n8. Log Out");
     }
 
     public static void login(int id, String email, String password){
