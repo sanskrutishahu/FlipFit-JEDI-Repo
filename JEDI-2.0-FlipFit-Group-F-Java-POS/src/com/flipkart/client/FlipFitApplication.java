@@ -12,6 +12,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 
+/**
+ * Main application class for the FlipFit application.
+ * Handles user login, registration, and password changes.
+ */
 public class FlipFitApplication {
 
     /**
@@ -40,6 +44,9 @@ public class FlipFitApplication {
         }
     }
 
+    /**
+     * Registers a new user (Gym Owner or Customer).
+     */
     public static void registerUser() {
 
         FlipFituserInterface userService = new FlipFituserService();
@@ -100,6 +107,9 @@ public class FlipFitApplication {
         }
     }
 
+    /**
+     * Changes the password for an authenticated user.
+     */
     public static void changePassword() {
         FlipFituserInterface userService = new FlipFituserService();
         Scanner in = new Scanner(System.in);
@@ -128,6 +138,12 @@ public class FlipFitApplication {
         userService.changeUserPassword(userId, newPassword);
     }
 
+
+    /**
+     * Main method to start the FlipFit application.
+     *
+     * @param args Command line arguments.
+     */
     public static void main(String[] args){
 
         System.out.println("--------Welcome to FlipFit Application--------");

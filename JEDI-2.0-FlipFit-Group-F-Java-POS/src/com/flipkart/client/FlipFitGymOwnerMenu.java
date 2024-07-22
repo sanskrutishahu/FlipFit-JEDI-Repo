@@ -4,6 +4,10 @@ import com.flipkart.bean.Booking;
 import com.flipkart.bean.FlipFitGymDetails;
 import com.flipkart.bean.SlotDetails;
 import com.flipkart.business.FlipFitGymOwnerService;
+
+/**
+ * Class to handle the gym owner menu functionalities for the FlipFit application.
+ */
 public class FlipFitGymOwnerMenu {
     FlipFitGymOwnerService flipFitGymOwnerService = new FlipFitGymOwnerService();
     Scanner scanner = new Scanner(System.in);
@@ -27,6 +31,12 @@ public class FlipFitGymOwnerMenu {
 //        flipFitGymOwnerService.editProfile(ownerName, ownerPhone, ownerAddress, ownerGstNum, ownerPanNum, ownerId);
 //
 //    }
+
+    /**
+     * Adds a gym for the gym owner.
+     *
+     * @param gymOwnerId The gym owner ID.
+     */
     public  void addGym(int gymOwnerId)
     {
         System.out.println("Enter following details to get your Gym listed:");
@@ -39,6 +49,10 @@ public class FlipFitGymOwnerMenu {
         String gymAddress = scanner.nextLine();
         flipFitGymOwnerService.registerGym(gymOwnerId, gymName, gymAddress);
     }
+
+    /**
+     * Removes a gym.
+     */
     public  void removeGym()
     {
         System.out.print("Enter ID of Gym to remove: \n");
@@ -68,6 +82,13 @@ public class FlipFitGymOwnerMenu {
 //        int noOfSlots = scanner.nextInt();
 //        flipFitGymOwnerService.editGym(gymId, gymOwnerId, gymName, gymAddress, noOfSlots);
 //    }
+
+
+    /**
+     * Views all registered gym centers for the gym owner.
+     *
+     * @param userId The gym owner ID.
+     */
     public void viewRegisteredGymCenters(int userId)
     {
 //        System.out.println("You are in view Registered Gym centers function\n");
@@ -84,6 +105,11 @@ public class FlipFitGymOwnerMenu {
 //            System.out.println(booking);
 //        }
 //    }
+
+
+    /**
+     * Views available slots for a gym on a given date.
+     */
     public void viewAvailableSlots()
     {
         System.out.print("Enter Gym ID: ");
@@ -93,6 +119,10 @@ public class FlipFitGymOwnerMenu {
         String date = scanner.nextLine();
         flipFitGymOwnerService.viewAvailableSlots(gymId, date);
     }
+
+    /**
+     * Adds a slot to a gym.
+     */
     public void addSlot()
     {
         System.out.println("Enter below details to add a new slot in the Gym:");
@@ -109,6 +139,10 @@ public class FlipFitGymOwnerMenu {
         int noOfSeats = scanner.nextInt();
         flipFitGymOwnerService.addSlot(gymId,date,startTime,endTime,noOfSeats);
     }
+
+    /**
+     * Removes a slot from a gym.
+     */
     public void removeSlot()
     {
         System.out.println("Enter below details to remove slot from the Gym:");
@@ -118,15 +152,29 @@ public class FlipFitGymOwnerMenu {
         int slotId = scanner.nextInt();
         flipFitGymOwnerService.removeSlot(gymId,slotId);
     }
+
+    /**
+     * Logs out the user.
+     */
     public  void userLogout()
     {
         System.out.println("Logged out\n");
     }
+
+    /**
+     * Displays the gym owner menu options.
+     */
     public void displayGymOwnerMenu()
     {
         System.out.println("-------- Welcome to FlipFit Owner Menu Page --------");
         System.out.println("Enter preferred choices:\n1. Add Gym\n2. Remove Gym\n3. View all my registered Gyms \n4. View all Available Slots \n5. Add Slots \n6. Remove Slots \n7. Log Out");
     }
+
+    /**
+     * Handles gym owner login and menu interactions.
+     *
+     * @param id The gym owner ID.
+     */
     public static void login(int id){
 
         FlipFitGymOwnerMenu menu = new FlipFitGymOwnerMenu();
