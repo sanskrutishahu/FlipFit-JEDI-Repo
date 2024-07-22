@@ -7,12 +7,27 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class implements the FlipFitAdminDAOInterface and provides
+ * functionality to interact with the database for administrative tasks.
+ */
 public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
 
+    /**
+     * Creates a new admin with the specified custom username and admin ID.
+     *
+     * @param customUserName The custom username of the admin.
+     * @param adminId        The ID of the admin.
+     */
     @Override
     public void createAdmin(String customUserName, int adminId) {
     }
 
+    /**
+     * Retrieves a list of all approved gym owners from the database.
+     *
+     * @return List of FlipFitGymOwner objects representing approved gym owners.
+     */
     @Override
     public List<FlipFitGymOwner> viewAllGymOwners() {
         Connection con = null;
@@ -58,6 +73,11 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
         return gymOwnerList;
     }
 
+    /**
+     * Retrieves details of all approved gyms from the database.
+     *
+     * @return List of FlipFitGymDetails objects representing approved gyms.
+     */
     @Override
     public List<FlipFitGymDetails> viewGymDetails() {
         Connection con = null;
@@ -99,6 +119,11 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
         return gymList;
     }
 
+    /**
+     * Retrieves a list of pending gym owner requests from the database.
+     *
+     * @return List of FlipFitGymOwner objects representing pending gym owner requests.
+     */
     @Override
     public List<FlipFitGymOwner> viewGymOwnerRequests() {
         Connection con = null;
@@ -149,6 +174,12 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
         return gymOwnerList;
     }
 
+    /**
+     * Approves a pending gym owner request by updating the approval status in the database.
+     *
+     * @param ownerId The ID of the gym owner whose request is to be approved.
+     * @return true if the approval was successful, false otherwise.
+     */
     @Override
     public boolean approveGymOwnerRequests(int ownerId) {
         Connection con = null;
@@ -185,6 +216,12 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
         }
     }
 
+    /**
+     * Approves a pending gym request by updating the approval status in the database.
+     *
+     * @param gymId The ID of the gym whose request is to be approved.
+     * @return true if the approval was successful, false otherwise.
+     */
     @Override
     public boolean approveGymRequests(int gymId) {
         Connection con = null;
@@ -223,6 +260,12 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
 
     }
 
+    /**
+     * Rejects a pending gym owner request by updating the approval status in the database to 'REJECTED'.
+     *
+     * @param ownerId The ID of the gym owner whose request is to be rejected.
+     * @return true if the rejection was successful, false otherwise.
+     */
     @Override
     public boolean rejectGymOwnerRequests(int ownerId) {
         Connection con = null;
@@ -263,6 +306,12 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
 
     }
 
+    /**
+     * Removes an approved gym entry from the database by updating the approval status to 'REMOVED'.
+     *
+     * @param gymId The ID of the gym to be removed.
+     * @return true if the removal was successful, false otherwise.
+     */
     @Override
     public boolean removeGym(int gymId) {
         Connection con = null;
@@ -302,6 +351,11 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
 
     }
 
+    /**
+     * Retrieves a list of gym owners whose requests are pending approval.
+     *
+     * @return List of FlipFitGymOwner objects representing pending gym owner requests.
+     */
     @Override
     public List<FlipFitGymOwner> viewPendingOwner() {
         Connection con = null;
@@ -352,6 +406,11 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
         return gymOwnerList;
     }
 
+    /**
+     * Retrieves a list of gym centers whose approval status is pending.
+     *
+     * @return List of FlipFitGymDetails objects representing pending gym center requests.
+     */
     @Override
     public List<FlipFitGymDetails> viewPendingCenter() {
         Connection con = null;
@@ -398,6 +457,12 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
         return gymList;
     }
 
+    /**
+     * Rejects a pending gym request by updating the approval status in the database to 'REJECTED'.
+     *
+     * @param gymId The ID of the gym whose request is to be rejected.
+     * @return true if the rejection was successful, false otherwise.
+     */
     @Override
     public boolean rejectGymRequests(int gymId) {
         Connection con = null;
@@ -438,6 +503,12 @@ public class FlipFitAdminDAOImpl implements FlipFitAdminDAOInterface{
         
     }
 
+    /**
+     * Removes an approved gym owner from the database by updating the approval status to 'REMOVED'.
+     *
+     * @param ownerId The ID of the gym owner to be removed.
+     * @return true if the removal was successful, false otherwise.
+     */
     @Override
     public boolean removeGymOwner(int ownerId) {
         Connection con = null;

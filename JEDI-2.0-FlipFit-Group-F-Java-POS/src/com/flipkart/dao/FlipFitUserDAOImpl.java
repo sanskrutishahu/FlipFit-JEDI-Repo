@@ -3,8 +3,20 @@ package com.flipkart.dao;
 import com.flipkart.bean.User;
 import java.sql.*;
 
+/**
+ * Implementation class for FlipFitUserDAOInterface.
+ * Handles database operations related to user management.
+ */
 public class FlipFitUserDAOImpl implements FlipFitUserDAOInterface{
 
+    /**
+     * Authenticates user based on provided email, password, and role ID.
+     *
+     * @param userEmail     The email of the user.
+     * @param userPassword  The password of the user.
+     * @param roleId        The role ID of the user.
+     * @return              The user ID if authentication is successful; -1 if password does not match; 0 if no user found.
+     */
     @Override
     public int authenticateUser(String userEmail, String userPassword, int roleId) {
         Connection con = null;
@@ -45,6 +57,15 @@ public class FlipFitUserDAOImpl implements FlipFitUserDAOInterface{
         return 0;
     }
 
+    /**
+     * Creates a new user with the provided details.
+     *
+     * @param userId        The generated user ID (auto-generated from database).
+     * @param userEmail     The email of the user.
+     * @param userPassword  The password of the user.
+     * @param roleId        The role ID of the user.
+     * @return              The user ID of the newly created user.
+     */
     @Override
     public int createUser(int userId, String userEmail, String userPassword, int roleId) {
         Connection con = null;
@@ -77,6 +98,13 @@ public class FlipFitUserDAOImpl implements FlipFitUserDAOInterface{
         return userId;
     }
 
+    /**
+     * Changes the password of an existing user.
+     *
+     * @param userId        The ID of the user whose password is to be changed.
+     * @param userPassword  The new password for the user.
+     * @return              True if password change is successful; false otherwise.
+     */
     @Override
     public boolean changeUserPassword(int userId, String userPassword)
     {
