@@ -8,6 +8,13 @@ public class FlipFituserService implements FlipFituserInterface{
 
     FlipFitUserDAOInterface userDAO = new FlipFitUserDAOImpl();
 
+    /**
+     * Method to authenticate User
+     * @param userEmail
+     * @param userPassword
+     * @param roleId
+     * @return status
+     */
     @Override
     public int authenticateUser( String userEmail, String userPassword, int roleId) {
         try {
@@ -29,6 +36,14 @@ public class FlipFituserService implements FlipFituserInterface{
         }
     }
 
+    /**
+     * Method to create User
+     * @param userId
+     * @param userEmail
+     * @param userPassword
+     * @param roleId
+     * @return status
+     */
     @Override
     public int createUser(int userId, String userEmail, String userPassword, int roleId) {
         int userStatus = userDAO.createUser(userId,userEmail,userPassword,roleId);
@@ -42,6 +57,12 @@ public class FlipFituserService implements FlipFituserInterface{
         }
     }
 
+    /**
+     * Method to change User Password
+     * @param userId
+     * @param userPassword
+     * @return status
+     */
     @Override
     public boolean changeUserPassword(int userId, String userPassword)
     {

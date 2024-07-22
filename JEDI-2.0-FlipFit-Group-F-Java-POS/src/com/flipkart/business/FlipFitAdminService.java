@@ -11,11 +11,19 @@ public class FlipFitAdminService implements FlipFitAdminInterface {
 
     FlipFitAdminDAOInterface adminDAO = new FlipFitAdminDAOImpl();
 
+    /**
+     * Method to Create a new Admin
+     * @param customUserName : Name of admin
+     * @param adminId
+     */
     @Override
     public void createAdmin(String customUserName, int adminId) {
         System.out.println("Admin is Created");
     }
 
+    /**
+     * Method to view all Gym Owners
+     */
     @Override
     public void viewAllGymOwners() {
         if (adminDAO.viewAllGymOwners().isEmpty())
@@ -29,6 +37,9 @@ public class FlipFitAdminService implements FlipFitAdminInterface {
         }
     }
 
+    /**
+     * Method to view all existing Gym details
+     */
     @Override
     public void viewGymDetails() {
         if (adminDAO.viewGymDetails().isEmpty())
@@ -42,6 +53,11 @@ public class FlipFitAdminService implements FlipFitAdminInterface {
         }
     }
 
+
+    /**
+     * Method to approve gym owner requests
+     * @param ownerId
+     */
     @Override
     public void approveGymOwnerRequests(int ownerId) {
         boolean res=adminDAO.approveGymOwnerRequests(ownerId);
@@ -53,6 +69,10 @@ public class FlipFitAdminService implements FlipFitAdminInterface {
         }
     }
 
+    /**
+     * Method to approve gym requests
+     * @param gymId
+     */
     @Override
     public void approveGymRequests(int gymId) {
         boolean res=adminDAO.approveGymRequests(gymId);
@@ -64,6 +84,10 @@ public class FlipFitAdminService implements FlipFitAdminInterface {
         }
     }
 
+    /**
+     * Method to reject Gym Owner Requests
+     * @param ownerId
+     */
     @Override
     public void rejectGymOwnerRequests(int ownerId) {
         boolean res=adminDAO.rejectGymOwnerRequests(ownerId);
@@ -75,6 +99,10 @@ public class FlipFitAdminService implements FlipFitAdminInterface {
         }
     }
 
+    /**
+     * Method to reject Gym requests
+     * @param gymId
+     */
     @Override
     public void rejectGymRequests(int gymId) {
         boolean res=adminDAO.rejectGymRequests(gymId);
@@ -86,6 +114,11 @@ public class FlipFitAdminService implements FlipFitAdminInterface {
         }
     }
 
+    /**
+     * Method to remove Gym from  Gym Catalog
+     * @param gymId
+     * @throws GymNotFoundException
+     */
     @Override
     public void removeGym(int gymId) {
         boolean res =adminDAO.removeGym(gymId);
@@ -97,6 +130,9 @@ public class FlipFitAdminService implements FlipFitAdminInterface {
         }
     }
 
+    /**
+     * Method to view pending requests of Gym Owners
+     */
     @Override
     public void viewPendingOwner() {
         if (adminDAO.viewPendingOwner().isEmpty())
@@ -110,6 +146,9 @@ public class FlipFitAdminService implements FlipFitAdminInterface {
         }
     }
 
+    /**
+     * Method to view pending requests of centers
+     */
     @Override
     public void viewPendingCenter() {
         if(adminDAO.viewPendingCenter().isEmpty())
@@ -123,6 +162,11 @@ public class FlipFitAdminService implements FlipFitAdminInterface {
         }
     }
 
+    /**
+     * Method to remove Gym Owners
+     * @param ownerId
+     * @throws GymOwnerNotFoundException
+     */
     @Override
     public void removeGymOwner(int ownerId) {
         boolean res= adminDAO.removeGymOwner(ownerId);

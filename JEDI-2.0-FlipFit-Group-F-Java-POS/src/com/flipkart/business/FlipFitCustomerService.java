@@ -17,28 +17,61 @@ public class FlipFitCustomerService implements FlipFitCustomerInterface {
     FlipFitCustomerDAOInterface customerDAO = new FlipFitCustomerDAOImpl();
     FLipFitGymOwnerDAOInterface gymOwnerDAO = new FlipFitGymOwnerDAOImpl();
 
+    /**
+     * Method to create a customer
+     * @param weight
+     * @param age
+     * @param gender
+     * @param customerName
+     * @param customerPhone
+     * @param customerAddress
+     * @param customerId
+     */
     @Override
     public void createCustomer(int weight, int age, String gender, String customerName, String customerPhone, String customerAddress, int customerId) {
         customerDAO.createCustomer(weight, age, gender, customerName, customerPhone, customerAddress,customerId);
     }
 
+    /**
+     * Method to edit profile of customer
+     * @param weight
+     * @param age
+     * @param gender
+     * @param customerName
+     * @param customerPhone
+     * @param customerAddress
+     * @param customerId
+     */
     @Override
     public void editProfile(int weight, int age, String gender, String customerName, String customerPhone, String customerAddress, int customerId) {
         customerDAO.editProfile(weight, age, gender, customerName,customerPhone, customerAddress, customerId);
         System.out.println("Customer Details are added!");
     }
 
+    /**
+     * Method to view customer's profile
+     * @param userId
+     */
     @Override
     public FlipFitCustomer viewProfile(int userId) {
         return customerDAO.viewProfile(userId);
     }
 
+    /**
+     * Method to view all the existing gym
+     * @return GymList
+     */
     @Override
     public List<FlipFitGymDetails> viewGyms() {
         return customerDAO.viewGyms();
     }
 
 
+    /**
+     * Method to view slots of particular Gym Id
+     * @param gymId
+     * @param date
+     */
     @Override
     public void viewSlots(int gymId, String date) {
         if (customerDAO.viewSlots(gymId,date).isEmpty())
@@ -52,6 +85,9 @@ public class FlipFitCustomerService implements FlipFitCustomerInterface {
         }
     }
 
+    /**
+     * Method to filter slots of gym
+     */
     @Override
     public void filterSlots() {
         System.out.println("All slots filtered");
