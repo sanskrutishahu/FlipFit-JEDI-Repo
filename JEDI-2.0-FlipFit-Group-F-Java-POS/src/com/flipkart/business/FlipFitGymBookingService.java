@@ -15,7 +15,7 @@ public class FlipFitGymBookingService implements FlipFitGymBookingInterface {
     }
 
     @Override
-    public void bookSlots(int bookingId, int userId, int slotId, String bookingDate, String bookingTimeSlotStart, String bookingTimeSlotEnd, int bookingStatus, int transactionId, int bookingAmount) {
+    public void bookSlots(int bookingId, int userId, int slotId, String bookingDate, String bookingTimeSlotStart, String bookingTimeSlotEnd, int bookingStatus, String transactionId, int bookingAmount) {
         bookGymDAO.bookSlots(bookingId,userId,slotId,bookingDate,bookingTimeSlotStart,bookingTimeSlotEnd,bookingStatus,transactionId,bookingAmount);
 //        System.out.println("Slot booked successfully.");
     }
@@ -46,7 +46,7 @@ public class FlipFitGymBookingService implements FlipFitGymBookingInterface {
     }
 
     @Override
-    public int makePayment(int userId, String paymentDetails, String expiryDate, String modeOfPayment) {
-        return 0;
+    public int makePayment(int userId, String paymentId) {
+        return bookGymDAO.makePayment(userId, paymentId);
     }
 }

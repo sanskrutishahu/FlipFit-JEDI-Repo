@@ -2,21 +2,24 @@ package com.flipkart.bean;
 
 
 public class SlotDetails {
-
 	private int slotID;
 	private int gymId;
 	private String date;
 	private String startTime;
 	private String endTime;
 	private int noOfSeats;
+	private int seatsLeft;
+	private int slotBookingCost;
 
-	public SlotDetails(int gymId, int slotID, String date, String startTime, String endTime, int noOfSeats) {
+	public SlotDetails(int gymId, int slotID, String date, String startTime, String endTime, int noOfSeats, int seatsLeft, int slotBookingCost) {
 		this.gymId = gymId;
 		this.slotID = slotID;
 		this.date = date;
 		this.startTime = startTime;
 		this.noOfSeats = noOfSeats;
 		this.endTime = endTime;
+		this.seatsLeft = seatsLeft;
+		this.slotBookingCost = slotBookingCost;
 	}
 
 	@Override
@@ -28,6 +31,8 @@ public class SlotDetails {
 			"Start Time: " + startTime  +"\n"+
 			"End Time: " + endTime +"\n"+
 			"Available Seats: " + noOfSeats +"\n"+
+			"Seats Left: " + seatsLeft +"\n"+
+			"Slot Booking Cost: " + slotBookingCost +"\n"+
 			"-----------------------------------";
 	}
 
@@ -77,5 +82,21 @@ public class SlotDetails {
 
 	public void setNoOfSeats(int noOfSeats) {
 		this.noOfSeats = noOfSeats;
+	}
+
+	public int getSeatsLeft() {
+		return seatsLeft;
+	}
+
+	public void setSeatsLeft(int seatsLeft) {
+		this.seatsLeft = seatsLeft;
+	}
+
+	public int getSlotBookingCost() {
+		return slotBookingCost;
+	}
+
+	public void setSlotBookingCost(int slotBookingCost) {
+		this.slotBookingCost = slotBookingCost;
 	}
 }

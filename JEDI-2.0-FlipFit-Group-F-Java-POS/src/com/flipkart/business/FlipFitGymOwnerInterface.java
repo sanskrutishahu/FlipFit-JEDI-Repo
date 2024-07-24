@@ -19,6 +19,6 @@ public interface FlipFitGymOwnerInterface {
     public List<Booking> viewAllBookings(int userId);
     public List<Booking> viewBookings(int gymId);
     public void viewAvailableSlots(int gymId, String date);
-    public void addSlot(int gymId, String date, String startTime, String endTime, int noOfSeats);
+    public void addSlot(int gymId, String date, String startTime, String endTime, int noOfSeats, int slotBookingCost);
     public void removeSlot( int gymId, int slotId);
 }

@@ -78,8 +78,8 @@ public class FlipFitGymOwnerService implements FlipFitGymOwnerInterface{
     }
 
     @Override
-    public void addSlot(int gymId, String date, String startTime, String endTime, int noOfSeats) {
-        fLipFitGymOwnerDAO.addSlot(gymId,date,startTime,endTime,noOfSeats);
+    public void addSlot(int gymId, String date, String startTime, String endTime, int noOfSeats, int slotBookingCost) {
+        fLipFitGymOwnerDAO.addSlot(gymId,date,startTime,endTime,noOfSeats,slotBookingCost);
     }
 
     @Override

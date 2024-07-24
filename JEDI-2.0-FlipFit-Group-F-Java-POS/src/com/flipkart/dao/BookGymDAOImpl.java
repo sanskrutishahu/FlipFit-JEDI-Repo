@@ -17,43 +17,55 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
     }
 
     @Override
-    public void bookSlots(int bookingId, int useId, int slotId, String bookingDate, String bookingTimeSlotStart, String bookingTimeSlotEnd, int bookingStatus, int transactionId, int bookingAmount){
+    public void bookSlots(int bookingId, int customerId, int slotId, String bookingDate, String bookingTimeSlotStart, String bookingTimeSlotEnd, int bookingStatus, String transactionId, int bookingAmount){
         System.out.println("Slot book");
         Connection con = null;
         PreparedStatement stmt = null;
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "root@123");
 
             String query = "SELECT * FROM slotDetails WHERE slotId = ?";
             stmt = con.prepareStatement(query);
             stmt.setInt(1, slotId);
             ResultSet resultSet = stmt.executeQuery();
+            int seatsLeft = 0;
 
             if (!resultSet.next()) {
                 System.out.println("Slot not found. Please book another slot!");
                 return;
+            }else{
+                String query2 = "INSERT INTO booking (customerId, slotId, bookingStatus, transactionId, bookingAmount, bookingDate, bookingTimeSlotStart, bookingTimeSlotEnd) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                stmt = con.prepareStatement(query2);
+
+                stmt.setInt(1, customerId);
+                stmt.setInt(2, slotId);
+                stmt.setString(4, transactionId);
+                stmt.setInt(5, bookingAmount);
+                stmt.setString(6, resultSet.getString("date"));
+                stmt.setString(7, resultSet.getString("startTime"));
+                stmt.setString(8, resultSet.getString("endTime"));
+
+                seatsLeft = resultSet.getInt("seatsLeft");
+                if(seatsLeft <= 0){
+                    stmt.setInt(3, 0);
+                }else{
+                    stmt.setInt(3, 1);
+                }
             }
-
-            System.out.println("slot present");
-            String query2 = "INSERT INTO booking (userId, slotId, transactionId, bookingDate, bookingTimeSlot, bookingType, bookingAmount, bookingStatus) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-            stmt = con.prepareStatement(query2);
-
-            stmt.setInt(1, useId);
-            stmt.setInt(2, slotId);
-            stmt.setInt(3, transactionId);
-            stmt.setString(4, bookingDate);
-            stmt.setString(5, "bookingTimeSlot");
-            stmt.setString(6, "bookingType");
-            stmt.setInt(7, bookingAmount);
-            stmt.setInt(8, 1);
 
             int rowsAffected = stmt.executeUpdate();
 
-            if (rowsAffected > 0) {
+            if (rowsAffected > 0 && seatsLeft > 0) {
                 System.out.println("Booking created successfully");
-            } else {
+                String query3 = "Update slotDetails SET seatsLeft = seatsLeft - 1";
+                stmt = con.prepareStatement(query3);
+                stmt.executeUpdate();
+            }else if(rowsAffected > 0){
+                System.out.println("Booking created successfully but it is in Pending State once conformed you will be pinged.");
+            }
+            else {
 //                throw new Exception();
                 throw new com.flipkart.exceptions.BookingFailedException("Failed to create booking");
             }
@@ -79,7 +91,7 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "root@123");
 
             // Now, get all bookings for the userId
             String bookingQuery = "SELECT * FROM booking WHERE customerId = ?";
@@ -94,7 +106,7 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
                 String bookingTimeSlotStart = rs.getString("bookingTimeSlotStart");
                 String bookingTimeSlotEnd = rs.getString("bookingTimeSlotEnd");
                 int bookingStatus = rs.getInt("bookingStatus");
-                int transactionId = rs.getInt("transactionId");
+                String transactionId = rs.getString("transactionId");
                 int bookingAmount = rs.getInt("bookingAmount");
 
                 Booking booking = new Booking(bookingId, userId, slotId, bookingDate, bookingTimeSlotStart, bookingTimeSlotEnd, bookingStatus, transactionId, bookingAmount);
@@ -131,7 +143,7 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "*****");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "root@123");
 
 //            String querySelect = "SELECT transactionId FROM booking WHERE bookingId = ?";
 //            stmtSelect = con.prepareStatement(querySelect);
@@ -178,5 +190,37 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
                 System.out.println("Error closing resources: " + e.getMessage());
             }
         }
+    }
+
+    @Override
+    public int makePayment(int userId, String paymentId) {
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FlipFit", "root", "root@123");
+
+            // Now, get all bookings for the userId
+            String paymentQuery = "Insert Into paymentDetails (userId, transactionId) Values (?, ?)";
+            stmt = con.prepareStatement(paymentQuery);
+            stmt.setInt(1, userId);
+            stmt.setString(2, paymentId);
+            stmt.executeUpdate();
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return 0;
+        } finally {
+            try {
+                if (stmt != null) stmt.close();
+                if (con != null) con.close();
+            } catch (Exception e) {
+                System.out.println("Error closing resources: " + e.getMessage());
+            }
+        }
+        return 1;
     }
 }

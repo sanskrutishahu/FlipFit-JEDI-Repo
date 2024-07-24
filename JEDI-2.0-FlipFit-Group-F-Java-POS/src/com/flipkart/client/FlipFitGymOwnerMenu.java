@@ -107,7 +107,9 @@ public class FlipFitGymOwnerMenu {
         String endTime = scanner.nextLine();
         System.out.print("Enter Number of Seats: ");
         int noOfSeats = scanner.nextInt();
-        flipFitGymOwnerService.addSlot(gymId,date,startTime,endTime,noOfSeats);
+        System.out.print("Enter Cost of Booking the Slots: ");
+        int slotBookingCost = scanner.nextInt();
+        flipFitGymOwnerService.addSlot(gymId,date,startTime,endTime,noOfSeats, slotBookingCost);
     }
     public void removeSlot()
     {

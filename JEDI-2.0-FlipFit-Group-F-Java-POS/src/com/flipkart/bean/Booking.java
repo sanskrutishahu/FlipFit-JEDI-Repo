@@ -8,10 +8,10 @@ public class Booking {
     private String bookingTimeSlotStart;
     private String bookingTimeSlotEnd;
     private int bookingStatus;
-    private int transactionId;
+    private String transactionId;
     private int bookingAmount;
 
-    public Booking(int bookingId, int userId, int slotId, String bookingDate, String bookingTimeSlotStart, String bookingTimeSlotEnd, int bookingStatus, int transactionId, int bookingAmount) {
+    public Booking(int bookingId, int userId, int slotId, String bookingDate, String bookingTimeSlotStart, String bookingTimeSlotEnd, int bookingStatus, String transactionId, int bookingAmount) {
         this.bookingId = bookingId;
         this.userId = userId;
         this.slotId = slotId;
@@ -94,11 +94,11 @@ public class Booking {
         this.bookingTimeSlotEnd = bookingTimeSlotEnd;
     }
 
-    public int getTransactionId() {
+    public String getTransactionId() {
         return transactionId;
     }
 
-    public void setTransactionId(int transactionId) {
+    public void setTransactionId(String transactionId) {
         this.transactionId = transactionId;
     }
 
