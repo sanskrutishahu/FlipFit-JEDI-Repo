@@ -124,7 +124,7 @@ public class FlipFitGymOwnerService implements FlipFitGymOwnerInterface{
      */
     @Override
     public void viewAvailableSlots(int gymId, String date) {
-        fLipFitGymOwnerDAO.viewAvailableSlots(gymId,date);
+        if(fLipFitGymOwnerDAO.viewAvailableSlots(gymId,date)==null) return;
         if (fLipFitGymOwnerDAO.viewAvailableSlots(gymId,date).isEmpty())
         {
             System.out.println("No Slots available right now, please try again later.");

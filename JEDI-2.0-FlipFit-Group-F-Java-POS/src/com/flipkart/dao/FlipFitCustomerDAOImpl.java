@@ -187,7 +187,7 @@ public class FlipFitCustomerDAOImpl implements FlipFitCustomerDAOInterface{
             ResultSet resultSet = stmt.executeQuery();
 
             if (!resultSet.next()) {
-                System.out.println("Gym is not registered, Please try again after registering Gym.");
+                System.out.println("Gym is not registered yet.");
                 return null;
             }
 

@@ -47,7 +47,7 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
      */
     @Override
     public void bookSlots(int bookingId, int customerId, int slotId, String bookingDate, String bookingTimeSlotStart, String bookingTimeSlotEnd, int bookingStatus, int transactionId, int bookingAmount){
-        System.out.println("Slot book");
+//        System.out.println("Slot book");
         Connection con = null;
         PreparedStatement stmt = null;
 
@@ -189,7 +189,7 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
 //            stmtSelect.setInt(1, bookingId);
 //            rs = stmtSelect.executeQuery();
 
-            if (rs.next()) {
+            //if (rs.next()) {
 //                int transactionId = rs.getInt("transactionId");
                 String queryDeleteBooking = "DELETE FROM booking WHERE bookingId = ?";
                 stmtDeleteBooking = con.prepareStatement(queryDeleteBooking);
@@ -212,9 +212,9 @@ public class BookGymDAOImpl implements BookGymDAOInterface{
                 } else {
                     System.out.println("No booking found with the given bookingId.");
                 }
-            } else {
-                System.out.println("No booking found with the given bookingId.");
-            }
+//            } else {
+//                System.out.println("No booking found with the given bookingId.");
+//            }
 
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());

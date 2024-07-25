@@ -22,7 +22,7 @@ public class FlipFitApplication {
     /**
      * Handles user login based on role (Customer, Gym Owner, Admin).
      */
-    public static void login() throws GymOwnerNotFoundException {
+    public static void login() {
         FlipFituserInterface userService = new FlipFituserService();
         Scanner in = new Scanner(System.in);
         System.out.println("------- Login ------ ");

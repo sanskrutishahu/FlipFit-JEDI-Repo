@@ -77,6 +77,7 @@ public class FlipFitCustomerService implements FlipFitCustomerInterface {
      */
     @Override
     public void viewSlots(int gymId, String date) {
+        if(customerDAO.viewSlots(gymId,date)==null) return;
         if (customerDAO.viewSlots(gymId,date).isEmpty())
         {
             System.out.println("No Slots available right now, please try again later.");
